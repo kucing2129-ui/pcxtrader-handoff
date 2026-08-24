@@ -15,19 +15,19 @@ OUT = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'dist')
 
 # source file -> url path ('' means site root)
 PAGES = {
-    'homepage-v2.html':            '',
-    'accounts-v2.html':            'accounts',
-    'accounts-ecn.html':           'accounts/ecn',
-    'accounts-demo.html':          'accounts/demo',
-    'accounts-metals.html':        'accounts/precious-metals',
-    'accounts-standard.html':      'accounts/standard',
-    'why-abook-v2.html':           'why-a-book',
-    'legal-terms.html':            'legal/terms',
-    'legal-risk-disclosure.html':  'legal/risk-disclosure',
-    'legal-privacy.html':          'legal/privacy',
-    'legal-cookies.html':          'legal/cookies',
-    'legal-client-agreement.html': 'legal/client-agreement',
-    'legal-pamm.html':             'legal/pamm',
+    'index.html':                      '',
+    'accounts.html':                   'accounts',
+    'accounts-ecn.html':               'accounts/ecn',
+    'accounts-demo.html':              'accounts/demo',
+    'accounts-precious-metals.html':   'accounts/precious-metals',
+    'accounts-standard.html':          'accounts/standard',
+    'why-a-book.html':                 'why-a-book',
+    'legal-terms.html':                'legal/terms',
+    'legal-risk-disclosure.html':      'legal/risk-disclosure',
+    'legal-privacy.html':              'legal/privacy',
+    'legal-cookies.html':              'legal/cookies',
+    'legal-client-agreement.html':     'legal/client-agreement',
+    'legal-pamm.html':                 'legal/pamm',
 }
 LINK = {src: ('/' + path if path else '/') for src, path in PAGES.items()}
 

@@ -14,14 +14,14 @@ the pages themselves, and no dependencies to install.
 ## What is here
 
     site/
-      homepage-v2.html           →  /
-      accounts-v2.html           →  /accounts
-      accounts-standard.html     →  /accounts/standard
-      accounts-ecn.html          →  /accounts/ecn
-      accounts-demo.html         →  /accounts/demo
-      accounts-metals.html       →  /accounts/precious-metals
-      why-abook-v2.html          →  /why-a-book
-      legal-*.html               →  /legal/*
+      index.html                      →  /
+      accounts.html                   →  /accounts
+      accounts-standard.html          →  /accounts/standard
+      accounts-ecn.html               →  /accounts/ecn
+      accounts-demo.html              →  /accounts/demo
+      accounts-precious-metals.html   →  /accounts/precious-metals
+      why-a-book.html                 →  /why-a-book
+      legal-*.html                    →  /legal/*
       _shell.html                   the shared navbar + footer (not a page)
       assets/                       56 images, all referenced
       docs/                         signed legal PDFs
@@ -29,6 +29,7 @@ the pages themselves, and no dependencies to install.
     dev-server.py                   local preview
     netlify.toml                    build command and headers
 
+Every filename matches the URL it becomes, so there is nothing to look up.
 `build-dist.py` maps each page to its clean URL, strips the preview hooks,
 rewrites asset paths to root-absolute, and copies only referenced assets.
 
