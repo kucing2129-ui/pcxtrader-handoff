@@ -1,0 +1,21 @@
+# Netlify builds the site from source on every push, so dist/ never needs to be
+# committed. build-dist.py copies the nine live pages, rewrites them to clean
+# URLs, strips the DEV-ONLY preview hooks and ships only referenced assets.
+
+[build]
+  command = "python3 build-dist.py"
+  publish = "dist"
+
+[build.environment]
+  PYTHON_VERSION = "3.11"
+
+# Never let a preview build be indexed by search engines.
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Robots-Tag = "noindex"
+
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"

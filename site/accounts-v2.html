@@ -1,0 +1,1892 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Choose your path · PCX Accounts</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+
+*{box-sizing:border-box}
+body{margin:0;background:#FFFFFF;color:#0A0A3C;font-family:'Space Grotesk',system-ui,sans-serif;font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;text-wrap:pretty}
+a{color:#0A0A3C;text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1px}
+a:hover{color:#B8942C}
+table[data-t]{width:100%;border-collapse:collapse;font-size:15px;font-family:'Space Grotesk',sans-serif}
+table[data-t] caption{text-align:left;font-size:13px;color:#55557A;padding:0 0 14px;font-family:'Inter',sans-serif;letter-spacing:.04em}
+table[data-t] th,table[data-t] td{text-align:left;padding:14px 16px;border-bottom:1px solid #EFE9DB;vertical-align:top;font-variant-numeric:tabular-nums}
+table[data-t] thead th{font-family:'Inter',sans-serif;font-weight:600;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:#2C2C54;background:#FAF6EF;border-bottom:1px solid #E6DEC9}
+table[data-t] tbody th[scope="row"]{font-family:'Inter',sans-serif;font-weight:600;color:#0A0A3C;width:230px}
+table[data-t] tr[data-group] th{background:#FFFFFF;border-bottom:1px solid #0A0A3C;font-family:'Inter',sans-serif;font-weight:700;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#B8942C;padding-top:30px;width:auto}
+table[data-t="compare"]{position:relative;z-index:0}
+table[data-t="compare"] thead th{background:linear-gradient(180deg,#FFFFFF,#F7F2E7);box-shadow:inset 0 1px 0 rgba(255,255,255,.9);border-bottom:1px solid #EFE9DB}
+@media(hover:hover) and (pointer:fine){
+table[data-hover="demo"] [data-col="demo"],table[data-hover="standard"] [data-col="standard"],table[data-hover="ecn"] [data-col="ecn"],table[data-hover="metals"] [data-col="metals"]{background:#FAF6EF}
+}
+@media(hover:hover) and (pointer:fine) and (prefers-reduced-motion:no-preference){
+table[data-t="compare"] td,table[data-t="compare"] th{transition:background-color .18s ease}
+}
+.colLink{color:inherit;text-decoration:none;display:inline-flex;align-items:center;gap:6px;
+  border-bottom:1.5px solid rgba(184,148,44,.55);padding-bottom:2px;
+  transition:color .18s ease,border-color .18s ease}
+.colLink::after{content:"\2192";font-weight:600;color:#B8942C;
+  transform:translateX(-2px);transition:transform .18s ease}
+.colLink:hover{color:#B8942C;border-bottom-color:#B8942C}
+.colLink:hover::after{transform:translateX(1px)}
+[data-tab][data-on="1"]{background:#0A0A3C;color:#FFFFFF;border-color:#0A0A3C}
+[data-mobile-only]{display:none}
+[data-recap]{display:none}
+@media(max-width:1000px) and (min-width:901px){[data-card] a[href^="/open-account"],[data-card] a[href^="/contact"]{font-size:15px}}
+@media(min-width:769px){[data-raise]{transform:translateY(-8px)}[data-card]:hover{transform:translateY(-8px);box-shadow:inset 0 1px 0 rgba(255,255,255,.9),0 2px 4px rgba(10,10,60,.08),0 26px 46px -22px rgba(10,10,60,.34)}[data-raise]:hover{transform:translateY(-16px)}}
+@media(max-width:1040px){[data-demo-band]{grid-template-columns:auto 1fr;row-gap:22px}[data-demo-band]>div:last-child{grid-column:1/-1}}
+@media(max-width:900px){[data-lineup]{grid-template-columns:1fr}[data-card="standard"]{order:1!important}[data-card="ecn"]{order:2!important}[data-card="metals"]{order:3!important}[data-demo-band]{grid-template-columns:1fr;border-radius:16px;text-align:left}}
+@media(max-width:768px){[data-metals-toggle]{display:inline-flex!important}[data-metals-body][data-collapsed="1"]{display:none!important}}
+@media(max-width:640px){[data-receipts] dl>div:nth-child(-n+2){min-height:78px}}
+@media(max-width:420px){[data-receipts] dl>div:nth-child(-n+2){min-height:96px}}
+@media(max-width:359px){
+[data-receipts]{grid-template-columns:1fr}
+[data-recap]{display:block}
+}
+header a,header nav a,header button{white-space:nowrap}
+header{height:75px}
+@media(max-width:1024px){}
+@media(max-width:768px){
+[data-desktop-only]{display:none!important}
+[data-mobile-only]{display:flex!important}
+table[data-show] [data-col]{display:none}
+table[data-show~="demo"] [data-col="demo"],table[data-show~="standard"] [data-col="standard"],table[data-show~="ecn"] [data-col="ecn"],table[data-show~="metals"] [data-col="metals"]{display:table-cell}
+table[data-t] th,table[data-t] td{padding:12px 10px;font-size:14px}
+table[data-t] tbody th[scope="row"]{width:44%}
+}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+
+</style>
+<!-- ===================================================================== -->
+<!-- PCX NAVBAR v1 · CSS   (prefix pn- is scoped; paste this whole block)   -->
+<!-- ===================================================================== -->
+<style>
+.pn-sentinel{position:absolute;top:0;height:1px;width:1px}
+.pn{position:sticky;top:0;z-index:90;background:#FFFFFF;border-bottom:1px solid rgba(10,10,60,.09);transition:box-shadow .25s ease-out,border-color .25s ease-out}
+.pn.is-stuck{border-bottom-color:rgba(10,10,60,.06);box-shadow:0 8px 26px rgba(10,10,60,.08)}
+.pn-wrap{max-width:1240px;margin:0 auto;padding:0 clamp(18px,4vw,40px);height:76px;display:flex;align-items:center;gap:clamp(16px,3vw,40px);transition:height .25s ease-out}
+.pn.is-stuck .pn-wrap{height:66px}
+
+/* logo */
+.pn-logo{display:flex;align-items:center;flex:0 0 auto}
+.pn-logo img{display:block;height:36px;width:auto;transition:height .25s ease-out}
+.pn.is-stuck .pn-logo img{height:31px}
+
+/* links */
+.pn-links{display:flex;align-items:center;gap:clamp(18px,2.6vw,38px);margin-left:auto;margin-right:auto}
+.pn-links a{position:relative;font:500 16px/1 'Inter',sans-serif;color:#0A0A3C;padding:8px 0;transition:color .18s ease-out}
+.pn-links a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:#D4AF37;transform:scaleX(0);transform-origin:left;transition:transform .22s ease-out}
+.pn-links a:hover{color:#0A0A3C}
+.pn-links a:hover::after,.pn-links a.is-active::after{transform:scaleX(1)}
+.pn-links a.is-active{font-weight:600}
+.pn-links a:focus-visible{outline:2px solid #D4AF37;outline-offset:6px;border-radius:3px}
+
+/* right actions */
+.pn-right{display:flex;align-items:center;gap:clamp(12px,1.6vw,22px);flex:0 0 auto}
+.pn-login{font:500 16px/1 'Inter',sans-serif;color:#0A0A3C;padding:8px 0;transition:color .18s ease-out}
+.pn-login:hover{color:#2C2C54}
+/* standard CTA per guidelines 14.3: solid navy, white label, hover shifts toward gold */
+.pn-cta{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:0 24px;border-radius:10px;font:600 16px/1 'Inter',sans-serif;background:#0A0A3C;color:#FFFFFF;border:1.5px solid transparent;white-space:nowrap;box-shadow:0 8px 20px rgba(10,10,60,.16);transition:border-color .2s ease-out,box-shadow .2s ease-out}
+.pn-cta:hover{border-color:#D4AF37;box-shadow:0 10px 24px rgba(10,10,60,.22)}
+.pn-login:focus-visible,.pn-cta:focus-visible{outline:2px solid #D4AF37;outline-offset:3px;border-radius:10px}
+
+/* burger + mobile drawer */
+.pn-check{display:none}
+.pn-burger{display:none;width:44px;height:44px;align-items:center;justify-content:center;cursor:pointer;border-radius:10px}
+.pn-burger span{position:relative;display:block;width:20px;height:2px;background:#0A0A3C;border-radius:2px;transition:transform .2s ease-out,background .2s ease-out}
+.pn-burger span::before,.pn-burger span::after{content:"";position:absolute;left:0;width:20px;height:2px;background:#0A0A3C;border-radius:2px;transition:transform .2s ease-out}
+.pn-burger span::before{top:-6px}.pn-burger span::after{top:6px}
+.pn-drawer{display:none}
+
+@media (max-width:900px){
+  .pn-links{display:none}
+  .pn-login{display:none}
+  .pn-right{margin-left:auto}
+  .pn-burger{display:flex}
+  .pn-drawer{display:block;max-height:0;overflow:hidden;background:#FFFFFF;border-top:1px solid rgba(10,10,60,.09);transition:max-height .3s ease-out}
+  .pn-check:checked~.pn-drawer{max-height:340px}
+  .pn-check:checked+.pn-wrap .pn-burger span{background:transparent}
+  .pn-check:checked+.pn-wrap .pn-burger span::before{transform:translateY(6px) rotate(45deg)}
+  .pn-check:checked+.pn-wrap .pn-burger span::after{transform:translateY(-6px) rotate(-45deg)}
+  .pn-drawer ul{padding:8px clamp(18px,4vw,40px) 20px}
+  .pn-drawer li a{display:block;padding:14px 0;font:500 17px/1 'Inter',sans-serif;color:#0A0A3C;border-bottom:1px solid rgba(10,10,60,.09)}
+  .pn-drawer li:last-child a{border-bottom:0;color:#2C2C54}
+}
+@media (prefers-reduced-motion:reduce){.pn,.pn-wrap,.pn-drawer,.pn-links a::after{transition:none}}
+
+/* RTL (MENA) */
+[dir="rtl"] .pn-links a::after{transform-origin:right}
+</style>
+
+<!-- ===================================================================== -->
+<!-- PCX FOOTER v3 · CSS   (prefix pf- is scoped; paste this whole block)   -->
+<!-- ===================================================================== -->
+<style>
+.pf{position:relative;background:#FAF6EF;border-top:1px solid rgba(212,175,55,.45)}
+.pf-wrap{max-width:1240px;margin:0 auto;padding:0 clamp(20px,5vw,48px)}
+
+/* payment strip */
+.pf-pay{overflow:hidden;padding:clamp(20px,2.4vw,28px) 0;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.pf-payTrack{display:flex;width:200%;animation:pfMarquee 30s linear infinite}
+.pf-payGroup{flex:0 0 auto;min-width:50%;display:flex;align-items:center;justify-content:space-around;padding:0 clamp(24px,4vw,52px)}
+.pf-pay:hover .pf-payTrack{animation-play-state:paused}
+.pf-payTrack svg{display:block;height:28px;width:auto;opacity:.88;flex:0 0 auto}
+@keyframes pfMarquee{from{transform:translate3d(0,0,0)}to{transform:translate3d(-50%,0,0)}}
+@media (prefers-reduced-motion:reduce){.pf-payTrack{animation:none}}
+
+/* link columns · gold-deep eyebrow + navy links (guidelines 15.1) */
+.pf-cols{border-top:1px solid rgba(10,10,60,.10);padding-top:clamp(36px,4.4vw,58px);display:grid;grid-template-columns:repeat(4,minmax(0,1fr)) auto;gap:clamp(24px,3vw,40px)}
+.pf-h{font:600 11.5px/1 'Inter',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#B8942C;margin-bottom:18px}
+.pf-h.sub{margin-top:32px}
+.pf-cols li{margin-bottom:14px}
+.pf-cols a{display:inline-block;font:400 15px/1.4 'Space Grotesk',sans-serif;color:#2C2C54;transition:color .18s ease-out}
+.pf-cols a:hover{color:#0A0A3C}
+.pf-cols a:focus-visible{outline:2px solid #D4AF37;outline-offset:3px;border-radius:3px}
+
+/* social */
+.pf-social{display:grid;grid-template-columns:repeat(2,36px);gap:14px}
+.pf-social a{display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;background:#0A0A3C;border:1.5px solid transparent;transition:border-color .18s ease-out,transform .18s ease-out}
+.pf-social a:hover{border-color:#D4AF37;transform:translateY(-2px)}
+.pf-social svg{width:17px;height:17px;fill:#FFFFFF}
+
+/* legal · small disclaimers use Inter Regular per guidelines 15.3 */
+.pf-legal{margin-top:clamp(44px,5vw,68px);max-width:104ch}
+.pf-legal p{font:400 13.5px/1.7 'Inter',sans-serif;color:#2C2C54;text-wrap:pretty;margin-bottom:16px}
+.pf-legal ul{margin:0 0 18px;padding-left:20px;list-style:disc}
+.pf-legal li{font:400 13.5px/1.7 'Inter',sans-serif;color:#2C2C54;margin-bottom:10px;text-wrap:pretty}
+.pf-legal li::marker{color:#B8942C}
+.pf-legal b{font-weight:600;color:#0A0A3C}
+.pf-legal a{color:#0A0A3C;border-bottom:1px solid #D4AF37}
+.pf-legal a:hover{border-color:#B8942C}
+
+/* offices */
+.pf-office{margin-top:clamp(38px,4.4vw,56px);display:grid;grid-template-columns:minmax(180px,1fr) 1.35fr 1.35fr;gap:clamp(24px,3vw,44px);align-items:start}
+.pf-mark img{display:block;height:50px;width:auto}
+.pf-office h3{font:600 16px/1.4 'Inter',sans-serif;color:#0A0A3C;margin-bottom:8px}
+.pf-office p{font:400 15px/1.6 'Space Grotesk',sans-serif;color:#2C2C54;max-width:38ch;text-wrap:pretty}
+
+/* policies + copyright */
+.pf-policies{margin-top:clamp(38px,4.4vw,56px);padding-top:clamp(20px,2.4vw,28px);border-top:1px solid rgba(10,10,60,.10);display:flex;flex-wrap:wrap;justify-content:center;gap:4px 22px}
+.pf-policies a{position:relative;font:400 14px/1.5 'Inter',sans-serif;color:#2C2C54;padding:4px 0;transition:color .18s ease-out}
+.pf-policies a:hover{color:#0A0A3C}
+/* separators only when the whole row fits on one line */
+@media (min-width:1120px){
+  .pf-policies a+a::before{content:"";position:absolute;left:-11px;top:50%;transform:translateY(-50%);width:1px;height:14px;background:rgba(10,10,60,.22)}
+}
+.pf-copy{padding:clamp(22px,2.6vw,30px) 0 clamp(26px,3vw,36px);text-align:center;font:400 13.5px/1.5 'Inter',sans-serif;color:#2C2C54;opacity:.8}
+
+/* responsive */
+@media (max-width:1080px){
+  .pf-cols{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .pf-social{grid-template-columns:repeat(5,36px)}
+  .pf-office{grid-template-columns:1fr 1fr}
+  .pf-office .pf-mark{grid-column:1/-1}
+}
+@media (max-width:680px){
+  .pf-cols{grid-template-columns:repeat(2,minmax(0,1fr));gap:30px 20px}
+  .pf-office{grid-template-columns:1fr}
+  .pf-policies{justify-content:flex-start;gap:2px 20px}
+  .pf-policies a{padding:6px 0}
+  .pf-copy{text-align:left}
+}
+
+/* RTL (MENA) */
+[dir="rtl"] .pf-legal ul{padding-left:0;padding-right:20px}
+[dir="rtl"] .pf-payTrack{animation-direction:reverse}
+</style>
+
+<style>
+/* ===== PCX NAVBAR · Legal dropdown =====================================
+   Built on <details> so it opens by keyboard and without JS; the script
+   below only adds the two things native <details> lacks — closing on Esc
+   and on a click elsewhere. Scoped to pn- like the rest of the navbar. */
+.pn-legal{position:relative}
+.pn-legal > summary{
+  list-style:none;cursor:pointer;position:relative;display:flex;align-items:center;gap:7px;
+  font:500 16px/1 'Inter',sans-serif;color:#0A0A3C;padding:8px 0;
+  transition:color .18s ease-out}
+.pn-legal > summary::-webkit-details-marker{display:none}
+.pn-legal > summary::marker{content:""}
+.pn-legal > summary::before{
+  content:"";position:absolute;left:0;right:16px;bottom:0;height:2px;background:#D4AF37;
+  transform:scaleX(0);transform-origin:left;transition:transform .22s ease-out}
+.pn-legal > summary:hover::before,.pn-legal[open] > summary::before{transform:scaleX(1)}
+.pn-legal > summary:focus-visible{outline:2px solid #D4AF37;outline-offset:6px;border-radius:3px}
+.pn-legal > summary .pn-caret{
+  width:0;height:0;border-top:5px solid currentColor;
+  border-left:4px solid transparent;border-right:4px solid transparent;
+  transition:transform .2s ease-out;flex:none}
+.pn-legal[open] > summary .pn-caret{transform:rotate(180deg)}
+
+.pn-pop{
+  position:absolute;top:calc(100% + 12px);left:50%;transform:translateX(-50%);
+  min-width:236px;display:grid;gap:2px;padding:8px;z-index:95;
+  background:#FFFFFF;border:1px solid rgba(10,10,60,.09);border-radius:14px;
+  box-shadow:0 18px 40px -18px rgba(10,10,60,.34),0 2px 6px rgba(10,10,60,.06)}
+.pn-pop::before{
+  content:"";position:absolute;top:-6px;left:50%;margin-left:-6px;width:11px;height:11px;
+  background:#FFFFFF;border-left:1px solid rgba(10,10,60,.09);border-top:1px solid rgba(10,10,60,.09);
+  transform:rotate(45deg);border-radius:2px 0 0 0}
+.pn-pop a{
+  display:block;padding:10px 12px;border-radius:9px;
+  font:500 15px/1.35 'Inter',sans-serif;color:#0A0A3C;text-decoration:none;
+  transition:background .16s ease-out,color .16s ease-out}
+.pn-pop a:hover{background:rgba(212,175,55,.12)}
+.pn-pop a[aria-current="page"]{background:#FAF6EF;color:#55557A}
+
+/* the drawer is CSS-only, so it just needs room and a plain stacked list */
+.pn-check:checked~.pn-drawer{max-height:620px}
+.pn-drawer-legal > details > summary{
+  list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;
+  padding:14px 0;font:500 17px/1 'Inter',sans-serif;color:#0A0A3C;
+  border-bottom:1px solid rgba(10,10,60,.09)}
+.pn-drawer-legal > details > summary::-webkit-details-marker{display:none}
+.pn-drawer-legal > details > summary::after{
+  content:"";width:0;height:0;border-top:5px solid currentColor;
+  border-left:4px solid transparent;border-right:4px solid transparent;transition:transform .2s ease-out}
+.pn-drawer-legal > details[open] > summary::after{transform:rotate(180deg)}
+.pn-drawer-legal a{
+  display:block;padding:12px 0 12px 16px;font:400 16px/1.3 'Inter',sans-serif;color:#2C2C54;
+  border-bottom:1px solid rgba(10,10,60,.06)}
+@media (prefers-reduced-motion:reduce){
+  .pn-legal > summary::before,.pn-pop a,.pn-legal .pn-caret{transition:none}
+}
+</style>
+<script>
+/* native <details> does not close on Esc or on an outside click */
+function pcxLegalMenu(){
+  var d=document.querySelector('.pn-legal'); if(!d) return;
+  var sum=d.querySelector('summary');
+  if(sum && !sum.querySelector('.pn-caret')){
+    var c=document.createElement('span'); c.className='pn-caret'; c.setAttribute('aria-hidden','true');
+    sum.appendChild(c);
+  }
+  document.addEventListener('click',function(e){ if(d.open && !d.contains(e.target)) d.open=false; });
+  document.addEventListener('keydown',function(e){
+    if(e.key==='Escape' && d.open){ d.open=false; sum && sum.focus(); }
+  });
+}
+/* this block sits in <head>, so the navbar does not exist yet at parse time */
+if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',pcxLegalMenu);
+else pcxLegalMenu();
+</script>
+<meta name="description" content="Three live accounts and a free demo. Every cost each one carries is written on the page, side by side, with the math done against ourselves.">
+<link rel="icon" type="image/png" href="assets/pcx-logo-navy.png">
+<link rel="apple-touch-icon" href="assets/pcx-logo-navy.png">
+<style>
+/* stray decorative layers reached a few pixels past the viewport on phones */
+@media (max-width:900px){
+  .sec.hero, .hero-rig, .waHero, .accounts, #close{overflow-x:clip}
+}
+</style>
+</head>
+<body>
+
+
+<div style="min-height:100vh;background:#FFFFFF">
+
+<div class="pn-sentinel" aria-hidden="true"></div>
+<header class="pn" id="pn">
+  <input type="checkbox" id="pnMenu" class="pn-check" aria-label="Toggle menu">
+  <div class="pn-wrap">
+
+    <a class="pn-logo" href="homepage-v2.html" aria-label="PCX home">
+      <img src="assets/pcx-logo-navy.png" alt="PCX" width="280" height="147" fetchpriority="high" decoding="async">
+    </a>
+
+    <nav class="pn-links" aria-label="Main">
+      <a href="accounts-v2.html" class="is-active">Accounts</a>
+      <a href="why-abook-v2.html">Why A-Book</a>
+      <a href="https://www.pcxtrader.com/bonus50">Promotions</a>
+      <details class="pn-legal">
+        <summary aria-label="Legal documents">Legal</summary>
+        <div class="pn-pop">
+          <a href="legal-terms.html">Terms &amp; Conditions</a>
+          <a href="legal-risk-disclosure.html">Risk Disclosure</a>
+          <a href="legal-privacy.html">Privacy Policy</a>
+          <a href="legal-cookies.html">Cookies Policy</a>
+          <a href="legal-client-agreement.html">Client Agreement</a>
+          <a href="legal-pamm.html">PAMM Service Agreement</a>
+        </div>
+      </details>
+    </nav>
+
+    <div class="pn-right">
+      <a class="pn-login" href="https://dashboard.pcxtrader.com/login">Log in</a>
+      <a class="pn-cta" href="https://dashboard.pcxtrader.com/register">Open Account</a>
+      <label class="pn-burger" for="pnMenu" aria-label="Open menu"><span></span></label>
+    </div>
+  </div>
+
+  <div class="pn-drawer">
+    <ul>
+      <li><a href="accounts-v2.html">Accounts</a></li>
+      <li><a href="why-abook-v2.html">Why A-Book</a></li>
+      <li><a href="https://www.pcxtrader.com/bonus50">Promotions</a></li>
+      <li class="pn-drawer-legal">
+        <details>
+          <summary>Legal</summary>
+          <div>
+            <a href="legal-terms.html">Terms &amp; Conditions</a>
+            <a href="legal-risk-disclosure.html">Risk Disclosure</a>
+            <a href="legal-privacy.html">Privacy Policy</a>
+            <a href="legal-cookies.html">Cookies Policy</a>
+          </div>
+        </details>
+      </li>
+      <li><a href="https://dashboard.pcxtrader.com/login">Log in</a></li>
+    </ul>
+  </div>
+</header>
+<script>
+/* sticky state: no scroll listener, sentinel leaves viewport => solid bar */
+(function(){
+  var s=document.querySelector('.pn-sentinel'),n=document.getElementById('pn');
+  if(!s||!n||!('IntersectionObserver' in window))return;
+  new IntersectionObserver(function(e){n.classList.toggle('is-stuck',!e[0].isIntersecting);},{threshold:0}).observe(s);
+})();
+</script>
+<!-- ===================== end PCX NAVBAR v1 ============================= -->
+
+<main>
+
+<section data-screen-label="Hero" style="background:#FFFFFF;padding:56px 24px 64px">
+  <div style="max-width:1100px;margin:0 auto;display:flex;flex-direction:column;align-items:center;text-align:center;gap:22px">
+    <div style="position:relative;display:flex;flex-direction:column;align-items:center">
+      <!-- one group render: shared camera, shared floor, shared light -->
+      <div class="castRow">
+        <img class="castGroup" src="assets/cast-group.webp" alt="Nora, Alex, Khalid and James standing together." loading="eager">
+        <span class="castGround" aria-hidden="true"></span>
+      </div>
+    </div>
+    
+    <h1 style="margin:0;font-family:'Inter',sans-serif;font-weight:800;font-size:clamp(36px,5.4vw,64px);line-height:1.05;letter-spacing:-.025em;color:#0A0A3C;max-width:16ch">There is no wrong door here.</h1>
+    <p style="margin:0;max-width:60ch;font-size:clamp(17px,2vw,20px);line-height:1.6;color:#2C2C54">Three live accounts and one free demo. Every cost they carry is written on this page. Take your time. They are not going anywhere.</p>
+    <div style="display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin-top:4px">
+      <a href="https://dashboard.pcxtrader.com/register" style="font-family:'Inter',sans-serif;font-weight:600;font-size:16px;background:#0A0A3C;color:#FFFFFF;padding:15px 30px;border-radius:12px;text-decoration:none;min-height:44px;display:inline-flex;align-items:center;transition:background .2s ease" style-hover="background:#B8942C">Open Account</a>
+      <a href="https://dashboard.pcxtrader.com/register" style="font-family:'Inter',sans-serif;font-weight:600;font-size:16px;background:transparent;color:#0A0A3C;padding:15px 30px;border-radius:12px;text-decoration:none;border:1px solid #0A0A3C;min-height:44px;display:inline-flex;align-items:center;transition:border-color .2s ease,color .2s ease" style-hover="border-color:#B8942C;color:#B8942C">Try Free Demo</a>
+    </div>
+    <p style="margin:0;font-size:13.5px;color:#2C2C54">Trading involves risk.</p>
+  </div>
+</section>
+
+<section id="lineup" data-screen-label="Lineup" style="background:#FAF6EF;padding:88px 24px">
+  <div style="max-width:1180px;margin:0 auto">
+    <div class="hpLineup">
+<div class="lineupGrid">
+        <article class="lineup tile r mat-navy" tabindex="0">
+          <!-- 3D slot: Arjun presenting the ECN account card, dark navy with fine gold hairline edge, idle + greeting pose -->
+          <div class="poseSlot" role="img" aria-label="James presenting the ECN account card, dark navy with fine gold hairline edge, idle + greeting pose"><img class="poseImg" src="assets/card-james-v2.webp" alt="" onerror="this.style.display='none'"></div>
+          <p class="acctBadge ghostBadge" aria-hidden="true">&nbsp;</p>
+          <p class="acctName">JAMES</p>
+          <h3 class="acctTitle">ECN</h3>
+          <p class="acctQuote acctDesc">For traders who read the spread before the chart.</p>
+          <p class="oneNumLab">Raw spreads from</p>
+          <p class="oneNum">0.0<span class="oneUnit">pips</span></p>
+          <p class="oneNote">+ $7 commission per lot</p>
+          <dl class="specs">
+            <div><dt><span class="sicon" aria-hidden="true"></span>Min deposit</dt><dd>$100</dd></div>
+            <div><dt><span class="sicon" aria-hidden="true"></span>Commission</dt><dd>$7 / lot</dd></div>
+            <div><dt><span class="sicon" aria-hidden="true"></span>Leverage</dt><dd>up to 1:500</dd></div>
+          </dl>
+          <p class="acctWarn">Not for you if you want one simple number. Commission adds a step of math.</p>
+          <a class="btn ghost lineupCta" href="https://dashboard.pcxtrader.com/register">Open Account</a>
+          <a class="tlink details" href="accounts-ecn.html">See full details →</a>
+        </article>
+        <article class="lineup tile r focusCard mat-porcelain" tabindex="0">
+          <!-- 3D slot: Raka presenting the Standard account card, porcelain ivory finish, idle + greeting pose -->
+          <div class="poseSlot" role="img" aria-label="Alex presenting the Standard account card, porcelain ivory finish, idle + greeting pose"><img class="poseImg" src="assets/card-raka.webp" alt="" onerror="this.style.display='none'"></div>
+          <p class="acctBadge">Recommended to start</p>
+          <p class="acctName">ALEX</p>
+          <h3 class="acctTitle">Standard</h3>
+          <p class="acctQuote acctDesc">Simple pricing while you learn the hard parts.</p>
+          <p class="oneNumLab">Spreads from</p>
+          <p class="oneNum">1.0<span class="oneUnit">pips</span></p>
+          <dl class="specs">
+            <div><dt><span class="sicon" aria-hidden="true"></span>Min deposit</dt><dd>$10</dd></div>
+            <div><dt><span class="sicon" aria-hidden="true"></span>Commission</dt><dd>$0</dd></div>
+            <div><dt><span class="sicon" aria-hidden="true"></span>Leverage</dt><dd>up to 1:500</dd></div>
+          </dl>
+          <p class="acctWarn">Not for you if you scalp for fractions of a pip. ECN pricing will cost you less.</p>
+          <a class="btn primary lineupCta" href="https://dashboard.pcxtrader.com/register">Open Account</a>
+          <a class="tlink details" href="accounts-standard.html">See full details →</a>
+        </article>
+        <article class="lineup tile r mat-gold" tabindex="0">
+          <!-- 3D slot: Khalid presenting the Precious Metals account card, brushed champagne-gold metal, idle + greeting pose -->
+          <div class="poseSlot" role="img" aria-label=" Khalid presenting the Precious Metals account card, brushed champagne-gold metal, idle + greeting pose"><img class="poseImg" src="assets/card-khalid-v4.webp" alt="" onerror="this.style.display='none'"></div>
+          <p class="acctBadge ghostBadge" aria-hidden="true">&nbsp;</p>
+          <p class="acctName">KHALID</p>
+          <h3 class="acctTitle">Precious Metals</h3>
+          <p class="acctQuote acctDesc">For those who hold the gold.</p>
+          <p class="oneNumLab">Gold spreads</p>
+          <p class="oneNum">Raw</p>
+          <p class="oneNote">+ $7 commission per lot</p>
+          <dl class="specs">
+            <div><dt><span class="sicon" aria-hidden="true"></span>Min deposit</dt><dd>$5,000</dd></div>
+            <div><dt><span class="sicon" aria-hidden="true"></span>Commission</dt><dd>$7 / lot</dd></div>
+            <div><dt><span class="sicon" aria-hidden="true"></span>Leverage</dt><dd>up to 1:10</dd></div>
+            <div><dt><span class="sicon" aria-hidden="true"></span>Swap-free</dt><dd>First 5 days, date to date</dd></div>
+          </dl>
+          <p class="acctWarn">Not for you if you are trading gold to grow an account. This is for people who hold the metal.</p>
+          <a class="btn ghost lineupCta" href="https://dashboard.pcxtrader.com/register">Open Account</a>
+          <a class="tlink details" href="accounts-metals.html">See full details →</a>
+        </article>
+      </div>
+
+      <p class="platformNote r">All accounts trade on MetaTrader 5.</p>
+
+      <div class="demoBand r">
+        <!-- 3D slot: Nora, relaxed curious pose -->
+        <div class="demoSlot" role="img" aria-label="Illustration placeholder: Nora, relaxed curious pose"><img class="dimasImg" src="assets/dimas-bust.webp" alt="Nora, relaxed and curious." onerror="this.style.display='none'"></div>
+        <div class="demoCopy">
+          <p class="demoHead">Test us before you trust us. Nora did.</p>
+          <p class="demoSub">Trade with virtual funds first. Real prices, zero cost, no countdown.</p>
+        </div>
+        <a class="btn ghost demoCta" href="https://dashboard.pcxtrader.com/register">Try Free Demo</a>
+        <p class="reversible">Open another account type anytime, or hold more than one.</p>
+      </div>
+
+      <p class="compareAll r"><a class="tlink" href="accounts-v2.html#compare">Compare all account specifications →</a></p>
+    </div>
+
+    <p data-mobile-only="" style="justify-content:center;margin:26px 0 0"><a href="#compare" style="font-size:15px;color:#2C2C54;text-decoration:none;border-bottom:1px solid #E6DEC9;padding-bottom:2px">Compare all four side by side ↓</a></p>
+  </div>
+</section>
+
+<section id="compare" data-screen-label="Comparison table" style="background:#FFFFFF;padding:72px 24px 88px">
+  <div style="max-width:1200px;margin:0 auto">
+    <p style="margin:0;font-family:'Inter',sans-serif;font-weight:600;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#B8942C">Side by side</p>
+    <h2 style="margin:10px 0 30px;font-family:'Inter',sans-serif;font-weight:800;font-size:clamp(28px,4vw,44px);line-height:1.12;letter-spacing:-.02em;color:#0A0A3C">Four paths, one honest table.</h2>
+
+    <div data-mobile-only="" style="flex-direction:column;gap:12px;margin-bottom:20px">
+      <div role="tablist" aria-label="Choose an account to view" style="display:flex;gap:8px;overflow-x:auto;padding-bottom:4px">
+        <button type="button" data-tab="demo" data-on="0" data-on-click="tabDemo" style="font-family:'Inter',sans-serif;font-weight:600;font-size:14px;white-space:nowrap;background:#FFFFFF;color:#0A0A3C;border:1px solid #EFE9DB;border-radius:999px;padding:10px 16px;min-height:44px;cursor:pointer">Demo</button>
+        <button type="button" data-tab="standard" data-on="1" data-on-click="tabStandard" style="font-family:'Inter',sans-serif;font-weight:600;font-size:14px;white-space:nowrap;background:#FFFFFF;color:#0A0A3C;border:1px solid #EFE9DB;border-radius:999px;padding:10px 16px;min-height:44px;cursor:pointer">Standard</button>
+        <button type="button" data-tab="ecn" data-on="0" data-on-click="tabEcn" style="font-family:'Inter',sans-serif;font-weight:600;font-size:14px;white-space:nowrap;background:#FFFFFF;color:#0A0A3C;border:1px solid #EFE9DB;border-radius:999px;padding:10px 16px;min-height:44px;cursor:pointer">ECN</button>
+        <button type="button" data-tab="metals" data-on="0" data-on-click="tabMetals" style="font-family:'Inter',sans-serif;font-weight:600;font-size:14px;white-space:nowrap;background:#FFFFFF;color:#0A0A3C;border:1px solid #EFE9DB;border-radius:999px;padding:10px 16px;min-height:44px;cursor:pointer">Metals</button>
+      </div>
+      
+    </div>
+
+    <div style="overflow-x:auto;border:1px solid #EFE9DB;border-radius:16px;background:linear-gradient(180deg,#FFFFFF,#FBF8F1);box-shadow:inset 0 1px 0 rgba(255,255,255,.9),0 1px 2px rgba(10,10,60,.05),0 10px 24px -10px rgba(10,10,60,.14),0 18px 28px -20px rgba(184,148,44,.10);transition:box-shadow .25s ease" style-hover="box-shadow:inset 0 1px 0 rgba(255,255,255,.9),0 1px 2px rgba(10,10,60,.06),0 14px 30px -10px rgba(10,10,60,.18),0 22px 34px -20px rgba(184,148,44,.14)">
+      <table data-t="compare" data-hover="none" data-show="standard" data-on-pointerover="colOver" data-on-pointerleave="colOut" style="min-width:640px">
+        <caption style="padding:18px 16px 14px">PCX account comparison</caption>
+        <thead>
+          <tr>
+            <th scope="col" style="width:230px">Account</th>
+            <th scope="col" data-col="demo"><a class="colLink" href="accounts-demo.html"><span style="display:inline-block">Demo</span></a><span style="display:block;font-weight:400;text-transform:none;letter-spacing:0;font-size:11.5px;color:#55557A;margin-top:6px">virtual funds, real prices</span></th>
+            <th scope="col" data-col="standard"><a class="colLink" href="accounts-standard.html"><span style="display:inline-block">Standard</span></a></th>
+            <th scope="col" data-col="ecn"><a class="colLink" href="accounts-ecn.html"><span style="display:inline-block">ECN</span></a></th>
+            <th scope="col" data-col="metals"><a class="colLink" href="accounts-metals.html"><span style="display:inline-block">Precious Metals</span></a></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr data-group=""><th scope="colgroup" colspan="5">Pricing</th></tr>
+          <tr>
+            <th scope="row">Spread from</th>
+            <td data-col="demo">Virtual, mirrors the account you practise</td>
+            <td data-col="standard">1.0 pips (EURUSD)</td>
+            <td data-col="ecn">0.0 pips (EURUSD)</td>
+            <td data-col="metals">Gold raw spread</td>
+          </tr>
+          <tr>
+            <th scope="row">Spread type</th>
+            <td data-col="demo">Floating</td>
+            <td data-col="standard">Floating</td>
+            <td data-col="ecn">Floating</td>
+            <td data-col="metals">Floating</td>
+          </tr>
+          <tr>
+            <th scope="row">Commission</th>
+            <td data-col="demo">None, virtual</td>
+            <td data-col="standard">$0</td>
+            <td data-col="ecn">$7 per lot</td>
+            <td data-col="metals">$7 per lot</td>
+          </tr>
+
+          <tr data-group=""><th scope="colgroup" colspan="5">Execution</th></tr>
+          <tr>
+            <th scope="row">Where your order goes</th>
+            <td data-col="demo">Virtual market</td>
+            <td data-col="standard">The real market (A-Book)</td>
+            <td data-col="ecn">The real market (A-Book)</td>
+            <td data-col="metals">The real market (A-Book)</td>
+          </tr>
+          <tr>
+            <th scope="row">Execution model</th>
+            <td data-col="demo">Market execution</td>
+            <td data-col="standard">Market execution</td>
+            <td data-col="ecn">Market execution</td>
+            <td data-col="metals">Market execution</td>
+          </tr>
+          <tr>
+            <th scope="row">Platform</th>
+            <td data-col="demo">MetaTrader 5</td>
+            <td data-col="standard">MetaTrader 5</td>
+            <td data-col="ecn">MetaTrader 5</td>
+            <td data-col="metals">MetaTrader 5</td>
+          </tr>
+
+          <tr data-group=""><th scope="colgroup" colspan="5">Requirements</th></tr>
+          <tr>
+            <th scope="row">Minimum deposit</th>
+            <td data-col="demo">$0</td>
+            <td data-col="standard">$10</td>
+            <td data-col="ecn">$100</td>
+            <td data-col="metals">$5,000</td>
+          </tr>
+          <tr>
+            <th scope="row">Base currencies</th>
+            <td data-col="demo">Virtual funds, USD</td>
+            <td data-col="standard">USD <!-- TBC: full list --></td>
+            <td data-col="ecn">USD <!-- TBC: full list --></td>
+            <td data-col="metals">USD <!-- TBC: full list --></td>
+          </tr>
+          <tr>
+            <th scope="row">Trade size, min and max lots</th>
+            <td data-col="demo">Mirrors the live account</td>
+            <td data-col="standard">0.01 to 50.00 <!-- TBC --></td>
+            <td data-col="ecn">0.01 to 50.00 <!-- TBC --></td>
+            <td data-col="metals">0.01 to 20.00 <!-- TBC --></td>
+          </tr>
+          <tr>
+            <th scope="row">Max leverage</th>
+            <td data-col="demo">up to 1:500</td>
+            <td data-col="standard">up to 1:500</td>
+            <td data-col="ecn">up to 1:500</td>
+            <td data-col="metals">up to 1:10</td>
+          </tr>
+          <tr>
+            <th scope="row">Margin call / Stop out</th>
+            <td data-col="demo">Mirrors the live account</td>
+            <td data-col="standard">100% / 50% <!-- TBC --></td>
+            <td data-col="ecn">100% / 50% <!-- TBC --></td>
+            <td data-col="metals">100% / 50% <!-- TBC --></td>
+          </tr>
+
+          <tr data-group=""><th scope="colgroup" colspan="5">Options</th></tr>
+          <tr>
+            <th scope="row">Markets you can trade</th>
+            <td data-col="demo">Everything the live accounts trade</td>
+            <td data-col="standard">Full instrument range <!-- TBC: confirm XAUUSD availability + gold pricing on Standard/ECN --></td>
+            <td data-col="ecn">Full instrument range <!-- TBC: confirm XAUUSD availability + gold pricing on Standard/ECN --></td>
+            <td data-col="metals">Gold Spot, Gold Futures, Silver Spot and Silver Futures</td>
+          </tr>
+          <tr>
+            <th scope="row">Swap policy</th>
+            <td data-col="demo">Mirrors the live account</td>
+            <td data-col="standard">Swaps apply</td>
+            <td data-col="ecn">Swaps apply</td>
+            <td data-col="metals">First 5 days swap-free, date to date. <button type="button" aria-label="What does 5 days swap-free mean?" aria-describedby="swap5-tip" data-on-click="tipClick" data-on-pointerenter="tipEnter" data-on-pointerleave="tipLeave" data-on-focus="tipFocus" data-on-blur="tipBlur" style="width:16px;height:16px;flex:none;border-radius:50%;border:1px solid #B8942C;background:transparent;color:#B8942C;font-family:'Inter',sans-serif;font-weight:700;font-size:10.5px;line-height:1;padding:0;display:inline-flex;align-items:center;justify-content:center;vertical-align:middle;position:relative;top:-1px;cursor:pointer">i</button>
+              </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section id="math" data-screen-label="The honest math" style="background:#0A0A3C;color:#FFFFFF;padding:88px 24px">
+  <div style="max-width:1000px;margin:0 auto">
+    <p style="margin:0;font-family:'Inter',sans-serif;font-weight:600;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#D4AF37">The honest math</p>
+    <h2 style="margin:10px 0 34px;font-family:'Inter',sans-serif;font-weight:800;font-size:clamp(28px,4vw,44px);line-height:1.12;letter-spacing:-.02em;color:#FFFFFF;max-width:22ch">Which account is actually cheaper? We did the math against ourselves.</h2>
+    <p style="margin:0 0 22px;font-size:15px;color:#D8D8EA">One standard lot of EURUSD</p>
+    <div data-receipts="" style="display:grid;grid-template-columns:1fr 1fr;gap:clamp(12px,2.4vw,22px);align-items:start">
+
+      <div style="position:relative;background:linear-gradient(180deg,#FFFFFF,#FAF6EF);border-radius:16px;padding:clamp(16px,2.6vw,28px) clamp(14px,2.4vw,26px) clamp(22px,3vw,32px);box-shadow:0 1px 2px rgba(10,10,60,.4),0 18px 34px -14px rgba(0,0,0,.55);color:#0A0A3C">
+        <h3 style="margin:0 0 16px;font-family:'Inter',sans-serif;font-weight:700;font-size:clamp(17px,2.4vw,22px);color:#0A0A3C">Standard</h3>
+        <dl style="margin:0;display:flex;flex-direction:column;font-variant-numeric:tabular-nums">
+          <div style="display:flex;justify-content:space-between;align-items:baseline;gap:10px;padding:12px 0;border-bottom:1px solid #EFE9DB"><dt style="font-size:clamp(13px,1.5vw,15px);color:#2C2C54">Spread from 1.0 pip</dt><dd style="margin:0;text-align:right;font-family:'Inter',sans-serif;font-weight:600;font-size:clamp(15px,1.8vw,17px);color:#0A0A3C"><span style="font-size:55%;vertical-align:.45em">$</span>10.00</dd></div>
+          <div style="display:flex;justify-content:space-between;align-items:baseline;gap:10px;padding:12px 0;border-bottom:1px solid #EFE9DB"><dt style="font-size:clamp(13px,1.5vw,15px);color:#2C2C54">Commission</dt><dd style="margin:0;text-align:right;font-family:'Inter',sans-serif;font-weight:600;font-size:clamp(15px,1.8vw,17px);color:#0A0A3C"><span style="font-size:55%;vertical-align:.45em">$</span>0.00</dd></div>
+          <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:4px 10px;border-top:2px solid #0A0A3C;padding-top:16px;margin-top:6px"><dt style="font-family:'Inter',sans-serif;font-weight:600;font-size:clamp(13px,1.6vw,16px);color:#0A0A3C;white-space:nowrap">Total per lot</dt><dd style="margin:0;text-align:right;font-family:'Inter',sans-serif;font-weight:700;font-size:clamp(24px,3.4vw,32px);line-height:1.1;color:#0A0A3C;margin-left:auto;white-space:nowrap"><span style="font-size:55%;vertical-align:.45em">$</span>10.00</dd></div>
+        </dl>
+        <span aria-hidden="true" style="position:absolute;left:0;right:0;bottom:-1px;height:10px;background-image:radial-gradient(circle 5px at 10px 10px,#0A0A3C 5px,transparent 5.5px);background-size:20px 10px;background-repeat:repeat-x"></span>
+      </div>
+
+      <div style="position:relative;background:linear-gradient(180deg,#FFFFFF,#FAF6EF);border-radius:16px;padding:clamp(16px,2.6vw,28px) clamp(14px,2.4vw,26px) clamp(22px,3vw,32px);box-shadow:0 1px 2px rgba(10,10,60,.4),0 18px 34px -14px rgba(0,0,0,.55);color:#0A0A3C">
+        <h3 style="margin:0 0 16px;font-family:'Inter',sans-serif;font-weight:700;font-size:clamp(17px,2.4vw,22px);color:#0A0A3C">ECN</h3>
+        <dl style="margin:0;display:flex;flex-direction:column;font-variant-numeric:tabular-nums">
+          <div style="display:flex;justify-content:space-between;align-items:baseline;gap:10px;padding:12px 0;border-bottom:1px solid #EFE9DB"><dt style="font-size:clamp(13px,1.5vw,15px);color:#2C2C54">Spread from 0.0 pips</dt><dd style="margin:0;text-align:right;font-family:'Inter',sans-serif;font-weight:600;font-size:clamp(15px,1.8vw,17px);color:#0A0A3C"><span style="font-size:55%;vertical-align:.45em">$</span>0.00</dd></div>
+          <div style="display:flex;justify-content:space-between;align-items:baseline;gap:10px;padding:12px 0;border-bottom:1px solid #EFE9DB"><dt style="font-size:clamp(13px,1.5vw,15px);color:#2C2C54">Commission per lot</dt><dd style="margin:0;text-align:right;font-family:'Inter',sans-serif;font-weight:600;font-size:clamp(15px,1.8vw,17px);color:#0A0A3C"><span style="font-size:55%;vertical-align:.45em">$</span>7.00</dd></div>
+          <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:4px 10px;border-top:2px solid #0A0A3C;padding-top:16px;margin-top:6px"><dt style="font-family:'Inter',sans-serif;font-weight:600;font-size:clamp(13px,1.6vw,16px);color:#0A0A3C;white-space:nowrap">Total per lot</dt><dd style="margin:0;text-align:right;font-family:'Inter',sans-serif;font-weight:700;font-size:clamp(24px,3.4vw,32px);line-height:1.1;color:#0A0A3C;margin-left:auto;white-space:nowrap"><span style="font-size:55%;vertical-align:.45em">$</span>7.00</dd></div>
+        </dl>
+        <div style="height:2.5px;background:#D4AF37;border-radius:2px;margin-top:10px"></div>
+        <p style="margin:10px 0 0;font-size:clamp(12px,1.4vw,13.5px);color:#2C2C54">about $3 less per lot, roughly 30%</p>
+        <span aria-hidden="true" style="position:absolute;left:0;right:0;bottom:-1px;height:10px;background-image:radial-gradient(circle 5px at 10px 10px,#0A0A3C 5px,transparent 5.5px);background-size:20px 10px;background-repeat:repeat-x"></span>
+      </div>
+
+    </div>
+    <p data-recap="" style="margin:18px 0 0;font-family:'Inter',sans-serif;font-weight:600;font-size:16px;font-variant-numeric:tabular-nums;color:#FFFFFF">$10.00 vs $7.00 per lot</p>
+    <p style="margin:30px 0 0;max-width:70ch;font-size:17px;line-height:1.65;color:#EDEDF5">Per lot, ECN usually costs less. Standard exists because it is simpler: one number, no math, and you can start with $10. Both are honest. Pick the one that fits how you think, not how much you have.</p>
+    <p style="margin:16px 0 0;max-width:70ch;font-size:17px;line-height:1.65;color:#EDEDF5">Three dollars per lot is about $60 a month if you trade 20 lots. And we earn about the same on either account, so we have no reason to steer you. We would rather just show you the math.</p>
+    <p style="margin:18px 0 0;font-size:13.5px;color:#B9B9CE">Spreads are floating. The math above uses each account's starting spread; when the market gets busy, both totals rise together.</p>
+    <p style="margin:8px 0 0;font-size:13.5px;color:#B9B9CE">Some brokers quote commission per side, $3.50 each way. We quote the whole trip: $7 per lot.</p>
+  </div>
+</section>
+
+<section id="faq" data-screen-label="FAQ" style="background:#FAF6EF;padding:88px 24px">
+  <div style="max-width:860px;margin:0 auto">
+    <h2 style="margin:0 0 30px;font-family:'Inter',sans-serif;font-weight:800;font-size:clamp(28px,4vw,44px);line-height:1.12;letter-spacing:-.02em;color:#0A0A3C">Asked before you asked.</h2>
+    <div class="faqList" style="display:flex;flex-direction:column;gap:12px">
+      <details style="background:linear-gradient(180deg,#FFFFFF,#FBF8F1);border:1px solid #EFE9DB;border-radius:16px;padding:18px 22px">
+        <summary style="cursor:pointer;font-family:'Inter',sans-serif;font-weight:600;font-size:18px;color:#0A0A3C;min-height:44px;display:flex;align-items:center">Which account should I choose?</summary>
+        <p style="margin:10px 0 0;font-size:16px;line-height:1.6;color:#2C2C54">Standard keeps every cost inside one number; ECN usually works out cheaper if you trade often and count your costs. There is no account we quietly steer you into. The demo is free, so decide with your hands instead of your head.</p>
+      </details>
+      <details style="background:linear-gradient(180deg,#FFFFFF,#FBF8F1);border:1px solid #EFE9DB;border-radius:16px;padding:18px 22px">
+        <summary style="cursor:pointer;font-family:'Inter',sans-serif;font-weight:600;font-size:18px;color:#0A0A3C;min-height:44px;display:flex;align-items:center">What is the difference between Standard and ECN?</summary>
+        <p style="margin:10px 0 0;font-size:16px;line-height:1.6;color:#2C2C54">Standard folds our cost into a wider spread with no commission. ECN shows the raw market spread and charges a visible $7 per lot instead. You pay us either way. The difference is where you can see it.</p>
+      </details>
+      <details style="background:linear-gradient(180deg,#FFFFFF,#FBF8F1);border:1px solid #EFE9DB;border-radius:16px;padding:18px 22px">
+        <summary style="cursor:pointer;font-family:'Inter',sans-serif;font-weight:600;font-size:18px;color:#0A0A3C;min-height:44px;display:flex;align-items:center">Who is the Precious Metals account for?</summary>
+        <p style="margin:10px 0 0;font-size:16px;line-height:1.6;color:#2C2C54">People and businesses who hold physical gold and want to protect its value: gold shops, jewellers, dealers. Your gold sits still; its price does not. Leverage is capped at 1:10 on purpose, because hedging is protection, not acceleration.</p>
+      </details>
+      <details style="background:linear-gradient(180deg,#FFFFFF,#FBF8F1);border:1px solid #EFE9DB;border-radius:16px;padding:18px 22px">
+        <summary style="cursor:pointer;font-family:'Inter',sans-serif;font-weight:600;font-size:18px;color:#0A0A3C;min-height:44px;display:flex;align-items:center">Is the demo really free, or is there a countdown?</summary>
+        <p style="margin:10px 0 0;font-size:16px;line-height:1.6;color:#2C2C54">Yes. Real prices, virtual funds, no deposit, and no countdown clock nudging you to go live. Some demos expire so you will deposit sooner; ours does not. Take months if you need them.</p>
+      </details>
+      <details style="background:linear-gradient(180deg,#FFFFFF,#FBF8F1);border:1px solid #EFE9DB;border-radius:16px;padding:18px 22px">
+        <summary style="cursor:pointer;font-family:'Inter',sans-serif;font-weight:600;font-size:18px;color:#0A0A3C;min-height:44px;display:flex;align-items:center">Do you offer swap-free or Islamic accounts?</summary>
+        <p style="margin:10px 0 0;font-size:16px;line-height:1.6;color:#2C2C54">Not today. Standard and ECN carry standard overnight swaps, and the Precious Metals account is swap-free for the first 5 days of every position, counted date to date. Some swap-free labels just move the fee somewhere quieter. We would rather tell you no than dress a fee up as a feature.</p>
+      </details>
+      <details style="background:linear-gradient(180deg,#FFFFFF,#FBF8F1);border:1px solid #EFE9DB;border-radius:16px;padding:18px 22px">
+        <summary style="cursor:pointer;font-family:'Inter',sans-serif;font-weight:600;font-size:18px;color:#0A0A3C;min-height:44px;display:flex;align-items:center">Am I stuck with the account type I pick?</summary>
+        <p style="margin:10px 0 0;font-size:16px;line-height:1.6;color:#2C2C54">No. An existing account cannot be converted, but you can open another type anytime. Hold both, compare them, keep what works.</p>
+      </details>
+      <details style="background:linear-gradient(180deg,#FFFFFF,#FBF8F1);border:1px solid #EFE9DB;border-radius:16px;padding:18px 22px">
+        <summary style="cursor:pointer;font-family:'Inter',sans-serif;font-weight:600;font-size:18px;color:#0A0A3C;min-height:44px;display:flex;align-items:center">Do you make money when I lose?</summary>
+        <p style="margin:10px 0 0;font-size:16px;line-height:1.6;color:#2C2C54">No. PCX is A-Book: your orders go to the real market through many liquidity providers, and we earn from spreads and commissions when you trade, not from your losses. The <a href="why-abook-v2.html">Why A-Book</a> page explains why we chose this model.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section id="close" data-screen-label="The invitation" style="background:#FFFFFF;padding:88px 24px 96px">
+  <div style="max-width:900px;margin:0 auto;display:flex;flex-direction:column;align-items:center;text-align:center;gap:22px">
+    <!-- the cast again, welcoming: three waving, Nora showing the way -->
+    <span class="doorGlow" aria-hidden="true"></span>
+    <div style="position:relative">
+      <img class="closeCast" src="assets/cast-close.webp" alt="Alex, Khalid, James and Nora waving, Nora gesturing toward the demo.">
+      <span class="closeGround" aria-hidden="true"></span>
+    </div>
+    
+    <h2 style="margin:0;font-family:'Inter',sans-serif;font-weight:800;font-size:clamp(30px,4.4vw,50px);line-height:1.1;letter-spacing:-.025em;color:#0A0A3C;max-width:18ch">Pick a door. Or just try the free one first.</h2>
+    <div class="ctaRow" style="display:flex;flex-wrap:wrap;gap:14px;justify-content:center">
+      <a href="https://dashboard.pcxtrader.com/register" style="font-family:'Inter',sans-serif;font-weight:600;font-size:16px;background:#0A0A3C;color:#FFFFFF;padding:15px 30px;border-radius:12px;text-decoration:none;min-height:44px;display:inline-flex;align-items:center;transition:background .2s ease" style-hover="background:#B8942C">Open my live account</a>
+      <a href="https://dashboard.pcxtrader.com/register" style="font-family:'Inter',sans-serif;font-weight:600;font-size:16px;color:#0A0A3C;padding:15px 30px;border-radius:12px;text-decoration:none;border:1px solid #0A0A3C;min-height:44px;display:inline-flex;align-items:center;transition:border-color .2s ease,color .2s ease" style-hover="border-color:#B8942C;color:#B8942C">Start with the demo</a>
+    </div>
+    <p style="margin:0;font-size:14px;color:#2C2C54">No deposit. No countdown. Take months if you need them.</p>
+    <p style="margin:0;max-width:62ch;font-size:13.5px;line-height:1.6;color:#2C2C54">Trading leveraged products carries a high degree of risk to your capital. Most new traders lose money at first. Start slow.</p>
+  </div>
+</section>
+
+</main>
+
+<footer class="pf" id="company">
+
+  <!-- payment methods marquee -->
+  <!-- payment logo sprite (define once) -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
+    <symbol id="pay-bank" viewBox="0 0 92 30"><rect x=".8" y=".8" width="90.4" height="28.4" rx="4" fill="none" stroke="#2C4BC7" stroke-width="1.5"/><rect x="9" y="10" width="16" height="2.4" rx="1.2" fill="#2C4BC7"/><rect x="9" y="14.6" width="16" height="2.4" rx="1.2" fill="#2C4BC7"/><rect x="9" y="19.2" width="16" height="2.4" rx="1.2" fill="#2C4BC7"/><text x="31" y="14" font-family="Inter,sans-serif" font-size="8" font-weight="700" fill="#2C4BC7" letter-spacing=".5">BANK</text><text x="31" y="23" font-family="Inter,sans-serif" font-size="8" font-weight="700" fill="#2C4BC7" letter-spacing=".5">TRANSFER</text></symbol>
+    <symbol id="pay-tether" viewBox="0 0 110 30"><circle cx="15" cy="15" r="14" fill="#26A17B"/><path d="M16.6 13.6v-2h4.6V8.5H8.8v3.1h4.6v2c-3.8.2-6.6.9-6.6 1.8s2.8 1.6 6.6 1.8v6.3h3.2v-6.3c3.8-.2 6.6-.9 6.6-1.8s-2.8-1.6-6.6-1.8Zm0 3.1c-.1 0-.7.1-1.6.1s-1.5 0-1.6-.1c-3.3-.1-5.7-.7-5.7-1.4s2.4-1.2 5.7-1.4v2.3c.1 0 .8.1 1.6.1s1.5 0 1.6-.1v-2.3c3.3.1 5.7.7 5.7 1.4s-2.4 1.3-5.7 1.4Z" fill="#fff"/><text x="34" y="21" font-family="Inter,sans-serif" font-size="16" font-weight="600" fill="#2C2C54" letter-spacing="-.4">tether</text></symbol>
+    <symbol id="pay-mc" viewBox="0 0 48 30"><circle cx="18.5" cy="15" r="11.5" fill="#EB001B"/><circle cx="29.5" cy="15" r="11.5" fill="#F79E1B"/><path d="M24 5.9a11.5 11.5 0 0 0 0 18.2 11.5 11.5 0 0 0 0-18.2Z" fill="#FF5F00"/></symbol>
+    <symbol id="pay-visa" viewBox="0 0 74 30"><text x="0" y="23" font-family="Inter,sans-serif" font-size="24" font-weight="800" font-style="italic" fill="#1A1F71" letter-spacing="-.5">VISA</text></symbol>
+  </defs></svg>
+
+  <div class="pf-pay" role="img" aria-label="We accept bank transfer, Tether, Mastercard and Visa">
+    <div class="pf-payTrack">
+      <div class="pf-payGroup">
+        <svg viewBox="0 0 92 30"><use href="#pay-bank"/></svg>
+        <svg viewBox="0 0 110 30"><use href="#pay-tether"/></svg>
+        <svg viewBox="0 0 48 30"><use href="#pay-mc"/></svg>
+        <svg viewBox="0 0 74 30"><use href="#pay-visa"/></svg>
+        <svg viewBox="0 0 92 30"><use href="#pay-bank"/></svg>
+        <svg viewBox="0 0 110 30"><use href="#pay-tether"/></svg>
+        <svg viewBox="0 0 48 30"><use href="#pay-mc"/></svg>
+        <svg viewBox="0 0 74 30"><use href="#pay-visa"/></svg>
+        <svg viewBox="0 0 92 30"><use href="#pay-bank"/></svg>
+        <svg viewBox="0 0 110 30"><use href="#pay-tether"/></svg>
+        <svg viewBox="0 0 48 30"><use href="#pay-mc"/></svg>
+        <svg viewBox="0 0 74 30"><use href="#pay-visa"/></svg>
+      </div>
+      <div class="pf-payGroup" aria-hidden="true">
+        <svg viewBox="0 0 92 30"><use href="#pay-bank"/></svg>
+        <svg viewBox="0 0 110 30"><use href="#pay-tether"/></svg>
+        <svg viewBox="0 0 48 30"><use href="#pay-mc"/></svg>
+        <svg viewBox="0 0 74 30"><use href="#pay-visa"/></svg>
+        <svg viewBox="0 0 92 30"><use href="#pay-bank"/></svg>
+        <svg viewBox="0 0 110 30"><use href="#pay-tether"/></svg>
+        <svg viewBox="0 0 48 30"><use href="#pay-mc"/></svg>
+        <svg viewBox="0 0 74 30"><use href="#pay-visa"/></svg>
+        <svg viewBox="0 0 92 30"><use href="#pay-bank"/></svg>
+        <svg viewBox="0 0 110 30"><use href="#pay-tether"/></svg>
+        <svg viewBox="0 0 48 30"><use href="#pay-mc"/></svg>
+        <svg viewBox="0 0 74 30"><use href="#pay-visa"/></svg>
+      </div>
+    </div>
+  </div>
+
+  <div class="pf-wrap">
+
+    <!-- link columns -->
+    <div class="pf-cols">
+      <div>
+        <p class="pf-h">Company</p>
+        <ul>
+          <li><a href="homepage-v2.html">Home</a></li>
+          <li><a href="accounts-v2.html">Accounts</a></li>
+          <li><a href="why-abook-v2.html">Why A-Book</a></li>
+          <li><a href="https://www.pcxtrader.com/bonus50">Promotion</a></li>
+          <li><a href="https://dashboard.pcxtrader.com/login">Log in</a></li>
+          <li><a href="https://dashboard.pcxtrader.com/register">Open Account</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <p class="pf-h">Accounts</p>
+        <ul>
+          <li><a href="accounts-v2.html#lineup">ECN</a></li>
+          <li><a href="accounts-v2.html#lineup">Standard</a></li>
+          <li><a href="accounts-v2.html#lineup">Precious Metals</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <p class="pf-h">Platform</p>
+        <ul>
+          <li><a href="#">MetaTrader 5</a></li>
+          <li><a href="https://dashboard.pcxtrader.com/register">Free demo</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <p class="pf-h">Legal</p>
+        <ul>
+          <li><a href="legal-client-agreement.html">Client Agreement</a></li>
+          <li><a href="legal-terms.html">Terms &amp; Conditions</a></li>
+          <li><a href="legal-risk-disclosure.html">Risk Disclosure</a></li>
+          <li><a href="legal-privacy.html">Privacy Policy</a></li>
+          <li><a href="legal-cookies.html">Cookies Policy</a></li>
+          <li><a href="legal-pamm.html">PAMM Service Agreement</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- legal -->
+    <div class="pf-legal">
+      <p>PCX is the trading name of the Prime Codex Group of companies.</p>
+      <p>The website is operated and provides content by Prime Codex Group of companies which include:</p>
+      <ul>
+        <li>Prime Codex LLC, incorporated in Saint Vincent &amp; the Grenadines with registration number 892 LLC 2021, holding an International Brokerage and Clearing Houses License issued by the Mwali International Services Authority (MISA), License Number: T2023334;</li>
+        <li>Prime Codex Ltd, regulated by the Financial Services Commission (FSC) of Mauritius with an Investment Dealer License (License Number: GB25205419), Registered Office: Suite 803, 8th Floor, Hennessy Tower, Pope Hennessy Street, Port-Louis 11328, Republic of Mauritius; and</li>
+        <li>PCX Ltd incorporated in the Republic of Seychelles with registration number 8439312-1, Registered Office: House of Francis, Room 302, Ile Du Port, Mahe, Seychelles.</li>
+      </ul>
+      <p><b>Risk Warning:</b> Trading leveraged products such as Forex and CFDs carries a high degree of risk to your capital and may not be suitable for all investors. Please ensure that you fully understand the risks involved, taking into account your investment objectives and level of experience, before trading, and if necessary, seek independent advice. Please read the full <a href="legal-risk-disclosure.html">Risk Disclosure</a>.</p>
+      <p>PCX does not offer services to residents of certain jurisdictions, including the United States, Japan, Canada, China, Australia, North Korea, United Kingdom, Iran, Syria, Sudan, Cuba, Myanmar &amp; Russia.</p>
+    </div>
+
+    <!-- offices -->
+    <div class="pf-office">
+      <div class="pf-mark">
+        <img src="assets/pcx-logo-navy.png" alt="PCX" width="280" height="147" loading="lazy" decoding="async">
+      </div>
+      <div>
+        <h3>Office Address:</h3>
+        <p>Euro House, Richmond Hill Road, Kingstown, St. Vincent and the Grenadines</p>
+      </div>
+      <div>
+        <h3>Representative Office:</h3>
+        <p>BELSHALAT BUILDING - F101 Naif Dubai, United Arab Emirates</p>
+      </div>
+    </div>
+
+    <!-- policies -->
+    <nav class="pf-policies" aria-label="Legal">
+      <a href="legal-privacy.html">Privacy Policy</a>
+            <a href="legal-risk-disclosure.html">Risk Disclosure</a>
+      <a href="legal-cookies.html">Cookies Policy</a>
+      <a href="legal-client-agreement.html">Client Agreement</a>
+      <a href="legal-terms.html">Terms &amp; Conditions</a>
+      <a href="legal-pamm.html">PAMM Service Agreement</a>
+    </nav>
+
+    <p class="pf-copy">Copyright © 2026 Prime Codex. All rights reserved.</p>
+  </div>
+</footer>
+<!-- ===================== end PCX FOOTER v3 ============================= -->
+
+<div data-mobile-only="" style="position:fixed;left:0;right:0;bottom:0;z-index:70;background:rgba(255,255,255,.97);border-top:1px solid #EFE9DB;padding:10px 16px calc(10px + env(safe-area-inset-bottom));flex-direction:column;gap:8px;align-items:stretch">
+  <a href="https://dashboard.pcxtrader.com/register" style="font-family:'Inter',sans-serif;font-weight:600;font-size:16px;background:#0A0A3C;color:#FFFFFF;padding:14px 20px;border-radius:12px;text-decoration:none;text-align:center;min-height:48px;display:flex;align-items:center;justify-content:center">Open Account</a>
+  <a href="https://dashboard.pcxtrader.com/register" style="font-size:14px;color:#2C2C54;text-align:center;text-decoration:none;min-height:24px">Try Free Demo</a>
+</div>
+
+</div>
+
+
+<style>
+
+/* ===== HERO — the cast, staged ===================================== */
+.castRow{
+  position:relative; width:100%; max-width:880px; margin:0 auto 6px;
+  display:flex; justify-content:center; align-items:flex-end;
+}
+.castGroup{
+  position:relative; z-index:2; display:block;
+  /* sized by height so the group keeps its scale and never crowds the headline */
+  height:clamp(220px,30vw,376px); width:auto; max-width:100%;
+  filter:drop-shadow(0 20px 26px rgba(120,95,30,.16));
+  opacity:0; transform:translateY(24px) scale(.99);
+  transition:opacity .85s cubic-bezier(.2,.7,.2,1), transform .85s cubic-bezier(.2,.7,.2,1);
+  will-change:transform;
+}
+.castRow.in .castGroup{opacity:1; transform:none}
+
+/* a warm pool of light they stand in, so the group is lit by the page too */
+.castGround{
+  position:absolute; left:50%; bottom:4px; transform:translateX(-50%);
+  width:min(80%,520px); height:26px; z-index:0; pointer-events:none;
+  background:radial-gradient(50% 50% at 50% 50%, rgba(212,175,55,.20) 0%, rgba(212,175,55,0) 72%);
+  opacity:0; transition:opacity 1s ease .3s;
+  animation:castBreathe 7s ease-in-out infinite;
+}
+.castRow.in .castGround{opacity:1}
+@keyframes castBreathe{
+  0%,100%{transform:translateX(-50%) scaleX(1)}
+  50%    {transform:translateX(-50%) scaleX(1.06)}
+}
+
+@media(max-width:760px){ .castRow{max-width:100%} .castGround{height:22px} }
+@media(prefers-reduced-motion:reduce){
+  .castGroup{opacity:1 !important; transform:none !important; transition:none !important}
+  .castGround{animation:none; opacity:1 !important}
+}
+
+/* ===== THE HONEST MATH — the climax ================================ */
+.costBar{
+  position:relative; height:12px; border-radius:999px; margin:18px 0 0;
+  background:rgba(10,10,60,.07); overflow:hidden;
+}
+.costBar i{
+  position:absolute; top:0; bottom:0; left:0; display:block; border-radius:999px;
+  width:0; transition:width 1s cubic-bezier(.4,0,.2,1);
+}
+/* navy = what both accounts cost you. gold = the part only Standard charges. */
+.costBar .paid{background:linear-gradient(90deg,#1B1B5A,#0A0A3C)}
+.costBar .extra{background:linear-gradient(90deg,#D4AF37,#B8942C); transition-delay:.95s; transition-duration:.6s}
+
+/* the receipts fill in line by line, like a till printing */
+[data-receipts] dl > div{opacity:0; transform:translateY(7px);
+  transition:opacity .5s cubic-bezier(.2,.7,.2,1), transform .5s cubic-bezier(.2,.7,.2,1)}
+[data-receipts].in dl > div{opacity:1; transform:none}
+[data-receipts].in [data-receipt] dl > div:nth-child(1){transition-delay:.05s}
+[data-receipts].in [data-receipt] dl > div:nth-child(2){transition-delay:.20s}
+[data-receipts].in [data-receipt] dl > div:nth-child(3){transition-delay:.38s}
+
+/* the difference is the last thing to arrive, once both bars have settled */
+[data-receipts] [data-diff]{opacity:0; transform:translateY(5px);
+  transition:opacity .55s ease 1.5s, transform .55s cubic-bezier(.2,.7,.2,1) 1.5s}
+[data-receipts].in [data-diff]{opacity:1; transform:none}
+
+/* the winning receipt lifts a little out of the page */
+[data-receipt="ecn"]{transition:transform .6s cubic-bezier(.2,.7,.2,1) 1.5s, box-shadow .6s ease 1.5s}
+[data-receipts].in [data-receipt="ecn"]{transform:translateY(-6px)}
+
+@media (prefers-reduced-motion:reduce){
+  [data-receipts] dl > div,[data-receipts] [data-diff],[data-receipt="ecn"]{
+    opacity:1 !important; transform:none !important; transition:none !important}
+  .costBar i{transition:none !important}
+}
+
+
+/* ===== THE HONEST MATH — staging ==================================== */
+#math{position:relative; overflow:hidden; isolation:isolate}
+
+/* the navy field becomes a desk: faint ledger ruling, a warm pool of light
+   under the receipts, and a little dust in the air */
+#math::before{
+  content:""; position:absolute; inset:0; z-index:0; pointer-events:none;
+  background:
+    radial-gradient(58% 42% at 50% 62%, rgba(212,175,55,.13) 0%, rgba(212,175,55,0) 70%),
+    repeating-linear-gradient(180deg, rgba(255,255,255,.030) 0 1px, rgba(255,255,255,0) 1px 34px);
+}
+/* soft seams so the navy does not cut the page in two */
+#math::after{
+  content:""; position:absolute; left:0; right:0; top:0; height:120px; z-index:0; pointer-events:none;
+  background:linear-gradient(180deg, rgba(250,246,239,.16), rgba(250,246,239,0));
+}
+#math > div{position:relative; z-index:2}
+.mathDust{position:absolute; inset:0; z-index:1; pointer-events:none}
+.mathDust i{
+  position:absolute; width:4px; height:4px; border-radius:50%;
+  background:rgba(212,175,55,.55); filter:blur(.4px);
+  animation:mathFloat 9s ease-in-out infinite;
+}
+@keyframes mathFloat{
+  0%,100%{transform:translateY(0); opacity:.30}
+  50%    {transform:translateY(-16px); opacity:.75}
+}
+
+/* the receipts read as two paper slips laid on that desk */
+[data-receipt]{
+  position:relative;
+  transform-origin:50% 100%;
+  box-shadow:0 1px 2px rgba(0,0,0,.35), 0 26px 46px -18px rgba(0,0,0,.62) !important;
+}
+[data-receipt="standard"]{transform:rotate(-.7deg)}
+[data-receipt="ecn"]{transform:rotate(.6deg)}
+/* the cheaper receipt straightens up and lifts as it wins the comparison */
+[data-receipts].in [data-receipt="ecn"]{transform:rotate(0deg) translateY(-8px)}
+[data-receipt]::before{
+  content:""; position:absolute; left:14px; right:14px; top:0; height:1px; border-radius:1px;
+  background:linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,.95), rgba(255,255,255,0));
+  pointer-events:none;
+}
+
+/* a caliper under the gold tail: we measure our own price gap in public */
+.gapMark{
+  position:absolute; height:12px; pointer-events:none;
+  border-left:1.5px solid rgba(184,148,44,.85);
+  border-right:1.5px solid rgba(184,148,44,.85);
+  border-bottom:1.5px solid rgba(184,148,44,.85);
+  border-radius:0 0 3px 3px;
+  opacity:0; transform:translateY(-4px);
+  transition:opacity .5s ease 1.35s, transform .5s cubic-bezier(.2,.7,.2,1) 1.35s;
+}
+[data-receipts].in .gapMark{opacity:1; transform:none}
+
+/* the total gives one quiet pulse as it lands */
+@keyframes totalLand{0%{transform:scale(1)}42%{transform:scale(1.045)}100%{transform:scale(1)}}
+[data-receipt] dd.landed{animation:totalLand .5s cubic-bezier(.2,.7,.2,1); display:inline-block}
+
+/* the closing notes read as fine print on the same receipt paper */
+#math .fineprint{
+  position:relative; padding-left:16px; border-left:2px solid rgba(212,175,55,.35);
+}
+
+@media (prefers-reduced-motion:reduce){
+  .mathDust i{animation:none}
+  [data-receipt]{transform:none !important}
+  .gapMark{opacity:1 !important; transform:none !important}
+}
+
+
+/* ===== FAQ ========================================================== */
+#faq .faqList{border-top:1px solid #EFE9DB}
+#faq details{
+  border-bottom:1px solid #EFE9DB; position:relative;
+  opacity:0; transform:translateY(8px);
+  transition:opacity .5s cubic-bezier(.2,.7,.2,1), transform .5s cubic-bezier(.2,.7,.2,1);
+}
+#faq .faqList.in details{opacity:1; transform:none}
+
+#faq summary{
+  list-style:none; cursor:pointer; position:relative;
+  display:flex; align-items:center; gap:16px;
+  padding:22px 44px 22px 0;
+  font-family:'Inter',sans-serif; font-weight:600;
+  font-size:clamp(16px,1.9vw,19px); line-height:1.35; color:#0A0A3C;
+  transition:color .25s ease, padding-left .35s cubic-bezier(.2,.7,.2,1);
+}
+#faq summary::-webkit-details-marker{display:none}
+#faq summary:hover{color:#B8942C; padding-left:8px}
+#faq details[open] > summary{color:#0A0A3C}
+
+/* the marker: a quiet plus that becomes a minus */
+#faq summary::after{
+  content:""; position:absolute; right:6px; top:50%; width:15px; height:15px;
+  margin-top:-7px;
+  background:
+    linear-gradient(#B8942C,#B8942C) center/15px 1.5px no-repeat,
+    linear-gradient(#B8942C,#B8942C) center/1.5px 15px no-repeat;
+  transition:transform .4s cubic-bezier(.2,.7,.2,1), opacity .3s ease;
+}
+#faq details[open] > summary::after{
+  transform:rotate(90deg);
+  background:linear-gradient(#B8942C,#B8942C) center/15px 1.5px no-repeat;
+}
+
+#faq .faqBody{overflow:hidden; height:0; transition:height .42s cubic-bezier(.4,0,.2,1)}
+#faq .faqBody > p{
+  margin:0; padding:0 44px 26px 0; max-width:74ch;
+  font-size:clamp(15px,1.6vw,16.5px); line-height:1.7; color:#2C2C54;
+}
+#faq .faqBody a{color:#0A0A3C; text-decoration:none; border-bottom:1.5px solid #D4AF37; padding-bottom:1px}
+#faq .faqBody a:hover{color:#B8942C}
+
+/* the last question is the one the whole brand is built on, so it gets
+   its own card and stands open from the start */
+/* the partner's markup carries inline styles, so the feature card has to
+   override them explicitly */
+#faq details[data-key]{
+  margin-top:34px !important;
+  border:0 !important; border-radius:16px !important;
+  background:linear-gradient(180deg,#141452,#0A0A3C) !important; color:#FFFFFF;
+  box-shadow:0 1px 2px rgba(10,10,60,.3), 0 26px 46px -22px rgba(10,10,60,.55) !important;
+  padding:4px clamp(22px,3vw,32px) !important;
+}
+#faq details[data-key] > summary{
+  color:#FFFFFF !important; font-size:clamp(17px,2.1vw,21px) !important; padding-right:44px;
+}
+#faq details[data-key] > summary:hover{color:#D4AF37; padding-left:0}
+#faq details[data-key] summary::after{
+  background:
+    linear-gradient(#D4AF37,#D4AF37) center/15px 1.5px no-repeat,
+    linear-gradient(#D4AF37,#D4AF37) center/1.5px 15px no-repeat;
+}
+#faq details[data-key][open] > summary::after{
+  background:linear-gradient(#D4AF37,#D4AF37) center/15px 1.5px no-repeat;
+}
+#faq details[data-key] .faqBody > p{color:#D8D8EA !important; padding-right:0}
+#faq details[data-key] .faqBody a{color:#FFFFFF !important; border-bottom-color:#D4AF37}
+/* a hairline of gold along the top edge, like the charter's seal thread */
+#faq details[data-key]::before{
+  content:""; position:absolute; left:clamp(20px,3vw,30px); right:clamp(20px,3vw,30px); top:0; height:2px;
+  background:linear-gradient(90deg, rgba(212,175,55,0), #D4AF37, rgba(212,175,55,0));
+}
+
+@media (prefers-reduced-motion:reduce){
+  #faq details{opacity:1 !important; transform:none !important}
+  #faq .faqBody{transition:none}
+}
+
+
+/* ===== THE INVITATION — the last beat =============================== */
+#close{position:relative; overflow:hidden; isolation:isolate}
+
+/* the door Nora is gesturing toward: not furniture, just a warm opening of
+   light at the edge she points to */
+#close .doorGlow{
+  position:absolute; z-index:0; pointer-events:none;
+  right:-4%; top:6%; width:min(46%,520px); height:78%;
+  background:radial-gradient(50% 50% at 60% 50%, rgba(212,175,55,.22) 0%, rgba(212,175,55,0) 70%);
+  opacity:0; transition:opacity 1.1s ease .35s;
+  animation:doorBreathe 8s ease-in-out infinite;
+}
+#close.in .doorGlow{opacity:1}
+@keyframes doorBreathe{
+  0%,100%{transform:scale(1)}
+  50%    {transform:scale(1.07)}
+}
+#close > div{position:relative; z-index:2}
+
+.closeCast{
+  position:relative; display:block; margin:0 auto;
+  height:clamp(190px,26vw,320px); width:auto; max-width:100%;
+  filter:drop-shadow(0 18px 24px rgba(120,95,30,.16));
+  opacity:0; transform:translateY(22px);
+  transition:opacity .85s cubic-bezier(.2,.7,.2,1), transform .85s cubic-bezier(.2,.7,.2,1);
+}
+#close.in .closeCast{opacity:1; transform:none}
+
+/* the ground they stand on */
+.closeGround{
+  position:absolute; left:50%; bottom:-6px; transform:translateX(-50%);
+  width:min(78%,460px); height:22px; pointer-events:none;
+  background:radial-gradient(50% 50% at 50% 50%, rgba(212,175,55,.20) 0%, rgba(212,175,55,0) 72%);
+  opacity:0; transition:opacity 1s ease .45s;
+}
+#close.in .closeGround{opacity:1}
+
+
+#close h2,#close .ctaRow,#close .ctaRow ~ p{
+  opacity:0; transform:translateY(10px);
+  transition:opacity .6s cubic-bezier(.2,.7,.2,1), transform .6s cubic-bezier(.2,.7,.2,1);
+}
+#close.in h2{opacity:1; transform:none; transition-delay:.95s}
+#close.in .ctaRow{opacity:1; transform:none; transition-delay:1.15s}
+#close.in .ctaRow ~ p{opacity:1; transform:none; transition-delay:1.35s}
+
+@media (prefers-reduced-motion:reduce){
+  #close .doorGlow{animation:none}
+  #close .closeCast,#close h2,#close .ctaRow,#close .ctaRow ~ p,
+  #close .doorGlow,#close .closeGround{opacity:1 !important; transform:none !important; transition:none !important}
+  }
+
+
+/* This page inherits a{text-decoration:underline} from the partner's base
+   styles, and it was leaking into the shell navbar and footer — their links,
+   the Open Account button and every footer link came out underlined.
+   Neutralised here, on the page side. The pn-/pf- component files are untouched. */
+.pn a, .pf a{text-decoration:none}
+
+/* ===== MOBILE ======================================================= */
+@media (max-width:768px){
+
+  /* the sticky CTA bar floats over everything and the page never made room
+     for it, so the hero's own buttons sat behind it */
+  body{padding-bottom:124px}
+
+  /* the page runs past 10,000px on a phone; desktop section padding is a
+     large part of that */
+  main > section{padding-top:56px !important; padding-bottom:60px !important}
+
+  /* the cast: fill the width and crop the shoes, so four faces stay legible
+     instead of shrinking to four thumbnails */
+  .castRow{height:238px; overflow:hidden; width:100%; max-width:100%; align-self:stretch}
+  /* the hero's inner column is a flex item that shrinks to its content, which
+     was capping the cast at 263px no matter what width the image asked for */
+  :has(> .castRow){align-self:stretch; width:100%}
+  .castGroup{
+    height:100% !important; width:100%; object-fit:cover; object-position:50% 6%;
+    /* the crop clips the drop-shadow and leaves a visible seam down each edge */
+    filter:none;
+  }
+  .castGround{bottom:2px; width:min(88%,340px); height:18px}
+
+  #close .closeCast{
+    height:auto !important; width:100%; max-width:420px;
+  }
+  #close .doorGlow{right:-14%; width:60%; opacity:.8}
+}
+
+@media (max-width:640px){
+  /* two receipts side by side leaves 162px each: labels wrap to three lines,
+     the rows stop lining up between the cards and the whole comparison — which
+     is the point of the section — falls apart. Stacked, each receipt gets the
+     full width and the two cost bars sit directly above one another, which
+     reads even better than side by side. */
+  [data-receipts]{grid-template-columns:1fr !important; gap:16px !important}
+  [data-receipts] [data-receipt]{transform:none !important}
+  [data-receipts].in [data-receipt="ecn"]{transform:translateY(-2px) !important}
+  [data-receipts] dl > div{padding:10px 0}
+  /* those min-heights existed to keep two cramped columns aligned; stacked
+     full-width they only leave holes */
+  [data-receipts] dl > div:nth-child(-n+2){min-height:0 !important}
+  #math .costBar{height:14px; margin-bottom:20px}
+  /* room under the bar so the caliper is not sitting on the torn edge */
+  [data-receipt="standard"]{padding-bottom:38px !important}
+}
+
+/* stacked, the cards keep their frame-breaking figures — but the figure rises
+   113px above its slot while the row gap was only 14px, so each head landed on
+   the button of the card above it */
+@media (max-width:900px){
+  .lineupGrid{row-gap:clamp(140px,38vw,176px) !important}
+}
+
+@media (max-width:768px){
+  /* the label column is pinned to 230px inline, which left the two account
+     columns too narrow to hold a phrase without breaking mid-word */
+  #compare table[data-t="compare"] thead th:first-child{width:auto !important}
+  #compare table[data-t="compare"] tbody th[scope="row"]{
+    min-width:88px !important; max-width:104px !important;
+  }
+  #compare table[data-t="compare"] td{word-break:normal; overflow-wrap:break-word}
+}
+
+@media (max-width:420px){
+  .castRow{height:206px}
+  #faq details[data-key]{padding:2px 16px !important}
+}
+
+/* ===== SIDE BY SIDE — reworked ===================================== */
+
+/* the account header stays with you through 13 rows */
+#compare table[data-t="compare"] thead th{
+  position:sticky; top:var(--stickyTop,62px); z-index:3;
+}
+#compare .cmpScroll.stuck thead th{
+  box-shadow:0 10px 18px -14px rgba(10,10,60,.45);
+}
+
+/* sameness hairline: a cell carries the line when it matches a neighbour,
+   so matching cells join into one continuous rule and differences read as gaps */
+#compare table[data-t="compare"] td,
+#compare table[data-t="compare"] tbody th[scope="row"]{position:relative}
+#compare table[data-t="compare"] td.same::after{
+  content:""; position:absolute; left:0; right:0; bottom:9px; height:1.5px; border-radius:1px;
+  background:rgba(184,148,44,.8); pointer-events:none;
+  opacity:0; transition:opacity .55s cubic-bezier(.4,0,.2,1);
+}
+#compare table[data-t="compare"] tr.in td.same::after{opacity:1}
+
+/* metals is a different kind of product, not a fourth peer */
+#compare table[data-t="compare"] [data-col="metals"]{
+  border-left:1px solid rgba(184,148,44,.30);
+}
+
+/* groups arrive one after another, like a document being filled in */
+#compare tbody tr[data-rv]{
+  opacity:0; transform:translateY(9px);
+  transition:opacity .5s cubic-bezier(.2,.7,.2,1), transform .5s cubic-bezier(.2,.7,.2,1);
+}
+#compare tbody tr[data-rv].in{opacity:1; transform:none}
+
+
+/* switching accounts on small screens rolls the values instead of snapping */
+@media (prefers-reduced-motion:no-preference){
+  #compare td.roll{animation:cmpRoll .42s cubic-bezier(.2,.7,.2,1)}
+}
+@keyframes cmpRoll{
+  0%{opacity:0; transform:translateY(7px)}
+  100%{opacity:1; transform:none}
+}
+
+/* on a phone, two columns must actually FIT — the table ships with a 640px
+   min-width and a 230px label column, which pushes the second account off-screen */
+@media (max-width:768px){
+  #compare table[data-t="compare"]{min-width:0 !important}
+  #compare table[data-t="compare"] tbody th[scope="row"]{
+    width:auto; min-width:104px; max-width:120px; font-size:13px; padding:12px 10px;
+  }
+  #compare table[data-t="compare"] td,
+  #compare table[data-t="compare"] thead th{padding:12px 10px; font-size:13.5px}
+  #compare table[data-t="compare"] thead th:first-child{font-size:11px}
+  #compare }
+
+/* the swap-free footnote */
+#swap5-tip{
+  position:fixed; z-index:90; width:280px; max-width:280px;
+  background:#FFFFFF; border:1px solid #EFE9DB; border-radius:10px;
+  box-shadow:0 2px 4px rgba(10,10,60,.06), 0 18px 34px -18px rgba(10,10,60,.4);
+  padding:12px 14px; font-size:13.5px; line-height:1.5; color:#2C2C54;
+}
+#compare button[aria-describedby="swap5-tip"]{
+  margin-left:6px; width:18px; height:18px; border-radius:50%;
+  border:1px solid #E6DEC9; background:#FFFDF7; color:#B8942C;
+  font:600 11px/1 'Inter',sans-serif; cursor:pointer; vertical-align:1px;
+}
+</style>
+
+<script>
+(function(){
+  var sec = document.getElementById('compare');
+  if (!sec) return;
+  var table = sec.querySelector('table[data-t="compare"]');
+  var scroll = table.parentElement;
+  scroll.classList.add('cmpScroll');
+  var reduced = matchMedia('(prefers-reduced-motion:reduce)').matches;
+
+  /* --- sticky offset comes from the real header height ------------------ */
+  function setStickyTop(){
+    var h = document.querySelector('header');
+    document.documentElement.style.setProperty('--stickyTop',
+      (h ? Math.round(h.getBoundingClientRect().height) : 62) + 'px');
+  }
+  setStickyTop();
+  addEventListener('resize', setStickyTop);
+
+  /* --- legend ----------------------------------------------------------- */
+  /* legend removed — the broken line speaks for itself */
+
+  /* --- sameness: mark cells that match a visible neighbour --------------- */
+  function norm(td){
+    var t = td.cloneNode(true);
+    var b = t.querySelector('button'); if (b) b.remove();
+    return t.textContent.replace(/\s+/g,' ').trim().replace(/\.$/,'').toLowerCase();
+  }
+  function visible(td){ return td.offsetParent !== null; }
+
+  function markSame(){
+    var rows = table.querySelectorAll('tbody tr:not([data-group])');
+    Array.prototype.forEach.call(rows, function(tr){
+      var cells = Array.prototype.filter.call(tr.querySelectorAll('td[data-col]'), visible);
+      cells.forEach(function(td){ td.classList.remove('same'); });
+      if (cells.length < 2) return;
+      var vals = cells.map(norm);
+      cells.forEach(function(td, i){
+        var left  = i > 0 && vals[i-1] === vals[i];
+        var right = i < cells.length-1 && vals[i+1] === vals[i];
+        if (left || right) td.classList.add('same');
+      });
+    });
+  }
+  markSame();
+  addEventListener('resize', markSame);
+
+  /* --- staged reveal, one group at a time -------------------------------- */
+  var group = -1;
+  Array.prototype.forEach.call(table.querySelectorAll('tbody tr'), function(tr){
+    if (tr.hasAttribute('data-group')) group++;
+    tr.setAttribute('data-rv', Math.max(group,0));
+  });
+  var revealed = false;
+  function reveal(){
+    if (revealed) return;
+    var r = sec.getBoundingClientRect();
+    if (r.top > innerHeight * 0.85 || r.bottom < 0) return;
+    revealed = true;
+    Array.prototype.forEach.call(table.querySelectorAll('tbody tr[data-rv]'), function(tr){
+      var d = reduced ? 0 : (+tr.getAttribute('data-rv')) * 170 + 60;
+      setTimeout(function(){ tr.classList.add('in'); }, d);
+    });
+  }
+  reveal();
+  addEventListener('scroll', reveal, {passive:true});
+  var poll = setInterval(function(){ reveal(); if (revealed) clearInterval(poll); }, 300);
+
+  /* --- shadow only while the header is actually stuck --------------------- */
+  addEventListener('scroll', function(){
+    var top = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--stickyTop')) || 62;
+    var r = table.getBoundingClientRect();
+    scroll.classList.toggle('stuck', r.top < top && r.bottom > top + 80);
+  }, {passive:true});
+
+  /* --- tabs, compare-two, metals disclosure ------------------------------ */
+  /* on a phone the table can only show a column or two, and the comparison people
+     actually come for is Standard vs ECN — so start there instead of a lone column */
+  var state = matchMedia('(max-width:768px)').matches
+    ? { show:['standard','ecn'], two:true }
+    : { show:['standard'], two:false };
+  function paint(prev){
+    table.setAttribute('data-show', state.show.join(' '));
+    Array.prototype.forEach.call(sec.querySelectorAll('[data-tab]'), function(b){
+      b.setAttribute('data-on', state.show.indexOf(b.getAttribute('data-tab')) > -1 ? '1' : '0');
+    });
+    markSame();
+    if (!reduced && prev){
+      state.show.filter(function(id){ return prev.indexOf(id) < 0; }).forEach(function(id){
+        Array.prototype.forEach.call(table.querySelectorAll('[data-col="'+id+'"]'), function(td){
+          td.classList.remove('roll'); void td.offsetWidth; td.classList.add('roll');
+        });
+      });
+    }
+  }
+  function tab(id){
+    var prev = state.show.slice();
+    if (!state.two) state.show = [id];
+    else if (state.show.indexOf(id) > -1){ if (state.show.length > 1) state.show = state.show.filter(function(x){return x!==id}); }
+    else state.show = state.show.concat([id]).slice(-2);
+    paint(prev);
+  }
+  var TABS = {tabDemo:'demo', tabStandard:'standard', tabEcn:'ecn', tabMetals:'metals'};
+
+  sec.addEventListener('click', function(e){
+    var el = e.target.closest('[data-on-click]');
+    if (!el || !sec.contains(el)) return;
+    var fn = el.getAttribute('data-on-click');
+    if (TABS[fn]) return tab(TABS[fn]);
+    if (fn === 'tipClick') toggleTip(el);
+  });
+
+  document.addEventListener('click', function(e){
+    var el = e.target.closest('[data-on-click="toggleMetals"]');
+    if (!el) return;
+    var body = document.querySelector('[data-metals-body]');
+    if (!body) return;
+    var open = body.getAttribute('data-collapsed') === '0';
+    body.setAttribute('data-collapsed', open ? '1' : '0');
+    el.setAttribute('aria-expanded', String(!open));
+    el.textContent = open ? 'See the details' : 'Show less';
+  });
+
+  /* --- swap-free tooltip -------------------------------------------------- */
+  var TIP = 'Each position you open is swap-free for its first 5 days, counted date to date from the day it opens. From day 6, the standard overnight swap applies to that position.';
+  var tipEl = null;
+  function closeTip(){ if (tipEl){ tipEl.remove(); tipEl = null; } }
+  function toggleTip(btn){
+    if (tipEl){ closeTip(); return; }
+    tipEl = document.createElement('span');
+    tipEl.id = 'swap5-tip'; tipEl.setAttribute('role','tooltip'); tipEl.textContent = TIP;
+    document.body.appendChild(tipEl);
+    var r = btn.getBoundingClientRect(), w = 280, pad = 10;
+    var left = Math.max(pad, Math.min(r.left + r.width/2 - w/2, innerWidth - w - pad));
+    var below = r.top < 190;
+    tipEl.style.left = Math.round(left) + 'px';
+    tipEl.style.top  = Math.round(below ? r.bottom + 12 : r.top - 12) + 'px';
+    tipEl.style.transform = below ? 'none' : 'translateY(-100%)';
+  }
+  document.addEventListener('pointerdown', function(e){
+    if (!tipEl) return;
+    if (e.target.closest('[data-on-click="tipClick"]') || e.target.closest('#swap5-tip')) return;
+    closeTip();
+  }, true);
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape') closeTip(); });
+
+  /* --- hover highlight for the column under the pointer ------------------- */
+  table.addEventListener('pointerover', function(e){
+    if (e.pointerType && e.pointerType !== 'mouse') return;
+    var c = e.target.closest && e.target.closest('[data-col]');
+    table.setAttribute('data-hover', c ? c.getAttribute('data-col') : 'none');
+  });
+  table.addEventListener('pointerleave', function(){ table.setAttribute('data-hover','none'); });
+
+  paint(null);
+})();
+
+/* --- hero cast: reveal, then a whisper of drift on scroll -------------- */
+(function(){
+  var row = document.querySelector('.castRow');
+  if (!row) return;
+  var img = row.querySelector('.castGroup');
+  var reduced = matchMedia('(prefers-reduced-motion:reduce)').matches;
+
+  function show(){
+    var r = row.getBoundingClientRect();
+    if (r.top > innerHeight * 0.95 || r.bottom < 0) return;
+    row.classList.add('in');
+    removeEventListener('scroll', show);
+    clearInterval(poll);
+  }
+  show();
+  addEventListener('scroll', show, {passive:true});
+  var poll = setInterval(show, 300);
+
+  if (reduced || !img) return;
+  addEventListener('scroll', function(){
+    if (!row.classList.contains('in')) return;
+    var y = row.getBoundingClientRect().top - innerHeight * 0.5;
+    img.style.transform = 'translateY(' + (-y * 0.055).toFixed(1) + 'px)';
+  }, {passive:true});
+})();
+
+/* --- the honest math: bars on one shared scale, totals that count up ---- */
+(function(){
+  var wrap = document.querySelector('[data-receipts]');
+  if (!wrap) return;
+  var reduced = matchMedia('(prefers-reduced-motion:reduce)').matches;
+  var cards = [].slice.call(wrap.children).filter(function(el){return el.querySelector('dl')});
+  if (cards.length < 2) return;
+
+  var data = cards.map(function(card, idx){
+    card.setAttribute('data-receipt', idx === 0 ? 'standard' : 'ecn');
+    var rows = card.querySelectorAll('dl > div');
+    var dd = rows[rows.length-1].querySelector('dd');
+    var val = parseFloat(dd.textContent.replace(/[^\d.]/g,'')) || 0;
+    return {card:card, dd:dd, val:val};
+  });
+  var max  = Math.max.apply(null, data.map(function(d){return d.val}));
+  var min  = Math.min.apply(null, data.map(function(d){return d.val}));
+
+  data.forEach(function(d){
+    /* the partner's decorative gold rule is replaced by the real bar */
+    var rule = d.card.querySelector('dl + div');
+    if (rule) rule.style.display = 'none';
+    var cap = d.card.querySelector('dl ~ p');
+    if (cap) cap.setAttribute('data-diff','');
+
+    var bar = document.createElement('div');
+    bar.className = 'costBar';
+    bar.innerHTML = '<i class="paid"></i><i class="extra"></i>';
+    var anchor = d.card.querySelector('dl');
+    anchor.insertAdjacentElement('afterend', bar);
+    d.paid  = bar.querySelector('.paid');
+    d.extra = bar.querySelector('.extra');
+    /* every bar shares one scale, so the navy portions line up exactly and the
+       gold tail on the pricier receipt IS the difference between them */
+    d.paidPct  = (min / max) * 100;
+    d.extraPct = (d.val / max) * 100;
+  });
+
+  function roll(dd, target){
+    var sym = dd.querySelector('span');
+    var dur = 1000 + (target === max ? 400 : 0), t0 = null;
+    function step(ts){
+      if (!t0) t0 = ts;
+      var p = Math.min((ts - t0) / dur, 1);
+      var e = 1 - Math.pow(1 - p, 3);
+      dd.textContent = (target * e).toFixed(2);
+      if (sym) dd.insertBefore(sym, dd.firstChild);
+      if (p < 1) requestAnimationFrame(step);
+    }
+    dd.textContent = '0.00';
+    if (sym) dd.insertBefore(sym, dd.firstChild);
+    requestAnimationFrame(step);
+    /* rAF is suspended while a tab or preview pane is hidden, which would leave
+       the total frozen mid-count. This lands the real figure no matter what. */
+    setTimeout(function(){
+      dd.textContent = target.toFixed(2);
+      if (sym) dd.insertBefore(sym, dd.firstChild);
+    }, dur + 500);
+    setTimeout(function(){ dd.classList.add('landed'); }, dur);
+  }
+
+  var run = false;
+  function start(){
+    if (run) return;
+    var r = wrap.getBoundingClientRect();
+    if (r.top > innerHeight * 0.85 || r.bottom < 0) return;
+    run = true;
+    wrap.classList.add('in');
+    data.forEach(function(d){
+      if (reduced){
+        d.paid.style.transition = 'none'; d.extra.style.transition = 'none';
+      }
+      d.paid.style.width  = d.paidPct + '%';
+      d.extra.style.width = d.extraPct + '%';
+      d.extra.style.zIndex = 0; d.paid.style.zIndex = 1;
+      if (reduced) d.dd.textContent = d.val.toFixed(2);
+      else roll(d.dd, d.val);
+    });
+    removeEventListener('scroll', start);
+    clearInterval(poll);
+  }
+  start();
+  addEventListener('scroll', start, {passive:true});
+  var poll = setInterval(start, 300);
+})();
+
+/* --- honest math staging: dust, caliper, fine print --------------------- */
+(function(){
+  var sec = document.getElementById('math');
+  if (!sec) return;
+
+  /* a few gold specks so the navy field is not an empty void */
+  var dust = document.createElement('div');
+  dust.className = 'mathDust'; dust.setAttribute('aria-hidden','true');
+  var SPOTS = [[12,26,0],[27,72,1.7],[46,18,3.1],[63,80,.9],[78,34,2.4],[89,64,4.2],[38,90,1.2],[70,12,3.6]];
+  dust.innerHTML = SPOTS.map(function(p){
+    return '<i style="left:'+p[0]+'%;top:'+p[1]+'%;animation-delay:'+p[2]+'s"></i>';
+  }).join('');
+  sec.appendChild(dust);
+
+  /* the last two paragraphs are footnotes — mark them so they read that way */
+  var ps = sec.querySelectorAll(':scope > div > p');
+  [].slice.call(ps).slice(-2).forEach(function(p){ p.classList.add('fineprint'); });
+
+  /* draw a caliper under the gold tail, spanning exactly the price gap */
+  var std = sec.querySelector('[data-receipt="standard"]');
+  if (!std) return;
+  var bar = std.querySelector('.costBar');
+  var mark = document.createElement('span');
+  mark.className = 'gapMark'; mark.setAttribute('aria-hidden','true');
+  bar.parentElement.style.position = bar.parentElement.style.position || 'relative';
+  bar.insertAdjacentElement('afterend', mark);
+
+  function place(){
+    var paid = std.querySelector('.paid');
+    var w = bar.getBoundingClientRect().width;
+    if (!w) return;
+    var start = (parseFloat(paid.style.width) || 70) / 100 * w;
+    mark.style.left = Math.round(start) + 'px';
+    mark.style.width = Math.round(w - start) + 'px';
+    mark.style.top = (bar.offsetTop + bar.offsetHeight + 10) + 'px';
+  }
+  place();
+  setTimeout(place, 400);
+  setTimeout(place, 1600);
+  addEventListener('resize', place);
+})();
+
+/* --- FAQ: smooth disclosure, one open at a time, punchline pre-opened --- */
+(function(){
+  var sec = document.getElementById('faq');
+  if (!sec) return;
+  var list = sec.querySelector('.faqList');
+  var items = [].slice.call(sec.querySelectorAll('details'));
+  var reduced = matchMedia('(prefers-reduced-motion:reduce)').matches;
+
+  /* native <details> snaps open; wrap the answer so it can be animated */
+  items.forEach(function(d, i){
+    var body = document.createElement('div');
+    body.className = 'faqBody';
+    while (d.children.length > 1) body.appendChild(d.children[1]);
+    d.appendChild(body);
+    d.style.transitionDelay = (0.05 + i * 0.05).toFixed(2) + 's';
+  });
+
+  function open(d){
+    var body = d.querySelector('.faqBody');
+    d.open = true;
+    if (reduced){ body.style.height = 'auto'; return; }
+    body.style.height = body.scrollHeight + 'px';
+    setTimeout(function(){ if (d.open) body.style.height = 'auto'; }, 440);
+  }
+  function close(d){
+    var body = d.querySelector('.faqBody');
+    if (reduced){ body.style.height = '0px'; d.open = false; return; }
+    body.style.height = body.scrollHeight + 'px';
+    requestAnimationFrame(function(){
+      requestAnimationFrame(function(){ body.style.height = '0px'; });
+    });
+    setTimeout(function(){ d.open = false; }, 420);
+  }
+
+  items.forEach(function(d){
+    var sum = d.querySelector('summary');
+    sum.addEventListener('click', function(e){
+      e.preventDefault();
+      if (d.open) return close(d);
+      /* one at a time keeps the list short and stops the page jumping around —
+         except the feature card, whose answer should never have to be re-found */
+      items.forEach(function(o){
+        if (o !== d && o.open && !o.hasAttribute('data-key')) close(o);
+      });
+      open(d);
+    });
+  });
+
+  /* the question the brand is built on answers itself, unprompted */
+  var last = items[items.length - 1];
+  if (last){ last.setAttribute('data-key',''); open(last); }
+
+  function reveal(){
+    var r = sec.getBoundingClientRect();
+    if (r.top > innerHeight * 0.9 || r.bottom < 0) return;
+    list.classList.add('in');
+    removeEventListener('scroll', reveal);
+    clearInterval(poll);
+  }
+  reveal();
+  addEventListener('scroll', reveal, {passive:true});
+  var poll = setInterval(reveal, 300);
+})();
+
+/* --- the invitation: one staged arrival, ending on the choice ---------- */
+(function(){
+  var sec = document.getElementById('close');
+  if (!sec) return;
+  var row = sec.querySelector('.ctaRow');
+  function show(){
+    var r = sec.getBoundingClientRect();
+    if (r.top > innerHeight * 0.85 || r.bottom < 0) return;
+    sec.classList.add('in');
+    removeEventListener('scroll', show);
+    clearInterval(poll);
+  }
+  show();
+  addEventListener('scroll', show, {passive:true});
+  var poll = setInterval(show, 300);
+})();
+</script>
+
+<script>
+/* DEV-ONLY preview hook — remove before handoff. ?dev=<section-id>&off=N jumps there at load. */
+(function(){
+  var m = /[?&]dev=([\w-]+)/.exec(location.search); if(!m) return;
+  document.addEventListener('DOMContentLoaded', function(){
+    var s = document.getElementById(m[1]); if(!s) return;
+    var off = (/[?&]off=(-?\d+)/.exec(location.search) || [0,0])[1];
+    document.body.style.marginTop = (-(s.offsetTop) + 90 - (+off)) + 'px';
+  });
+})();
+</script>
+
+<style>
+/* ===== account cards — ported verbatim from homepage-v2 so both pages
+   speak with one voice ===================================== */
+.tlink{font:600 16px/1.4 'Space Grotesk',sans-serif;color:#0A0A3C;border-bottom:1.5px solid #D4AF37;padding-bottom:3px}
+.tlink:hover{border-color:#B8942C}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 28px;border-radius:10px;font:600 16px/1 'Inter',sans-serif;border:1.5px solid transparent;transition:background .2s ease-out,border-color .2s ease-out,color .2s ease-out}
+.btn.primary{background:#0A0A3C;color:#FFFFFF;box-shadow:0 10px 26px rgba(10,10,60,.18)}
+.btn.primary:hover{background:#0A0A3C;border-color:#D4AF37;color:#FFFFFF}
+.btn.ghost{border-color:#0A0A3C;color:#0A0A3C;background:#FFFFFF}
+.btn.ghost:hover{border-color:#B8942C;color:#0A0A3C}
+.tile{background:linear-gradient(180deg,#FFFFFF 0%,#FBF8F1 100%);border:1px solid #EFE9DB;border-radius:16px;padding:clamp(16px,1.5vw,20px);display:flex;flex-direction:column;gap:14px;box-shadow:inset 0 1px 0 rgba(255,255,255,.9),0 1px 2px rgba(10,10,60,.05),0 10px 24px -10px rgba(10,10,60,.14),0 18px 28px -20px rgba(184,148,44,.10)}
+@media (prefers-reduced-motion:no-preference) and (hover:hover){
+  .tile{transition:transform .3s ease-out,box-shadow .3s ease-out}
+  .tile:hover{transform:translateY(-4px);box-shadow:inset 0 1px 0 rgba(255,255,255,.9),0 2px 3px rgba(10,10,60,.06),0 18px 32px -12px rgba(10,10,60,.18),0 26px 36px -22px rgba(184,148,44,.14)}
+}
+.charterClose .btn{min-height:48px;padding:0 24px;font-size:15px}
+.subKicker{margin-top:14px;max-width:46ch;font:400 clamp(16px,1.3vw,18px)/1.6 'Space Grotesk',sans-serif;color:#2C2C54}
+.lineupGrid{margin-top:clamp(30px,4vw,52px);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(14px,1.8vw,24px);align-items:stretch}
+.lineup{gap:0;outline:none}
+.lineup.focusCard{border:1.5px solid #D4AF37;box-shadow:inset 0 1px 0 rgba(255,255,255,.9),0 2px 4px rgba(10,10,60,.06),0 18px 34px -12px rgba(10,10,60,.18),0 28px 40px -22px rgba(184,148,44,.16)}
+.poseSlot{position:relative;height:220px;padding:0 12px 26px;border-radius:12px;background:#FAF6EF;border:1px solid rgba(10,10,60,.08);display:flex;align-items:center;justify-content:center;overflow:hidden}
+.poseSlot .slotlab{right:12px;font-size:9.5px;letter-spacing:.08em;line-height:1.3}
+.poseSlot:has(.artifact.porcelain) .pose{gap:18px}
+.poseSlot:has(.artifact.porcelain) .artifact{margin-top:28px}
+.poseSlot:has(.artifact.navy) .fig .head{width:37px;height:37px}
+.poseSlot:has(.artifact.navy) .fig .body{width:58px;height:68px;border-radius:26px 26px 10px 10px}
+.poseSlot:has(.artifact.navy) .artifact{margin-top:40px;width:42px;height:28px;transform:rotate(-7deg)}
+.poseSlot:has(.artifact.gold) .fig .head{width:50px;height:50px}
+.poseSlot:has(.artifact.gold) .fig .body{width:84px;height:50px;border-radius:38px 38px 12px 12px}
+.poseSlot:has(.artifact.gold) .artifact{margin-top:2px;width:54px;height:35px;transform:rotate(5deg)}
+.poseSlot:has(.artifact.navy) .pose.greet .fig .body{height:74px}
+.poseSlot:has(.artifact.gold) .pose.greet .fig .body{height:56px}
+.acctName{margin-top:20px;font:600 11.5px/1 'Inter',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#B8942C}
+.acctTitle{margin-top:8px;font:700 clamp(21px,2vw,27px)/1.2 'Inter',sans-serif;letter-spacing:-.02em;color:#0A0A3C}
+.acctQuote{margin-top:10px;font:italic 400 15.5px/1.6 'Space Grotesk',sans-serif;color:#2C2C54;text-wrap:pretty}
+.acctDesc{font-style:normal}
+.oneNumLab{margin-top:20px;font:500 10.5px/1 'Space Grotesk',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#2C2C54}
+.oneNum{margin-top:8px;font:700 clamp(26px,2.6vw,32px)/1 'Inter',sans-serif;font-variant-numeric:tabular-nums;letter-spacing:-.02em;color:#0A0A3C}
+.oneUnit{margin-left:7px;font:500 14px/1 'Space Grotesk',sans-serif;color:#2C2C54}
+.oneNote{margin-top:8px;font:500 12.5px/1.4 'Space Grotesk',sans-serif;color:#2C2C54}
+.specs{margin-top:18px}
+.specs div{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 0;border-top:1px solid rgba(10,10,60,.08)}
+.specs dt{display:flex;align-items:center;gap:8px;font:400 12.5px/1.3 'Space Grotesk',sans-serif;color:#55557A}
+.sicon{width:8px;height:8px;border-radius:2px;background:#D4AF37;flex:0 0 auto}
+.specs dd{font:600 13.5px/1.3 'Inter',sans-serif;font-variant-numeric:tabular-nums;color:#0A0A3C;text-align:right}
+.lineupCta{margin-top:auto;width:100%;margin-bottom:12px;padding:0 16px;font-size:15px;text-align:center}
+.details{align-self:flex-start;min-height:40px;display:inline-flex;align-items:center}
+@media (prefers-reduced-motion:no-preference) and (hover:hover){
+  .lineup{transition:transform .25s ease-out,box-shadow .25s ease-out}
+  .lineup:hover,.lineup:focus-visible{transform:translateY(-8px)}
+  .lineup:hover .pose.greet,.lineup:focus-visible .pose.greet{opacity:1}
+  .lineup:hover .pose.idle,.lineup:focus-visible .pose.idle{opacity:0}
+  .lineupGrid:hover .lineup:not(:hover){animation:none;transform:scale(.98)}
+  .lineup:focus-visible{outline:2px solid #B8942C;outline-offset:3px}
+}
+@media (prefers-reduced-motion:no-preference) and (min-width:769px){
+  .lineup{animation:bob 5s ease-in-out infinite}
+  .lineupGrid .lineup:nth-child(2){animation-delay:1.6s}
+  .lineupGrid .lineup:nth-child(3){animation-delay:3.2s}
+  .lineup:hover,.lineup:focus-visible{animation:none}
+  @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
+}
+.demoBand{margin-top:clamp(34px,4.4vw,60px);border-top:1.5px solid #D4AF37;background:#F6F1E7;border-radius:0 0 16px 16px;padding:clamp(22px,2.6vw,34px);display:flex;flex-wrap:wrap;align-items:center;gap:clamp(18px,2.4vw,32px)}
+.demoSlot{position:relative;flex:0 0 auto;width:118px;height:118px;border-radius:12px;background:#FFFDF8;border:1px solid #EFE9DB;display:flex;align-items:center;justify-content:center}
+.demoSlot .fig .head{width:30px;height:30px}
+.demoSlot .fig .body{width:48px;height:38px;border-radius:22px 22px 8px 8px}
+.demoSlot .slotlab{left:10px;bottom:8px;font-size:9.5px}
+.demoCopy{flex:1 1 320px;min-width:260px}
+.demoHead{font:600 clamp(18px,1.8vw,22px)/1.35 'Inter',sans-serif;color:#0A0A3C}
+.demoSub{margin-top:8px;font:400 15.5px/1.6 'Space Grotesk',sans-serif;color:#2C2C54}
+.demoCta{flex:0 0 auto}
+.reversible{flex:1 1 100%;font:400 13px/1.6 'Space Grotesk',sans-serif;color:#55557A}
+.compareAll{margin-top:clamp(24px,3vw,36px);text-align:center}
+@media (max-width:768px){  .grid8{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .tile.m2{display:none}
+  #allpairs:checked~.grid8 .tile.m2{display:flex}
+  .expander{display:flex;align-items:center;justify-content:center;min-height:48px;margin-top:14px;border-radius:10px;border:1.5px solid #0A0A3C;font:600 15px/1 'Inter',sans-serif;color:#0A0A3C;cursor:pointer}
+  #allpairs:checked~.expander .more{display:none}
+  .expander .fewer{display:none}
+  #allpairs:checked~.expander .fewer{display:inline}
+  .bubbleCol.left .bubble:first-child{display:none}
+  .scene,.scene.rev{flex-direction:column;align-items:flex-start}
+  .vignette{width:100%;aspect-ratio:3/2;max-height:300px}
+  .lineupGrid{grid-template-columns:1fr}
+  .lineupGrid .focusCard{order:-1}
+  .lineup{animation:none}
+  .poseSlot{height:200px}
+  .bottomBar{display:block;position:fixed;left:0;right:0;bottom:0;z-index:70;background:#FFFFFF;border-top:1px solid rgba(10,10,60,.1);padding:10px 16px 14px;box-shadow:0 -8px 24px rgba(10,10,60,.08)}
+  .bottomBar .btn{width:100%}
+  .bottomBar a.demo{display:flex;align-items:center;justify-content:center;min-height:38px;margin-top:4px;font:500 14px/1 'Space Grotesk',sans-serif;color:#2C2C54}
+  footer{padding-bottom:120px}
+}
+/* ===== accounts: three material cards, dealt in ===== */
+.lineupGrid{perspective:1400px}
+.lineup{position:relative;overflow:visible !important;transition:transform .45s cubic-bezier(.2,.7,.2,1), box-shadow .45s}
+.lineup::after{ /* material shine sweep on hover */
+  content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;
+  background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,.16) 48%,transparent 62%);
+  transform:translateX(-120%);transition:transform .7s ease;
+}
+.lineup:hover::after{transform:translateX(120%)}
+.lineup:hover{transform:translateY(-6px)}
+.poseSlot{position:relative;height:132px;margin-bottom:6px;overflow:visible !important;contain:none !important}
+.poseSlot *{overflow:visible}
+.lineupGrid{margin-top:clamp(118px,11vw,150px)}
+.lineup{contain:none !important}
+.poseImg{
+  position:absolute;left:50%;bottom:0;transform:translateX(-50%);
+  height:236px;max-width:none;z-index:2;
+  filter:drop-shadow(0 14px 18px rgba(120,95,30,.16));
+  transition:transform .4s cubic-bezier(.2,.7,.2,1);
+}
+.lineup:hover .poseImg{transform:translateX(-50%) translateY(-6px)}
+/* the v2 cast renders are waist-up, so they need more height than the old
+   chest-up busts for the heads to read at the same size */
+.mat-navy .poseImg{height:244px}
+.mat-porcelain .poseImg{height:258px}
+.mat-gold .poseImg{height:256px}
+/* navy material */
+.mat-navy{background:linear-gradient(165deg,#141450 0%,#0A0A3C 70%) !important;border:1px solid rgba(212,175,55,.35) !important}
+.mat-navy .acctName{color:#D4AF37 !important}
+.mat-navy .acctTitle,.mat-navy .oneNum{color:#FFFFFF !important}
+.mat-navy .acctQuote,.mat-navy .oneNumLab,.mat-navy .oneNote,.mat-navy .oneUnit{color:rgba(255,255,255,.66) !important}
+.mat-navy .specs dt{color:rgba(255,255,255,.6) !important}
+.mat-navy .specs dd{color:#FFFFFF !important}
+.mat-navy .specs > div{border-color:rgba(255,255,255,.12) !important}
+.mat-navy .lineupCta{border-color:rgba(255,255,255,.5) !important;color:#FFFFFF !important;background:transparent}
+.mat-navy .lineupCta:hover{border-color:#D4AF37 !important;color:#D4AF37 !important}
+.mat-navy .details{color:rgba(255,255,255,.72) !important}
+.mat-navy .details:hover{color:#D4AF37 !important}
+/* porcelain material (featured) */
+.mat-porcelain{background:linear-gradient(170deg,#FFFFFF 0%,#FBF7EE 100%) !important;
+  border:1px solid rgba(184,148,44,.35) !important;
+  box-shadow:0 2px 4px rgba(10,10,60,.05), 0 24px 48px -14px rgba(10,10,60,.16), 0 0 0 4px rgba(212,175,55,.10) !important}
+/* gold material */
+.mat-gold{background:linear-gradient(165deg,#F7EDD2 0%,#EFDFB4 55%,#E8D39E 100%) !important;border:1px solid rgba(184,148,44,.45) !important}
+.mat-gold .acctName{color:#8A6E1F !important}
+.mat-gold .acctTitle,.mat-gold .oneNum{color:#0A0A3C !important}
+.mat-gold .acctQuote,.mat-gold .oneNumLab,.mat-gold .oneUnit{color:#6E5A22 !important}
+.mat-gold .specs dt{color:#6E5A22 !important}
+.mat-gold .specs > div{border-color:rgba(110,90,34,.18) !important}
+.mat-gold .lineupCta{border-color:#0A0A3C !important;color:#0A0A3C !important}
+.mat-gold .details{color:#6E5A22 !important}
+/* deal-in choreography */
+.lineup.predeal{opacity:0}
+.mat-navy.predeal{transform:translateX(55%) translateY(30px) rotate(5deg)}
+.mat-porcelain.predeal{transform:translateY(46px) scale(.95)}
+.mat-gold.predeal{transform:translateX(-55%) translateY(30px) rotate(-5deg)}
+.lineup.dealt{opacity:1;transform:none;transition:opacity .6s cubic-bezier(.2,.7,.2,1), transform .7s cubic-bezier(.2,.9,.25,1.08)}
+/* demo band: Dimas breaks the frame */
+.demoBand{position:relative;overflow:visible !important}
+.demoSlot{position:relative}
+.dimasImg{
+  position:absolute;left:50%;bottom:-18px;transform:translateX(-50%);
+  height:150%;max-width:none;
+  filter:drop-shadow(0 14px 18px rgba(120,95,30,.15));
+  transition:transform .4s cubic-bezier(.2,.7,.2,1);
+}
+.demoBand:hover .dimasImg{transform:translateX(-50%) translateY(-5px)}
+@media (prefers-reduced-motion: reduce){
+  .lineup.predeal{opacity:1;transform:none}
+  .lineup::after{display:none}
+}
+/* ===== Accounts: synced with the Accounts page ===== */
+.acctBadge{
+  align-self:flex-start;margin-top:18px;
+  padding:5px 11px;border-radius:999px;
+  border:1px solid rgba(184,148,44,.55);background:rgba(212,175,55,.10);
+  font:600 10.5px/1 'Inter',sans-serif;letter-spacing:.1em;text-transform:uppercase;
+  color:#B8942C;white-space:nowrap;
+}
+.acctBadge + .acctName{margin-top:12px}
+/* the metals card is a specialist product, not a peer choice — say so up front */
+/* keeps the three cards on the same baseline when a card has no badge */
+.acctBadge.ghostBadge{visibility:hidden}
+.acctBadge.specialist{
+  border-color:rgba(110,90,34,.45);background:rgba(255,255,255,.55);color:#6E5A22;
+}
+/* the honest disqualifier — the thing no other broker prints */
+.acctWarn{
+  margin-top:14px;
+  font:400 12.5px/1.5 'Space Grotesk',sans-serif;color:#6B6B8A;text-wrap:pretty;
+}
+.mat-navy .acctWarn{color:rgba(255,255,255,.56) !important}
+.mat-navy .acctBadge{border-color:rgba(212,175,55,.55);background:rgba(212,175,55,.14);color:#D4AF37}
+.mat-gold .acctWarn{color:#6E5A22 !important}
+.platformNote{
+  margin-top:clamp(16px,2vw,26px);text-align:center;
+  font:400 13px/1.5 'Space Grotesk',sans-serif;color:#55557A;
+}
+@media (max-width:760px){
+  .acctBadge{white-space:normal}
+}
+/* ===== Typography compliance, brand guidelines ch.15 =====
+   "Space Grotesk is not for long text below 15px or for small disclaimers.
+    That is Inter Regular's job."   "Data numbers & tables: Inter, tabular figures."
+   Everything below was set in Space Grotesk under 15px, which breaks both rules. */
+
+/* small notes and disclaimers -> Inter Regular */
+.acctWarn,.oneNote,.risknote,.platformNote,.reversible,.demoNote{
+  font-family:'Inter',sans-serif;
+}
+/* spec rows: label and value now share one typeface */
+.specs dt{font-family:'Inter',sans-serif;font-weight:400}
+.specs dd{font-family:'Inter',sans-serif;font-variant-numeric:tabular-nums}
+/* eyebrow labels -> Inter Medium, caps, +14% tracking */
+.oneNumLab,.mlab{
+  font-family:'Inter',sans-serif;font-weight:500;letter-spacing:.14em;
+}
+/* data numerals -> Inter with aligned digits */
+.oneNum,.oneUnit,.munit,.msep,.mba span,.pulse{
+  font-family:'Inter',sans-serif;font-variant-numeric:tabular-nums;
+}
+/* "See full details" links parked for now */
+.lineup .details{display:none}
+/* ...except ECN, whose story page now exists. The other two switch on when
+   their own pages land. */
+.lineup .details[href="accounts-ecn.html"],
+.lineup .details[href="accounts-standard.html"],
+.lineup .details[href="accounts-metals.html"]{display:inline-flex}
+/* the disqualifier line was sitting flush against the button */
+.acctWarn{margin-bottom:clamp(14px,1.6vw,20px)}
+.lineup .lineupCta{margin-top:auto}
+/* the homepage staged these on scroll; here they are simply present */
+.hpLineup .r{opacity:1 !important; transform:none !important}
+/* this page underlines links by default; the homepage does not, and these
+   are buttons and quiet links, not body copy */
+.hpLineup a{text-decoration:none}
+
+/* the homepage resets every default margin globally; this page does not, so the
+   browser's own p/h margins crept back in and added ~120px of slack per card.
+   :where() keeps this at zero specificity so the card's own spacing still wins. */
+:where(.hpLineup) :where(p,h1,h2,h3,h4,ul,ol,li,dl,dd,dt,figure,blockquote){margin:0;padding:0}
+</style>
+</body></html>

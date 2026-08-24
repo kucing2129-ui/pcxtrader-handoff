@@ -1,0 +1,2065 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Why PCX is A-Book</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:#FFFFFF;font-family:'Space Grotesk',system-ui,sans-serif;color:#2C2C54;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+a{color:#0A0A3C;text-decoration:underline;text-decoration-thickness:1px;text-decoration-color:rgba(212,175,55,.75);text-underline-offset:3px}
+a:hover{color:#2C2C54;text-decoration-color:#B8942C;text-decoration-thickness:2px}
+
+</style>
+<style>
+.pn-sentinel{position:absolute;top:0;height:1px;width:1px}
+.pn{position:sticky;top:0;z-index:90;background:#FFFFFF;border-bottom:1px solid rgba(10,10,60,.09);transition:box-shadow .25s ease-out,border-color .25s ease-out}
+.pn.is-stuck{border-bottom-color:rgba(10,10,60,.06);box-shadow:0 8px 26px rgba(10,10,60,.08)}
+.pn-wrap{max-width:1240px;margin:0 auto;padding:0 clamp(18px,4vw,40px);height:76px;display:flex;align-items:center;gap:clamp(16px,3vw,40px);transition:height .25s ease-out}
+.pn.is-stuck .pn-wrap{height:66px}
+
+/* logo */
+.pn-logo{display:flex;align-items:center;flex:0 0 auto}
+.pn-logo img{display:block;height:36px;width:auto;transition:height .25s ease-out}
+.pn.is-stuck .pn-logo img{height:31px}
+
+/* links */
+.pn-links{display:flex;align-items:center;gap:clamp(18px,2.6vw,38px);margin-left:auto;margin-right:auto}
+.pn-links a{position:relative;font:500 16px/1 'Inter',sans-serif;color:#0A0A3C;padding:8px 0;transition:color .18s ease-out}
+.pn-links a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:#D4AF37;transform:scaleX(0);transform-origin:left;transition:transform .22s ease-out}
+.pn-links a:hover{color:#0A0A3C}
+.pn-links a:hover::after,.pn-links a.is-active::after{transform:scaleX(1)}
+.pn-links a.is-active{font-weight:600}
+.pn-links a:focus-visible{outline:2px solid #D4AF37;outline-offset:6px;border-radius:3px}
+
+/* right actions */
+.pn-right{display:flex;align-items:center;gap:clamp(12px,1.6vw,22px);flex:0 0 auto}
+.pn-login{font:500 16px/1 'Inter',sans-serif;color:#0A0A3C;padding:8px 0;transition:color .18s ease-out}
+.pn-login:hover{color:#2C2C54}
+/* standard CTA per guidelines 14.3: solid navy, white label, hover shifts toward gold */
+.pn-cta{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:0 24px;border-radius:10px;font:600 16px/1 'Inter',sans-serif;background:#0A0A3C;color:#FFFFFF;border:1.5px solid transparent;white-space:nowrap;box-shadow:0 8px 20px rgba(10,10,60,.16);transition:border-color .2s ease-out,box-shadow .2s ease-out}
+.pn-cta:hover{border-color:#D4AF37;box-shadow:0 10px 24px rgba(10,10,60,.22)}
+.pn-login:focus-visible,.pn-cta:focus-visible{outline:2px solid #D4AF37;outline-offset:3px;border-radius:10px}
+
+/* burger + mobile drawer */
+.pn-check{display:none}
+.pn-burger{display:none;width:44px;height:44px;align-items:center;justify-content:center;cursor:pointer;border-radius:10px}
+.pn-burger span{position:relative;display:block;width:20px;height:2px;background:#0A0A3C;border-radius:2px;transition:transform .2s ease-out,background .2s ease-out}
+.pn-burger span::before,.pn-burger span::after{content:"";position:absolute;left:0;width:20px;height:2px;background:#0A0A3C;border-radius:2px;transition:transform .2s ease-out}
+.pn-burger span::before{top:-6px}.pn-burger span::after{top:6px}
+.pn-drawer{display:none}
+
+@media (max-width:900px){
+  .pn-links{display:none}
+  .pn-login{display:none}
+  .pn-right{margin-left:auto}
+  .pn-burger{display:flex}
+  .pn-drawer{display:block;max-height:0;overflow:hidden;background:#FFFFFF;border-top:1px solid rgba(10,10,60,.09);transition:max-height .3s ease-out}
+  .pn-check:checked~.pn-drawer{max-height:340px}
+  .pn-check:checked+.pn-wrap .pn-burger span{background:transparent}
+  .pn-check:checked+.pn-wrap .pn-burger span::before{transform:translateY(6px) rotate(45deg)}
+  .pn-check:checked+.pn-wrap .pn-burger span::after{transform:translateY(-6px) rotate(-45deg)}
+  .pn-drawer ul{padding:8px clamp(18px,4vw,40px) 20px}
+  .pn-drawer li a{display:block;padding:14px 0;font:500 17px/1 'Inter',sans-serif;color:#0A0A3C;border-bottom:1px solid rgba(10,10,60,.09)}
+  .pn-drawer li:last-child a{border-bottom:0;color:#2C2C54}
+}
+@media (prefers-reduced-motion:reduce){.pn,.pn-wrap,.pn-drawer,.pn-links a::after{transition:none}}
+
+/* RTL (MENA) */
+[dir="rtl"] .pn-links a::after{transform-origin:right}
+</style>
+<style>
+.pf{position:relative;background:#FAF6EF;border-top:1px solid rgba(212,175,55,.45)}
+.pf-wrap{max-width:1240px;margin:0 auto;padding:0 clamp(20px,5vw,48px)}
+
+/* payment strip */
+.pf-pay{overflow:hidden;padding:clamp(20px,2.4vw,28px) 0;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.pf-payTrack{display:flex;width:200%;animation:pfMarquee 30s linear infinite}
+.pf-payGroup{flex:0 0 auto;min-width:50%;display:flex;align-items:center;justify-content:space-around;padding:0 clamp(24px,4vw,52px)}
+.pf-pay:hover .pf-payTrack{animation-play-state:paused}
+.pf-payTrack svg{display:block;height:28px;width:auto;opacity:.88;flex:0 0 auto}
+@keyframes pfMarquee{from{transform:translate3d(0,0,0)}to{transform:translate3d(-50%,0,0)}}
+@media (prefers-reduced-motion:reduce){.pf-payTrack{animation:none}}
+
+/* link columns · gold-deep eyebrow + navy links (guidelines 15.1) */
+.pf-cols{border-top:1px solid rgba(10,10,60,.10);padding-top:clamp(36px,4.4vw,58px);display:grid;grid-template-columns:repeat(4,minmax(0,1fr)) auto;gap:clamp(24px,3vw,40px)}
+.pf-h{font:600 11.5px/1 'Inter',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#B8942C;margin-bottom:18px}
+.pf-h.sub{margin-top:32px}
+.pf-cols li{margin-bottom:14px}
+.pf-cols a{display:inline-block;font:400 15px/1.4 'Space Grotesk',sans-serif;color:#2C2C54;transition:color .18s ease-out}
+.pf-cols a:hover{color:#0A0A3C}
+.pf-cols a:focus-visible{outline:2px solid #D4AF37;outline-offset:3px;border-radius:3px}
+
+/* social */
+.pf-social{display:grid;grid-template-columns:repeat(2,36px);gap:14px}
+.pf-social a{display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;background:#0A0A3C;border:1.5px solid transparent;transition:border-color .18s ease-out,transform .18s ease-out}
+.pf-social a:hover{border-color:#D4AF37;transform:translateY(-2px)}
+.pf-social svg{width:17px;height:17px;fill:#FFFFFF}
+
+/* legal · small disclaimers use Inter Regular per guidelines 15.3 */
+.pf-legal{margin-top:clamp(44px,5vw,68px);max-width:104ch}
+.pf-legal p{font:400 13.5px/1.7 'Inter',sans-serif;color:#2C2C54;text-wrap:pretty;margin-bottom:16px}
+.pf-legal ul{margin:0 0 18px;padding-left:20px;list-style:disc}
+.pf-legal li{font:400 13.5px/1.7 'Inter',sans-serif;color:#2C2C54;margin-bottom:10px;text-wrap:pretty}
+.pf-legal li::marker{color:#B8942C}
+.pf-legal b{font-weight:600;color:#0A0A3C}
+.pf-legal a{color:#0A0A3C;border-bottom:1px solid #D4AF37}
+.pf-legal a:hover{border-color:#B8942C}
+
+/* offices */
+.pf-office{margin-top:clamp(38px,4.4vw,56px);display:grid;grid-template-columns:minmax(180px,1fr) 1.35fr 1.35fr;gap:clamp(24px,3vw,44px);align-items:start}
+.pf-mark img{display:block;height:50px;width:auto}
+.pf-office h3{font:600 16px/1.4 'Inter',sans-serif;color:#0A0A3C;margin-bottom:8px}
+.pf-office p{font:400 15px/1.6 'Space Grotesk',sans-serif;color:#2C2C54;max-width:38ch;text-wrap:pretty}
+
+/* policies + copyright */
+.pf-policies{margin-top:clamp(38px,4.4vw,56px);padding-top:clamp(20px,2.4vw,28px);border-top:1px solid rgba(10,10,60,.10);display:flex;flex-wrap:wrap;justify-content:center;gap:4px 22px}
+.pf-policies a{position:relative;font:400 14px/1.5 'Inter',sans-serif;color:#2C2C54;padding:4px 0;transition:color .18s ease-out}
+.pf-policies a:hover{color:#0A0A3C}
+/* separators only when the whole row fits on one line */
+@media (min-width:1120px){
+  .pf-policies a+a::before{content:"";position:absolute;left:-11px;top:50%;transform:translateY(-50%);width:1px;height:14px;background:rgba(10,10,60,.22)}
+}
+.pf-copy{padding:clamp(22px,2.6vw,30px) 0 clamp(26px,3vw,36px);text-align:center;font:400 13.5px/1.5 'Inter',sans-serif;color:#2C2C54;opacity:.8}
+
+/* responsive */
+@media (max-width:1080px){
+  .pf-cols{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .pf-social{grid-template-columns:repeat(5,36px)}
+  .pf-office{grid-template-columns:1fr 1fr}
+  .pf-office .pf-mark{grid-column:1/-1}
+}
+@media (max-width:680px){
+  .pf-cols{grid-template-columns:repeat(2,minmax(0,1fr));gap:30px 20px}
+  .pf-office{grid-template-columns:1fr}
+  .pf-policies{justify-content:flex-start;gap:2px 20px}
+  .pf-policies a{padding:6px 0}
+  .pf-copy{text-align:left}
+}
+
+/* RTL (MENA) */
+[dir="rtl"] .pf-legal ul{padding-left:0;padding-right:20px}
+[dir="rtl"] .pf-payTrack{animation-direction:reverse}
+</style>
+<style>
+/* ===== PCX NAVBAR · Legal dropdown =====================================
+   Built on <details> so it opens by keyboard and without JS; the script
+   below only adds the two things native <details> lacks — closing on Esc
+   and on a click elsewhere. Scoped to pn- like the rest of the navbar. */
+.pn-legal{position:relative}
+.pn-legal > summary{
+  list-style:none;cursor:pointer;position:relative;display:flex;align-items:center;gap:7px;
+  font:500 16px/1 'Inter',sans-serif;color:#0A0A3C;padding:8px 0;
+  transition:color .18s ease-out}
+.pn-legal > summary::-webkit-details-marker{display:none}
+.pn-legal > summary::marker{content:""}
+.pn-legal > summary::before{
+  content:"";position:absolute;left:0;right:16px;bottom:0;height:2px;background:#D4AF37;
+  transform:scaleX(0);transform-origin:left;transition:transform .22s ease-out}
+.pn-legal > summary:hover::before,.pn-legal[open] > summary::before{transform:scaleX(1)}
+.pn-legal > summary:focus-visible{outline:2px solid #D4AF37;outline-offset:6px;border-radius:3px}
+.pn-legal > summary .pn-caret{
+  width:0;height:0;border-top:5px solid currentColor;
+  border-left:4px solid transparent;border-right:4px solid transparent;
+  transition:transform .2s ease-out;flex:none}
+.pn-legal[open] > summary .pn-caret{transform:rotate(180deg)}
+
+.pn-pop{
+  position:absolute;top:calc(100% + 12px);left:50%;transform:translateX(-50%);
+  min-width:236px;display:grid;gap:2px;padding:8px;z-index:95;
+  background:#FFFFFF;border:1px solid rgba(10,10,60,.09);border-radius:14px;
+  box-shadow:0 18px 40px -18px rgba(10,10,60,.34),0 2px 6px rgba(10,10,60,.06)}
+.pn-pop::before{
+  content:"";position:absolute;top:-6px;left:50%;margin-left:-6px;width:11px;height:11px;
+  background:#FFFFFF;border-left:1px solid rgba(10,10,60,.09);border-top:1px solid rgba(10,10,60,.09);
+  transform:rotate(45deg);border-radius:2px 0 0 0}
+.pn-pop a{
+  display:block;padding:10px 12px;border-radius:9px;
+  font:500 15px/1.35 'Inter',sans-serif;color:#0A0A3C;text-decoration:none;
+  transition:background .16s ease-out,color .16s ease-out}
+.pn-pop a:hover{background:rgba(212,175,55,.12)}
+.pn-pop a[aria-current="page"]{background:#FAF6EF;color:#55557A}
+
+/* the drawer is CSS-only, so it just needs room and a plain stacked list */
+.pn-check:checked~.pn-drawer{max-height:620px}
+.pn-drawer-legal > details > summary{
+  list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;
+  padding:14px 0;font:500 17px/1 'Inter',sans-serif;color:#0A0A3C;
+  border-bottom:1px solid rgba(10,10,60,.09)}
+.pn-drawer-legal > details > summary::-webkit-details-marker{display:none}
+.pn-drawer-legal > details > summary::after{
+  content:"";width:0;height:0;border-top:5px solid currentColor;
+  border-left:4px solid transparent;border-right:4px solid transparent;transition:transform .2s ease-out}
+.pn-drawer-legal > details[open] > summary::after{transform:rotate(180deg)}
+.pn-drawer-legal a{
+  display:block;padding:12px 0 12px 16px;font:400 16px/1.3 'Inter',sans-serif;color:#2C2C54;
+  border-bottom:1px solid rgba(10,10,60,.06)}
+@media (prefers-reduced-motion:reduce){
+  .pn-legal > summary::before,.pn-pop a,.pn-legal .pn-caret{transition:none}
+}
+</style>
+<script>
+/* native <details> does not close on Esc or on an outside click */
+function pcxLegalMenu(){
+  var d=document.querySelector('.pn-legal'); if(!d) return;
+  var sum=d.querySelector('summary');
+  if(sum && !sum.querySelector('.pn-caret')){
+    var c=document.createElement('span'); c.className='pn-caret'; c.setAttribute('aria-hidden','true');
+    sum.appendChild(c);
+  }
+  document.addEventListener('click',function(e){ if(d.open && !d.contains(e.target)) d.open=false; });
+  document.addEventListener('keydown',function(e){
+    if(e.key==='Escape' && d.open){ d.open=false; sum && sum.focus(); }
+  });
+}
+/* this block sits in <head>, so the navbar does not exist yet at parse time */
+if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',pcxLegalMenu);
+else pcxLegalMenu();
+</script>
+<meta name="description" content="Some brokers earn from your trading. Some earn from your losing. Here is where your order actually goes at PCX, and why we chose the A-Book model.">
+<link rel="icon" type="image/png" href="assets/pcx-logo-navy.png">
+<link rel="apple-touch-icon" href="assets/pcx-logo-navy.png">
+<style>
+/* This page's base styles underline every link, and it was leaking into the
+   shell navbar and footer. Neutralised here; the pn-/pf- components are untouched. */
+.pn a, .pf a{text-decoration:none}
+</style>
+
+<style>
+/* ====================================================================== *
+ * The two models, drawn the way the ECN page draws routing: every element
+ * named, one gold lane in, and — on the A-Book side only — a fan out to the
+ * providers. No coin: the travelling dash IS the order.
+ * ====================================================================== */
+.wa-route{display:flex;align-items:stretch;justify-content:center;
+  padding:clamp(10px,1.4vw,18px) 0 0}
+.wa-node{position:relative;flex:none;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  padding-bottom:clamp(26px,3vw,36px)}
+.wa-node img{width:auto;filter:drop-shadow(0 12px 18px rgba(10,10,60,.2))}
+.wa-node figcaption{position:absolute;bottom:0;left:50%;
+  transform:translateX(-50%);text-align:center;
+  font:600 clamp(9px,.95vw,11px)/1.25 'Inter',sans-serif;letter-spacing:.1em;
+  text-transform:uppercase;color:rgba(10,10,60,.62);max-width:13ch}
+.wa-you img{height:clamp(44px,5.2vw,70px)}
+
+.wa-hub{position:relative;
+  width:clamp(62px,7.4vw,98px);height:clamp(62px,7.4vw,98px);
+  border-radius:clamp(14px,1.8vw,22px);background:#0A0A3C;
+  display:grid;place-items:center;
+  box-shadow:0 1px 2px rgba(10,10,60,.2),0 16px 28px -16px rgba(10,10,60,.75)}
+.wa-hub::after{content:"";position:absolute;inset:0;border-radius:inherit;
+  border:1px solid rgba(212,175,55,.55);pointer-events:none}
+.wa-hub img{width:62%;height:auto;filter:none}
+/* the B-Book box is the same box with nothing in it — that is the point */
+.wa-hub.blank{background:#1B1B4A}
+.wa-hub.blank::after{border-color:rgba(250,246,239,.22)}
+
+.wa-stack{display:grid;row-gap:clamp(5px,.7vw,9px);justify-items:start}
+.wa-stack img{height:clamp(30px,3.6vw,50px)}
+.wa-stack img:nth-child(2){margin-left:clamp(4px,.8vw,12px)}
+.wa-dim{opacity:.34;filter:grayscale(.55)}
+
+.wa-lane{position:relative;flex:none;align-self:center;
+  width:clamp(22px,2.8vw,42px);height:2px;border-radius:2px;
+  margin:0 clamp(6px,1vw,13px) clamp(26px,3vw,36px);
+  background:rgba(212,175,55,.28)}
+.wa-lane i{position:absolute;top:-1px;left:0;width:12px;height:4px;
+  border-radius:2px;background:#D4AF37;opacity:0}
+.wa-lane.dead{background:rgba(10,10,60,.12)}
+@media (prefers-reduced-motion:no-preference){
+  .wa-lane i{animation:waFlow 2.6s linear infinite}
+}
+@keyframes waFlow{
+  0%{transform:translateX(-14px);opacity:0}
+  16%{opacity:1}
+  84%{opacity:1}
+  100%{transform:translateX(calc(100% + 40px));opacity:0}}
+
+.wa-fan{flex:none;align-self:center;width:clamp(28px,3.4vw,52px);
+  height:clamp(96px,11vw,150px);overflow:visible;
+  margin:0 clamp(3px,.5vw,8px) clamp(26px,3vw,36px)}
+.wa-fan path{fill:none;stroke:#D4AF37;stroke-width:2;stroke-linecap:round;
+  vector-effect:non-scaling-stroke}
+.wa-fan path.trk{stroke:rgba(212,175,55,.4);stroke-width:1.5}
+@media (prefers-reduced-motion:no-preference){
+  .wa-fan path.run{stroke-dasharray:7 19;animation:waMarch 1.7s linear infinite}
+  .wa-fan path.run.d2{animation-delay:-.57s}
+  .wa-fan path.run.d3{animation-delay:-1.13s}
+}
+@keyframes waMarch{to{stroke-dashoffset:-26}}
+
+.wa-say{margin:clamp(14px,2vw,22px) 0 0;text-align:center}
+.wa-say b{display:block;font:700 16px/1.45 'Inter',sans-serif;color:#0A0A3C}
+.wa-say span{display:block;margin-top:6px;
+  font:400 15px/1.5 'Space Grotesk',sans-serif;color:#55557A}
+.model-b .wa-say b{color:#2C2C54}
+@media(max-width:420px){
+  .wa-you img{height:44px}
+  .wa-stack img{height:30px}
+}
+</style>
+</head>
+<body>
+
+
+<div style="background:#FFFFFF;color:#0A0A3C;font-family:'Space Grotesk',system-ui,sans-serif">
+
+<div class="pn-sentinel" aria-hidden="true"></div>
+<header class="pn" id="pn">
+  <input type="checkbox" id="pnMenu" class="pn-check" aria-label="Toggle menu">
+  <div class="pn-wrap">
+
+    <a class="pn-logo" href="homepage-v2.html" aria-label="PCX home">
+      <img src="assets/pcx-logo-navy.png" alt="PCX" width="280" height="147" fetchpriority="high" decoding="async">
+    </a>
+
+    <nav class="pn-links" aria-label="Main">
+      <a href="accounts-v2.html">Accounts</a>
+      <a href="why-abook-v2.html" class="is-active">Why A-Book</a>
+      <a href="https://www.pcxtrader.com/bonus50">Promotions</a>
+      <details class="pn-legal">
+        <summary aria-label="Legal documents">Legal</summary>
+        <div class="pn-pop">
+          <a href="legal-terms.html">Terms &amp; Conditions</a>
+          <a href="legal-risk-disclosure.html">Risk Disclosure</a>
+          <a href="legal-privacy.html">Privacy Policy</a>
+          <a href="legal-cookies.html">Cookies Policy</a>
+          <a href="legal-client-agreement.html">Client Agreement</a>
+          <a href="legal-pamm.html">PAMM Service Agreement</a>
+        </div>
+      </details>
+    </nav>
+
+    <div class="pn-right">
+      <a class="pn-login" href="https://dashboard.pcxtrader.com/login">Log in</a>
+      <a class="pn-cta" href="https://dashboard.pcxtrader.com/register">Open Account</a>
+      <label class="pn-burger" for="pnMenu" aria-label="Open menu"><span></span></label>
+    </div>
+  </div>
+
+  <div class="pn-drawer">
+    <ul>
+      <li><a href="accounts-v2.html">Accounts</a></li>
+      <li><a href="why-abook-v2.html">Why A-Book</a></li>
+      <li><a href="https://www.pcxtrader.com/bonus50">Promotions</a></li>
+      <li class="pn-drawer-legal">
+        <details>
+          <summary>Legal</summary>
+          <div>
+            <a href="legal-terms.html">Terms &amp; Conditions</a>
+            <a href="legal-risk-disclosure.html">Risk Disclosure</a>
+            <a href="legal-privacy.html">Privacy Policy</a>
+            <a href="legal-cookies.html">Cookies Policy</a>
+          </div>
+        </details>
+      </li>
+      <li><a href="https://dashboard.pcxtrader.com/login">Log in</a></li>
+    </ul>
+  </div>
+</header><script>
+/* sticky state: no scroll listener, sentinel leaves viewport => solid bar */
+(function(){
+  var s=document.querySelector('.pn-sentinel'),n=document.getElementById('pn');
+  if(!s||!n||!('IntersectionObserver' in window))return;
+  new IntersectionObserver(function(e){n.classList.toggle('is-stuck',!e[0].isIntersecting);},{threshold:0}).observe(s);
+})();
+</script>
+
+<main>
+
+<section id="hero" class="waHero" aria-labelledby="hero-h" style="padding:clamp(44px,6vw,86px) 20px clamp(40px,5vw,72px);background:#FFFFFF">
+  <div class="heroGrid">
+    <div class="heroLead">
+      <p class="rise r1" style="font-family:Inter,sans-serif;font-weight:700;font-size:12px;letter-spacing:.15em;text-transform:uppercase;color:#B8942C;margin:0 0 16px">Why A-Book</p>
+      <h1 id="hero-h" class="rise r2" style="font-family:Inter,sans-serif;font-weight:800;font-size:clamp(38px,5.6vw,66px);line-height:1.04;letter-spacing:-.025em;color:#0A0A3C;margin:0 0 28px;text-wrap:balance">Why PCX is A-Book</h1>
+    </div>
+
+    <div class="heroRest">
+      <div class="rise r3" style="display:grid;gap:18px;max-width:36em">
+        <p style="margin:0;font-size:19px;line-height:1.6;color:#0A0A3C">Some brokers earn from your trading. Some earn from your losing.</p>
+        <p style="margin:0;font-size:19px;line-height:1.6;color:#0A0A3C">The difference is the whole story of this page.</p>
+        <p style="margin:0;font-size:17px;line-height:1.6;color:#2C2C54">Most retail traders lose money. It is printed at the bottom of almost any regulated broker's site. Including ours.</p>
+      </div>
+      <div class="defBox rise r4" style="margin:28px 0 0;padding:22px 24px;background:linear-gradient(180deg,#FFFFFF,#FBF8F1);border:1px solid #EFE9DB;border-radius:16px;box-shadow:0 1px 2px rgba(10,10,60,.05),0 10px 24px -14px rgba(10,10,60,.18);max-width:40em">
+        <p style="margin:0;font-size:16px;line-height:1.62;color:#2C2C54"><span style="font-family:Inter,sans-serif;font-weight:700;color:#0A0A3C">A-Book</span> means every PCX order goes out to the real market through external liquidity providers. We earn from spreads and commissions when you trade, not from your losses.</p>
+      </div>
+      <div class="rise r5" style="display:flex;flex-wrap:wrap;gap:14px;margin:28px 0 0">
+        <a href="https://dashboard.pcxtrader.com/register" style="display:inline-flex;align-items:center;justify-content:center;min-height:54px;padding:0 28px;border-radius:13px;background:#0A0A3C;color:#FFFFFF;font-family:Inter,sans-serif;font-weight:600;font-size:16px;text-decoration:none;box-shadow:0 2px 4px rgba(10,10,60,.2)" style-hover="background:#16164E;box-shadow:0 0 0 2px rgba(212,175,55,.65)">Open Account</a>
+        <a href="#problem" style="display:inline-flex;align-items:center;justify-content:center;min-height:54px;padding:0 26px;border-radius:13px;background:transparent;border:1.5px solid #0A0A3C;color:#0A0A3C;font-family:Inter,sans-serif;font-weight:600;font-size:16px;text-decoration:none" style-hover="background:rgba(10,10,60,.05)">See how it works</a>
+      </div>
+      <p style="margin:14px 0 0;font-size:15px;color:#2C2C54">Trading involves risk.</p>
+      <div class="onThis rise r6" style="margin:30px 0 0;padding-top:20px;border-top:1px solid #EFE9DB;display:flex;flex-wrap:wrap;align-items:center;gap:10px 18px">
+        <span style="font-family:Inter,sans-serif;font-weight:700;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:#B8942C">On this page</span>
+        <a href="#problem" style="font-family:Inter,sans-serif;font-size:14.5px">The problem</a>
+        <span aria-hidden="true" style="color:#55557A">·</span>
+        <a href="#solution" style="font-family:Inter,sans-serif;font-size:14.5px">The other model</a>
+        <span aria-hidden="true" style="color:#55557A">·</span>
+        <a href="#check" style="font-family:Inter,sans-serif;font-size:14.5px">Test us yourself</a>
+      </div>
+    </div>
+    <div class="heroArt" style="position:relative;min-height:380px;display:flex;align-items:stretch">
+      <span class="heroOrn" aria-hidden="true">
+        <i class="ring r-a"></i><i class="ring r-b"></i><i class="ring r-c"></i>
+        <i class="spk s1"></i><i class="spk s2"></i><i class="spk s3"></i><i class="spk s4"></i><i class="spk s5"></i><i class="spk s6"></i>
+        <i class="pool"></i><i class="floor"></i>
+      </span>
+      <img class="heroFig" src="assets/nora-sceptical.webp" alt="Nora, arms lightly folded, listening with a sceptical calm.">
+    </div>
+  </div>
+</section>
+
+<section id="problem" class="waProblem" aria-labelledby="p1-h" style="scroll-margin-top:90px;padding:clamp(56px,7vw,104px) 20px;background:#FAF6EF;border-top:1px solid #F0E8D8;border-bottom:1px solid #F0E8D8">
+  <div style="max-width:1180px;margin:0 auto">
+    <p class="rise r1" style="font-family:Inter,sans-serif;font-weight:700;font-size:12px;letter-spacing:.15em;text-transform:uppercase;color:#B8942C;margin:0 0 14px">The problem</p>
+    <h2 id="p1-h" class="rise r2" style="font-family:Inter,sans-serif;font-weight:700;font-size:clamp(28px,3.5vw,44px);line-height:1.12;letter-spacing:-.02em;color:#0A0A3C;margin:0 0 32px;max-width:22em">Where does your order actually go?</h2>
+    <div class="legend rise r3" style="display:flex;flex-wrap:wrap;gap:10px;margin:0 0 34px">
+      <span style="display:inline-flex;align-items:center;gap:9px;padding:9px 16px;border-radius:999px;background:#FFFFFF;border:1px solid #EFE9DB;font-family:Inter,sans-serif;font-weight:600;font-size:14px;color:#0A0A3C"><span style="width:9px;height:9px;border-radius:999px;background:#0A0A3C;display:block"></span>You</span>
+      <span style="display:inline-flex;align-items:center;gap:9px;padding:9px 16px;border-radius:999px;background:#FFFFFF;border:1px solid #EFE9DB;font-family:Inter,sans-serif;font-weight:600;font-size:14px;color:#0A0A3C"><span style="width:9px;height:9px;border-radius:2px;background:#2C2C54;display:block"></span>Your broker</span>
+      <span style="display:inline-flex;align-items:center;gap:9px;padding:9px 16px;border-radius:999px;background:#FFFFFF;border:1px solid #EFE9DB;font-family:Inter,sans-serif;font-weight:600;font-size:14px;color:#0A0A3C"><span style="width:9px;height:9px;border-radius:2px;background:#D4AF37;display:block"></span>The market</span>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:24px">
+      <figure class="model model-b rise r4" data-steps="2" style="margin:0;background:linear-gradient(180deg,#FFFFFF,#FBF8F1);border:1px solid #EFE9DB;border-radius:16px;box-shadow:0 1px 2px rgba(10,10,60,.05),0 10px 24px -14px rgba(10,10,60,.18);padding:24px">
+        <figcaption style="font-family:Inter,sans-serif;font-weight:700;font-size:17px;color:#2C2C54;margin:0 0 8px">How the B-Book model works.</figcaption>
+        <div class="wa-route" role="img" aria-label="Your order leaves you, reaches the broker, and stops there. It never reaches the market."><figure class="wa-node wa-you"><img src="assets/prop-you.webp" width="311" height="420" alt="" loading="lazy" decoding="async"><figcaption>Your order</figcaption></figure><span class="wa-lane" aria-hidden="true"><i></i></span><figure class="wa-node"><span class="wa-hub blank" aria-hidden="true"></span><figcaption>B-Book broker</figcaption></figure><span class="wa-lane dead" aria-hidden="true"></span><figure class="wa-node"><span class="wa-stack wa-dim"><img src="assets/prop-bank-1.webp" width="337" height="420" alt="" loading="lazy" decoding="async"><img src="assets/prop-bank-2.webp" width="335" height="420" alt="" loading="lazy" decoding="async"><img src="assets/prop-bank-3.webp" width="343" height="420" alt="" loading="lazy" decoding="async"></span><figcaption>Liquidity providers</figcaption></figure></div><p class="wa-say"><b>Your order stops here.<br>The broker takes the other side.</b><span>Your loss becomes their revenue.</span></p>
+      </figure>
+      <figure class="model model-a rise r5" data-steps="2" style="margin:0;background:linear-gradient(180deg,#FFFFFF,#FBF8F1);border:1px solid #EFE9DB;border-radius:16px;box-shadow:0 1px 2px rgba(10,10,60,.05),0 10px 24px -14px rgba(10,10,60,.18);padding:24px">
+        <figcaption style="font-family:Inter,sans-serif;font-weight:700;font-size:17px;color:#0A0A3C;margin:0 0 8px">How the A-Book model works.</figcaption>
+        <div class="wa-route" role="img" aria-label="Your order leaves you, passes through PCX, and fans out to many liquidity providers."><figure class="wa-node wa-you"><img src="assets/prop-you.webp" width="311" height="420" alt="" loading="lazy" decoding="async"><figcaption>Your order</figcaption></figure><span class="wa-lane" aria-hidden="true"><i></i></span><figure class="wa-node"><span class="wa-hub"><img src="assets/pcx-logo-white.png" width="280" height="147" alt="PCX" loading="lazy" decoding="async"></span><figcaption>PCX</figcaption></figure><svg class="wa-fan" viewBox="0 0 60 120" aria-hidden="true" focusable="false" preserveAspectRatio="none"><path class="trk" d="M0 60 H24 C40 60 42 12 60 12"></path><path class="trk" d="M0 60 H60"></path><path class="trk" d="M0 60 H24 C40 60 42 108 60 108"></path><path class="run" d="M0 60 H24 C40 60 42 12 60 12"></path><path class="run d2" d="M0 60 H60"></path><path class="run d3" d="M0 60 H24 C40 60 42 108 60 108"></path></svg><figure class="wa-node"><span class="wa-stack"><img src="assets/prop-bank-1.webp" width="337" height="420" alt="" loading="lazy" decoding="async"><img src="assets/prop-bank-2.webp" width="335" height="420" alt="" loading="lazy" decoding="async"><img src="assets/prop-bank-3.webp" width="343" height="420" alt="" loading="lazy" decoding="async"></span><figcaption>Liquidity providers</figcaption></figure></div><p class="wa-say"><b>Your order goes to the market.<br>We earn a fee for the trip.</b><span>Win or lose, the fee is the same.</span></p>
+      </figure>
+    </div>
+    <p class="rise r6" style="margin:34px 0 0;max-width:44em;font-size:17px;line-height:1.62;color:#2C2C54">B-Book is legal, it is common, and many brokers run it honestly. But it puts the broker's income on the opposite side of yours, on every single trade.</p>
+  </div>
+</section>
+
+<section class="ornDots" aria-labelledby="p2-h" style="padding:clamp(56px,7vw,104px) 20px;background:#FFFFFF">
+  <div style="max-width:1180px;margin:0 auto">
+    <h2 id="p2-h" style="font-family:Inter,sans-serif;font-weight:700;font-size:clamp(28px,3.5vw,44px);line-height:1.12;letter-spacing:-.02em;color:#0A0A3C;margin:0 0 14px;max-width:24em">Have you seen this model from your side of the screen?</h2>
+    <p style="margin:0 0 36px;font-size:18px;color:#2C2C54">You do not have to take our word for it. Check your own memory.</p>
+    <div class="tGrid3">
+      <article class="tCard" data-rv="1" style="background:linear-gradient(180deg,#FFFFFF,#FBF8F1);border:1px solid #EFE9DB;border-radius:16px;box-shadow:0 1px 2px rgba(10,10,60,.05),0 10px 24px -14px rgba(10,10,60,.18);padding:28px;display:grid;gap:14px;align-content:start">
+        <h3 style="font-family:Inter,sans-serif;font-weight:700;font-size:19.5px;line-height:1.3;color:#0A0A3C;margin:0">The slip at the worst moment.</h3>
+        <p style="margin:0;font-size:16px;line-height:1.62;color:#0A0A3C">Your take profit was one pip away. Then the price slipped, just once, just enough.</p>
+        <p style="margin:0;padding-top:14px;border-top:1px solid #EFE9DB;font-size:15px;line-height:1.6;color:#55557A">Slippage is real everywhere; markets move. The question is whether your broker earns when it moves against you.</p>
+      </article>
+      <article class="tCard" data-rv="1" style="background:linear-gradient(180deg,#FFFFFF,#FBF8F1);border:1px solid #EFE9DB;border-radius:16px;box-shadow:0 1px 2px rgba(10,10,60,.05),0 10px 24px -14px rgba(10,10,60,.18);padding:28px;display:grid;gap:14px;align-content:start">
+        <h3 style="font-family:Inter,sans-serif;font-weight:700;font-size:19.5px;line-height:1.3;color:#0A0A3C;margin:0">The paperwork that arrives after a good month.</h3>
+        <p style="margin:0;font-size:16px;line-height:1.62;color:#0A0A3C">The deposit took a minute. The withdrawal, after your best month, suddenly needed more documents.</p>
+        <p style="margin:0;padding-top:14px;border-top:1px solid #EFE9DB;font-size:15px;line-height:1.6;color:#55557A">Verification checks are real and required everywhere. The question is what your broker’s book feels while you wait.</p>
+      </article>
+      <article class="tCard" data-rv="1" style="background:linear-gradient(180deg,#FFFFFF,#FBF8F1);border:1px solid #EFE9DB;border-radius:16px;box-shadow:0 1px 2px rgba(10,10,60,.05),0 10px 24px -14px rgba(10,10,60,.18);padding:28px;display:grid;gap:14px;align-content:start">
+        <h3 style="font-family:Inter,sans-serif;font-weight:700;font-size:19.5px;line-height:1.3;color:#0A0A3C;margin:0">The freeze at the news spike.</h3>
+        <p style="margin:0;font-size:16px;line-height:1.62;color:#0A0A3C">The platform froze for thirty seconds, right at the news. Your stop filled at the bottom of the wick.</p>
+        <p style="margin:0;padding-top:14px;border-top:1px solid #EFE9DB;font-size:15px;line-height:1.6;color:#55557A">Liquidity really does thin at news, on every platform. The question is who profits from the seconds you lost.</p>
+      </article>
+    </div>
+    <p style="margin:34px 0 0;max-width:46em;font-size:16.5px;line-height:1.62;color:#2C2C54">Each of these moments has an innocent explanation. That is true, and worth saying. But at a broker whose book earns from your loss, you can never be sure which explanation you got. That doubt is the cost of the model.</p>
+  </div>
+</section>
+
+<section id="age" class="waAge" aria-labelledby="p3-h" style="scroll-margin-top:90px;padding:clamp(56px,7vw,104px) 20px;background:#FAF6EF;border-top:1px solid #F0E8D8;border-bottom:1px solid #F0E8D8">
+  <div style="max-width:1180px;margin:0 auto">
+    <h2 id="p3-h" class="ageRise ageR1" style="font-family:Inter,sans-serif;font-weight:700;font-size:clamp(28px,3.5vw,44px);line-height:1.12;letter-spacing:-.02em;color:#0A0A3C;margin:0 0 clamp(18px,2.4vw,34px)">How old is this problem?</h2>
+    <p class="ageRise ageR2" style="margin:0 auto clamp(20px,3vw,40px);max-width:19em;text-align:center;font-family:Inter,sans-serif;font-weight:700;font-size:clamp(23px,2.8vw,32px);line-height:1.25;letter-spacing:-.015em;color:#0A0A3C;text-wrap:balance">This model is older than the internet.</p>
+
+    <div class="ageTime" id="ageTime">
+      <div class="ageScene">
+        <img class="ageFixed ageYou" src="assets/prop-you.webp" alt="" width="196" height="266" loading="lazy" decoding="async">
+        <span class="ageMid">
+          <img class="ageShell ageShellA" src="assets/mid-1-deskbook.webp" alt="" width="579" height="420" loading="lazy" decoding="async">
+          <img class="ageShell ageShellB" src="assets/mid-3-tradingdesk.webp" alt="" width="436" height="420" loading="lazy" decoding="async">
+        </span>
+        <img class="ageFixed ageMkt" src="assets/fx-globe.webp" alt="" width="381" height="420" loading="lazy" decoding="async">
+        <span class="ageChip" aria-hidden="true"></span>
+      </div>
+      <div class="ageTrack">
+        <span class="ageRail" aria-hidden="true"></span>
+        <span class="ageKnob" aria-hidden="true"></span>
+        <input class="ageRange" type="range" min="0" max="1000" value="0" aria-label="Drag to move through time, from a paper ledger to a trading screen. The mechanism in front does not change.">
+      </div>
+    </div>
+
+    <div class="ageTail">
+      <p class="ageRise ageR3" style="margin:0 0 clamp(14px,1.8vw,22px);font-size:16.5px;line-height:1.62;color:#2C2C54">Wherever a business can profit from your loss and also stand between you and the market, the same story follows. It has been named, banned, renamed, and rebuilt more than once.</p>
+      <p class="ageRise ageR4" style="margin:0;font-family:Inter,sans-serif;font-weight:600;font-size:clamp(18px,2.2vw,22px);line-height:1.35;color:#0A0A3C;text-wrap:balance">The names change. The math does not.</p>
+    </div>
+    <p class="ageRise ageR4" style="margin:clamp(20px,2.6vw,36px) auto 0;max-width:38em;text-align:center;font-size:16.5px;line-height:1.6;color:#2C2C54">Today's B-Book is regulated and legal. The model survives. So does its incentive.</p>
+  </div>
+</section>
+
+<section id="cycle" aria-labelledby="p4-h" style="scroll-margin-top:90px;padding:clamp(56px,7vw,104px) 20px clamp(40px,5vw,72px);background:#FFFFFF">
+  <div style="max-width:1180px;margin:0 auto">
+    <h2 id="p4-h" style="font-family:Inter,sans-serif;font-weight:700;font-size:clamp(28px,3.5vw,44px);line-height:1.12;letter-spacing:-.02em;color:#0A0A3C;margin:0 0 28px">Why does it keep happening?</h2>
+    <div data-only="desktop" data-d="block" data-steps="5">
+      <svg class="flow flowCyc" viewBox="0 0 1000 620" role="img" aria-label="Diagram of a repeating grey cycle with four stages: the broker needs clients to lose, trading turns against the client, losing clients leave, the broker hunts new clients. The centre of the ring is empty." style="width:100%;height:auto;display:block;max-width:940px;margin:0 auto">
+        <defs>
+          <marker id="dHead" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="rgba(10,10,60,.42)"></path></marker>
+          <filter id="cycSh" x="-60%" y="-60%" width="220%" height="220%">
+            <feDropShadow dx="0" dy="5" stdDeviation="6" flood-color="#0A0A3C" flood-opacity=".2"></feDropShadow>
+          </filter>
+          <radialGradient id="cycPool" cx="50%" cy="50%" r="50%">
+            <stop offset="0" stop-color="#0A0A3C" stop-opacity=".05"></stop>
+            <stop offset="1" stop-color="#0A0A3C" stop-opacity="0"></stop>
+          </radialGradient>
+        </defs>
+
+        <ellipse cx="450" cy="300" rx="300" ry="230" fill="url(#cycPool)"></ellipse>
+        <circle class="cycRing" cx="450" cy="300" r="150" fill="none" stroke="rgba(10,10,60,.2)" stroke-width="1" stroke-dasharray="16 12"></circle>
+        <circle class="cycHub" cx="450" cy="300" r="50" fill="none" stroke="rgba(10,10,60,.18)" stroke-width="1" stroke-dasharray="3 7"></circle>
+
+        <g data-step="1">
+          <g class="cycObj cycObj1"><path d="M400 160 H500" stroke="rgba(10,10,60,.20)" stroke-width="1.5" fill="none"></path><rect x="414" y="160" width="24" height="34" rx="4" fill="#0A0A3C"></rect><path d="M426 88 v-0" stroke="none"></path><rect x="462" y="126" width="24" height="34" rx="4" fill="#D4AF37"></rect><path d="M426 200 v10 M421 206 l5 5 5 -5" stroke="#0A0A3C" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"></path><path d="M474 120 v-10 M469 114 l5 -5 5 5" stroke="#B8942C" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"></path><text x="426" y="228" text-anchor="middle" style="font-family:Inter,sans-serif;font-size:12px;font-weight:700;fill:rgba(10,10,60,.55)">You</text><text x="474" y="228" text-anchor="middle" style="font-family:Inter,sans-serif;font-size:12px;font-weight:700;fill:#B8942C">Broker</text></g>
+          <circle class="cycBadge cycBadge1" cx="390" cy="194" r="15" fill="#2C2C54" fill-opacity=".78" filter="url(#cycSh)"></circle>
+          <text x="390" y="199" text-anchor="middle" style="font-family:Inter,sans-serif;font-size:13px;font-weight:700;fill:#FFFFFF;font-variant-numeric:tabular-nums">1</text>
+          <text x="450" y="52" text-anchor="middle" style="font-family:Inter,sans-serif;font-size:16px;font-weight:600;fill:rgba(10,10,60,.62)">The broker needs clients</text>
+          <text x="450" y="74" text-anchor="middle" style="font-family:Inter,sans-serif;font-size:16px;font-weight:600;fill:rgba(10,10,60,.62)">to lose</text>
+        </g>
+        <g data-step="2">
+          <path class="cycArc" d="M506.2 160.9 A150 150 0 0 1 589.1 243.8" fill="none" stroke="rgba(10,10,60,.42)" stroke-width="1.8" stroke-dasharray="8 7" stroke-linecap="butt" marker-end="url(#dHead)"></path>
+          <image class="cycObj cycObj2" href="assets/fx-2-candles-down.webp" x="540" y="240" width="120" height="120" preserveAspectRatio="xMidYMid meet"></image>
+          <circle class="cycBadge cycBadge2" cx="540" cy="344" r="15" fill="#2C2C54" fill-opacity=".78" filter="url(#cycSh)"></circle>
+          <text x="540" y="349" text-anchor="middle" style="font-family:Inter,sans-serif;font-size:13px;font-weight:700;fill:#FFFFFF;font-variant-numeric:tabular-nums">2</text>
+          <text x="688" y="284" style="font-family:Inter,sans-serif;font-size:16px;font-weight:600;fill:rgba(10,10,60,.62)">Trading turns against</text>
+          <text x="688" y="306" style="font-family:Inter,sans-serif;font-size:16px;font-weight:600;fill:rgba(10,10,60,.62)">the client</text>
+          <text x="688" y="334" style="font-family:'Space Grotesk',sans-serif;font-size:15px;fill:rgba(10,10,60,.72)">the stories every trader has heard:</text>
+          <text x="688" y="352" style="font-family:'Space Grotesk',sans-serif;font-size:15px;fill:rgba(10,10,60,.72)">slippage at the worst moment</text>
+          <text x="688" y="370" style="font-family:'Space Grotesk',sans-serif;font-size:15px;fill:rgba(10,10,60,.72)">profits that shrink &#183; friction at the exit</text>
+        </g>
+        <g data-step="3">
+          <path class="cycArc" d="M589.1 356.2 A150 150 0 0 1 506.2 439.1" fill="none" stroke="rgba(10,10,60,.42)" stroke-width="1.8" stroke-dasharray="8 7" stroke-linecap="butt" marker-end="url(#dHead)"></path>
+          </image>
+          <g class="cycObj cycObj3"><image href="assets/prop-you.webp" x="404" y="404" width="66" height="90"></image><path d="M392 420 v34 M385 447 l7 7 7 -7" stroke="#0A0A3C" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity=".7"></path><path d="M480 400 h34 v96 h-34" stroke="rgba(10,10,60,.45)" stroke-width="2.2" fill="none" stroke-linejoin="round"></path><path d="M478 448 h26 M496 440 l8 8 -8 8" stroke="#B8942C" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></g><circle class="cycBadge cycBadge3" cx="390" cy="494" r="15" fill="#2C2C54" fill-opacity=".78" filter="url(#cycSh)"></circle>
+          <text x="390" y="499" text-anchor="middle" style="font-family:Inter,sans-serif;font-size:13px;font-weight:700;fill:#FFFFFF;font-variant-numeric:tabular-nums">3</text>
+          <text x="450" y="548" text-anchor="middle" style="font-family:Inter,sans-serif;font-size:16px;font-weight:600;fill:rgba(10,10,60,.62)">Losing clients leave</text>
+        </g>
+        <g data-step="4">
+          <path class="cycArc" d="M393.8 439.1 A150 150 0 0 1 310.9 356.2" fill="none" stroke="rgba(10,10,60,.42)" stroke-width="1.8" stroke-dasharray="8 7" stroke-linecap="butt" marker-end="url(#dHead)"></path>
+          </image>
+          <g class="cycObj cycObj4"><image href="assets/prop-call.webp" x="244" y="286" width="91" height="104"></image></g><circle class="cycBadge cycBadge4" cx="240" cy="344" r="15" fill="#2C2C54" fill-opacity=".78" filter="url(#cycSh)"></circle>
+          <text x="240" y="349" text-anchor="middle" style="font-family:Inter,sans-serif;font-size:13px;font-weight:700;fill:#FFFFFF;font-variant-numeric:tabular-nums">4</text>
+          <text x="212" y="290" text-anchor="end" style="font-family:Inter,sans-serif;font-size:16px;font-weight:600;fill:rgba(10,10,60,.62)">The broker hunts</text>
+          <text x="212" y="312" text-anchor="end" style="font-family:Inter,sans-serif;font-size:16px;font-weight:600;fill:rgba(10,10,60,.62)">new clients</text>
+        </g>
+        <g data-step="5"><path class="cycArc" d="M310.9 243.8 A150 150 0 0 1 393.8 160.9" fill="none" stroke="rgba(10,10,60,.42)" stroke-width="1.8" stroke-dasharray="8 7" stroke-linecap="butt" marker-end="url(#dHead)"></path></g>
+
+        </svg>
+      <p data-step="5" style="margin:8px 0 0;text-align:center;font-family:Inter,sans-serif;font-weight:600;font-size:18px;color:#2C2C54">Clients leave. New clients arrive. New clients need to lose.</p>
+    </div>
+    <div data-only="mobile" data-d="grid" style="display:none;gap:0;max-width:520px;margin:0 auto">
+      <div style="display:grid;grid-template-columns:44px 1fr;gap:16px;align-items:center">
+        <span style="width:44px;height:44px;border-radius:999px;border:1.3px dashed rgba(10,10,60,.4);display:flex;align-items:center;justify-content:center;font-family:Inter,sans-serif;font-weight:700;font-size:15px;color:rgba(10,10,60,.5);font-variant-numeric:tabular-nums">1</span>
+        <span style="font-family:Inter,sans-serif;font-weight:600;font-size:16.5px;color:rgba(10,10,60,.62)">The broker needs clients to lose</span>
+      </div>
+      <div style="height:26px;margin-left:21px;border-left:2px dashed rgba(10,10,60,.4)"></div>
+      <div style="display:grid;grid-template-columns:44px 1fr;gap:16px;align-items:center">
+        <span style="width:44px;height:44px;border-radius:999px;border:1.3px dashed rgba(10,10,60,.4);display:flex;align-items:center;justify-content:center;font-family:Inter,sans-serif;font-weight:700;font-size:15px;color:rgba(10,10,60,.5);font-variant-numeric:tabular-nums">2</span>
+        <span style="display:block">
+          <span style="display:block;font-family:Inter,sans-serif;font-weight:600;font-size:16.5px;color:rgba(10,10,60,.62)">Trading turns against the client</span>
+          <span style="display:block;margin-top:6px;font-size:15px;line-height:1.5;color:rgba(10,10,60,.72)">the stories every trader has heard: slippage at the worst moment · profits that shrink · friction at the exit</span>
+        </span>
+      </div>
+      <div style="height:26px;margin-left:21px;border-left:2px dashed rgba(10,10,60,.4)"></div>
+      <div style="display:grid;grid-template-columns:44px 1fr;gap:16px;align-items:center">
+        <span style="width:44px;height:44px;border-radius:999px;border:1.3px dashed rgba(10,10,60,.4);display:flex;align-items:center;justify-content:center;font-family:Inter,sans-serif;font-weight:700;font-size:15px;color:rgba(10,10,60,.5);font-variant-numeric:tabular-nums">3</span>
+        <span style="font-family:Inter,sans-serif;font-weight:600;font-size:16.5px;color:rgba(10,10,60,.62)">Losing clients leave</span>
+      </div>
+      <div style="height:26px;margin-left:21px;border-left:2px dashed rgba(10,10,60,.4)"></div>
+      <div style="display:grid;grid-template-columns:44px 1fr;gap:16px;align-items:center">
+        <span style="width:44px;height:44px;border-radius:999px;border:1.3px dashed rgba(10,10,60,.4);display:flex;align-items:center;justify-content:center;font-family:Inter,sans-serif;font-weight:700;font-size:15px;color:rgba(10,10,60,.5);font-variant-numeric:tabular-nums">4</span>
+        <span style="font-family:Inter,sans-serif;font-weight:600;font-size:16.5px;color:rgba(10,10,60,.62)">The broker hunts new clients</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:12px;margin-top:18px">
+        <svg viewBox="0 0 60 60" aria-hidden="true" style="width:54px;height:54px;flex:none"><path d="M40 54 C 8 52, 6 22, 30 8" fill="none" stroke="rgba(10,10,60,.4)" stroke-width="1.6" stroke-dasharray="7 6"></path><path d="M30 8 L22 16 M30 8 L38 15" fill="none" stroke="rgba(10,10,60,.4)" stroke-width="1.6"></path></svg>
+        <span style="font-family:Inter,sans-serif;font-weight:600;font-size:14px;letter-spacing:.06em;text-transform:uppercase;color:rgba(10,10,60,.5)">repeats</span>
+      </div>
+      <p style="margin:18px 0 0;font-family:Inter,sans-serif;font-weight:600;font-size:17px;color:#2C2C54">Clients leave. New clients arrive. New clients need to lose.</p>
+    </div>
+    <p style="margin:34px auto 0;max-width:46em;font-size:16px;line-height:1.62;color:#2C2C54;text-align:center">Replacing clients is expensive. Keeping them is cheaper. A business that burns through its customers spends its life hunting new ones.</p>
+    <p style="margin:26px 0 0;text-align:center"><a href="#solution" style="font-family:Inter,sans-serif;font-weight:600;font-size:15px">There is a way out ↓</a></p>
+  </div>
+</section>
+
+<section aria-label="PCX steps off the cycle" style="position:relative;padding:clamp(48px,6vw,90px) 20px;background:#FFFFFF;overflow:hidden">
+  <div style="position:relative;max-width:44em;margin:0 auto;text-align:center;display:grid;gap:16px">
+    <p style="margin:0;font-family:Inter,sans-serif;font-weight:800;font-size:clamp(26px,3.4vw,40px);line-height:1.15;letter-spacing:-.02em;color:#0A0A3C">PCX steps off here.</p>
+    <p style="margin:0;font-size:clamp(17px,2vw,20px);line-height:1.55;color:#2C2C54">We do not need you to lose. We built the whole company on the opposite premise.</p>
+  </div>
+</section>
+
+<section id="solution" class="waLP" aria-labelledby="s1-h" style="scroll-margin-top:90px;padding:clamp(56px,7vw,104px) 20px;background:#FAF6EF;border-top:1px solid #F0E8D8;border-bottom:1px solid #F0E8D8">
+  <div style="max-width:1180px;margin:0 auto">
+    <div class="lpHead">
+      <div class="lpHeadText">
+        <p style="font-family:Inter,sans-serif;font-weight:700;font-size:12px;letter-spacing:.15em;text-transform:uppercase;color:#B8942C;margin:0 0 14px">The other model</p>
+        <h2 id="s1-h" style="font-family:Inter,sans-serif;font-weight:700;font-size:clamp(28px,3.5vw,44px);line-height:1.12;letter-spacing:-.02em;color:#0A0A3C;margin:0;max-width:14em">What happens to your order at PCX?</h2>
+      </div>
+    </div>
+    <figure class="lpFig" data-steps="4" style="margin:0;padding:0">
+      <svg class="flow flowLP" viewBox="0 0 1000 560" role="img" aria-label="Cutaway diagram: your order enters the PCX aggregation engine, five liquidity provider quotes are compared, the best bid from one firm and the best ask from another are combined into your price, and the order continues to the market." style="width:100%;height:auto;display:block;overflow:visible">
+        <defs>
+          <marker id="eHead" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#D4AF37"></path></marker>
+          <linearGradient id="lpSlab" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#16163F"></stop><stop offset="1" stop-color="#0A0A3C"></stop>
+          </linearGradient>
+          <linearGradient id="lpScanG" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#D4AF37" stop-opacity="0"></stop>
+            <stop offset=".5" stop-color="#D4AF37" stop-opacity=".22"></stop>
+            <stop offset="1" stop-color="#D4AF37" stop-opacity="0"></stop>
+          </linearGradient>
+          <radialGradient id="lpGlow" cx="50%" cy="50%" r="50%">
+            <stop offset="0" stop-color="#D4AF37" stop-opacity=".2"></stop>
+            <stop offset="1" stop-color="#D4AF37" stop-opacity="0"></stop>
+          </radialGradient>
+          <clipPath id="lpRows"><rect x="206" y="108" width="554" height="276" rx="12"></rect></clipPath>
+        </defs>
+
+        <ellipse class="lpAura" cx="500" cy="250" rx="430" ry="250" fill="url(#lpGlow)"></ellipse>
+
+        <image href="assets/prop-you.webp" x="26" y="182" width="68" height="92"></image>
+        <text x="60" y="298" text-anchor="middle" style="font-family:Inter,sans-serif;font-size:14px;font-weight:700;fill:#0A0A3C">You</text>
+        <path d="M96 250 H172" fill="none" stroke="#D4AF37" stroke-width="2.5" stroke-linecap="square" marker-end="url(#eHead)"></path>
+        <rect class="lpIn" x="108" y="242" width="16" height="16" rx="3" fill="#D4AF37"></rect>
+
+        <rect x="180" y="36" width="640" height="430" rx="22" fill="url(#lpSlab)"></rect>
+        <rect x="180" y="36" width="640" height="430" rx="22" fill="none" stroke="#D4AF37" stroke-width="1" stroke-opacity=".38"></rect>
+
+        <text x="212" y="80" style="font-family:Inter,sans-serif;font-size:13.5px;font-weight:700;letter-spacing:.11em;fill:#FFFFFF;fill-opacity:.62">PCX AGGREGATION ENGINE</text>
+        <text x="545" y="102" text-anchor="middle" style="font-family:Inter,sans-serif;font-size:11px;font-weight:700;letter-spacing:.14em;fill:#FFFFFF;fill-opacity:.45">BID</text>
+        <text x="675" y="102" text-anchor="middle" style="font-family:Inter,sans-serif;font-size:11px;font-weight:700;letter-spacing:.14em;fill:#FFFFFF;fill-opacity:.45">ASK</text>
+
+        <g data-step="2">
+          <rect x="206" y="116" width="554" height="44" rx="12" fill="#FFFFFF" fill-opacity=".055"></rect>
+          <text x="228" y="144" style="font-family:Inter,sans-serif;font-size:15px;font-weight:600;fill:#FFFFFF;fill-opacity:.72">LP 1</text>
+          <text class="lpLose" x="545" y="144" text-anchor="middle" style="font-family:Inter,sans-serif;font-size:15.5px;fill:#FFFFFF;font-variant-numeric:tabular-nums">1.08421</text>
+          <text class="lpLose" x="675" y="144" text-anchor="middle" style="font-family:Inter,sans-serif;font-size:15.5px;fill:#FFFFFF;font-variant-numeric:tabular-nums">1.08434</text>
+
+          <rect x="206" y="170" width="554" height="44" rx="12" fill="#FFFFFF" fill-opacity=".055"></rect>
+          <text x="228" y="198" style="font-family:Inter,sans-serif;font-size:15px;font-weight:600;fill:#FFFFFF;fill-opacity:.72">LP 2</text>
+          <text class="lpLose" x="545" y="198" text-anchor="middle" style="font-family:Inter,sans-serif;font-size:15.5px;fill:#FFFFFF;font-variant-numeric:tabular-nums">1.08420</text>
+
+          <rect x="206" y="224" width="554" height="44" rx="12" fill="#FFFFFF" fill-opacity=".055"></rect>
+          <text x="228" y="252" style="font-family:Inter,sans-serif;font-size:15px;font-weight:600;fill:#FFFFFF;fill-opacity:.72">LP 3</text>
+          <text class="lpLose" x="675" y="252" text-anchor="middle" style="font-family:Inter,sans-serif;font-size:15.5px;fill:#FFFFFF;font-variant-numeric:tabular-nums">1.08433</text>
+
+          <rect x="206" y="278" width="554" height="44" rx="12" fill="#FFFFFF" fill-opacity=".055"></rect>
+          <text x="228" y="306" style="font-family:Inter,sans-serif;font-size:15px;font-weight:600;fill:#FFFFFF;fill-opacity:.72">LP 4</text>
+          <text class="lpLose" x="545" y="306" text-anchor="middle" style="font-family:Inter,sans-serif;font-size:15.5px;fill:#FFFFFF;font-variant-numeric:tabular-nums">1.08419</text>
+          <text class="lpLose" x="675" y="306" text-anchor="middle" style="font-family:Inter,sans-serif;font-size:15.5px;fill:#FFFFFF;font-variant-numeric:tabular-nums">1.08435</text>
+
+          <rect x="206" y="332" width="554" height="44" rx="12" fill="#FFFFFF" fill-opacity=".055"></rect>
+          <text x="228" y="360" style="font-family:Inter,sans-serif;font-size:15px;font-weight:600;fill:#FFFFFF;fill-opacity:.72">LP 5</text>
+          <text class="lpLose" x="545" y="360" text-anchor="middle" style="font-family:Inter,sans-serif;font-size:15.5px;fill:#FFFFFF;font-variant-numeric:tabular-nums">1.08421</text>
+          <text class="lpLose" x="675" y="360" text-anchor="middle" style="font-family:Inter,sans-serif;font-size:15.5px;fill:#FFFFFF;font-variant-numeric:tabular-nums">1.08436</text>
+        </g>
+
+        <g clip-path="url(#lpRows)">
+          <rect class="lpScan" x="206" y="86" width="554" height="72" fill="url(#lpScanG)"></rect>
+        </g>
+
+        <g data-step="3">
+          <text x="300" y="198" style="font-family:Inter,sans-serif;font-size:11px;font-weight:700;letter-spacing:.08em;fill:#FFFFFF;fill-opacity:.55">BEST ASK</text>
+          <text x="300" y="252" style="font-family:Inter,sans-serif;font-size:11px;font-weight:700;letter-spacing:.08em;fill:#FFFFFF;fill-opacity:.55">BEST BID</text>
+
+          <path class="lpWire" d="M731 192 H786 V384 H620 V398" fill="none" stroke="#D4AF37" stroke-opacity=".28" stroke-width="2"></path>
+          <path class="lpWire" d="M601 246 H786 V384 H620 V398" fill="none" stroke="#D4AF37" stroke-opacity=".28" stroke-width="2"></path>
+          <path class="lpStream" d="M731 192 H786 V384 H620 V398" fill="none" stroke="#D4AF37" stroke-width="3.4" stroke-linecap="round"></path>
+          <path class="lpStream lpStream2" d="M601 246 H786 V384 H620 V398" fill="none" stroke="#D4AF37" stroke-width="3.4" stroke-linecap="round"></path>
+
+          <g class="lpWin">
+            <rect x="619" y="176" width="112" height="32" rx="9" fill="#D4AF37"></rect>
+            <text x="675" y="198" text-anchor="middle" style="font-family:Inter,sans-serif;font-size:15.5px;font-weight:700;fill:#0A0A3C;font-variant-numeric:tabular-nums">1.08429</text>
+          </g>
+          <g class="lpWin">
+            <rect x="489" y="230" width="112" height="32" rx="9" fill="#D4AF37"></rect>
+            <text x="545" y="252" text-anchor="middle" style="font-family:Inter,sans-serif;font-size:15.5px;font-weight:700;fill:#0A0A3C;font-variant-numeric:tabular-nums">1.08423</text>
+          </g>
+        </g>
+
+        <g data-step="4">
+          <g class="lpBar">
+            <rect x="206" y="398" width="554" height="54" rx="14" fill="#D4AF37"></rect>
+            <text x="230" y="431" style="font-family:Inter,sans-serif;font-size:13px;font-weight:700;letter-spacing:.07em;fill:#0A0A3C">YOUR PRICE</text>
+            <text x="736" y="434" text-anchor="end" style="font-family:Inter,sans-serif;font-size:25px;font-weight:700;fill:#0A0A3C;font-variant-numeric:tabular-nums">1.08423 / 1.08429</text>
+          </g>
+        </g>
+
+        <path d="M820 425 H892" fill="none" stroke="#D4AF37" stroke-width="3" stroke-linecap="square" marker-end="url(#eHead)"></path>
+        <rect class="lpOut" x="828" y="417" width="16" height="16" rx="3" fill="#D4AF37"></rect>
+        <image href="assets/fx-globe.webp" x="906" y="368" width="98" height="108"></image>
+        <text x="950" y="494" text-anchor="middle" style="font-family:Inter,sans-serif;font-weight:700;font-size:13px;fill:#0A0A3C">The</text>
+        <text x="950" y="512" text-anchor="middle" style="font-family:Inter,sans-serif;font-weight:700;font-size:13px;fill:#0A0A3C">market</text>
+
+        <text x="180" y="500" style="font-family:'Space Grotesk',sans-serif;font-size:15px;fill:#2C2C54">Spread: 0.6 pips. Tighter than any single source above.</text>
+        <text x="180" y="526" style="font-family:'Space Grotesk',sans-serif;font-size:15px;fill:#55557A">Illustrative example.</text>
+      </svg>
+      <figcaption style="margin:18px 0 0;display:grid;gap:6px">
+        <span style="font-family:Inter,sans-serif;font-weight:700;font-size:18px;color:#0A0A3C">Best price wins. Each side. Automatically.</span>
+      </figcaption>
+    </figure>
+    <div class="lpNotes">
+      <p style="margin:0;font-size:16px;line-height:1.62;color:#2C2C54">Your price is built from both sides. The best bid may come from one liquidity provider, and the best ask from another. The gap between those two is the spread you see.</p>
+      <p style="margin:0;font-size:16px;line-height:1.62;color:#2C2C54">That is why our spread can be tighter than any single source offers. It is the result of liquidity providers competing for your order, not a discount we subsidize.</p>
+      <p style="margin:0;font-size:16px;line-height:1.62;color:#2C2C54">And the competition runs again on every order. The order that opens your trade and the order that closes it each take the best price available at that moment.</p>
+    </div>
+    <p class="lpClose">The best of both sides. In every quote.</p>
+    <!-- TBC ops: LP count/categories disclosure; bridge vendor naming + attestation -->
+    
+  </div>
+</section>
+
+<section class="ornRing" aria-labelledby="s2-h" style="padding:clamp(56px,7vw,104px) 20px;background:#FFFFFF">
+  <div style="max-width:1180px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(330px,1fr));gap:clamp(28px,4vw,56px);align-items:center">
+    <div>
+      <h2 id="s2-h" style="font-family:Inter,sans-serif;font-weight:700;font-size:clamp(28px,3.5vw,44px);line-height:1.12;letter-spacing:-.02em;color:#0A0A3C;margin:0 0 24px">So what do we earn?</h2>
+      <p style="margin:0 0 22px;font-family:Inter,sans-serif;font-weight:600;font-size:clamp(19px,2.3vw,26px);line-height:1.35;color:#0A0A3C">We earn from spreads and commissions when you trade, not from your losses.</p>
+      <p style="margin:0 0 8px;font-size:15px;line-height:1.6;color:#2C2C54">Our other revenue lines are the boring kind: overnight swap charges where they apply. Every fee we charge lives on one page.</p>
+      <a href="accounts-v2.html#compare" style="font-family:Inter,sans-serif;font-weight:600;font-size:15px">See all fees →</a>
+    </div>
+    <div data-rv="1" style="background:#FAF6EF;border:1px solid #EFE9DB;border-radius:16px;box-shadow:0 1px 2px rgba(10,10,60,.05),0 10px 24px -14px rgba(10,10,60,.18);padding:clamp(24px,3vw,36px)">
+      <p style="margin:0 0 18px;font-family:Inter,sans-serif;font-weight:700;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:#B8942C">Worked example</p>
+      <p style="margin:0;font-family:Inter,sans-serif;font-weight:600;font-size:19px;line-height:1.45;color:#0A0A3C;font-variant-numeric:tabular-nums">You trade 1 lot of EURUSD on an ECN account.</p>
+      <div style="height:1px;background:#EFE9DB;margin:18px 0"></div>
+      <p style="margin:0;font-family:Inter,sans-serif;font-weight:700;font-size:clamp(21px,2.4vw,28px);line-height:1.35;color:#0A0A3C;font-variant-numeric:tabular-nums">We earn $7 commission. That is the whole trade, for us.</p>
+      <div style="height:1px;background:#EFE9DB;margin:18px 0"></div>
+      <p style="margin:0;font-family:Inter,sans-serif;font-weight:600;font-size:19px;line-height:1.45;color:#0A0A3C;font-variant-numeric:tabular-nums">Win or lose, it is the same $7.</p>
+      <p style="margin:20px 0 0;font-size:15px;line-height:1.6;color:#55557A">On a Standard account, our earning sits inside the spread instead. Same idea: we are paid for the trip, not for your result.</p>
+    </div>
+  </div>
+</section>
+
+<section id="win" aria-labelledby="s3-h" style="scroll-margin-top:90px;padding:clamp(56px,7vw,104px) 20px;background:#FAF6EF;border-top:1px solid #F0E8D8;border-bottom:1px solid #F0E8D8">
+  <div style="max-width:1180px;margin:0 auto">
+    <h2 id="s3-h" style="font-family:Inter,sans-serif;font-weight:700;font-size:clamp(28px,3.5vw,44px);line-height:1.12;letter-spacing:-.02em;color:#0A0A3C;margin:0 0 28px">What does our business look like when you win?</h2>
+    <div data-only="desktop" data-d="block" data-steps="5">
+      <svg class="flow flowWin" viewBox="0 0 1000 620" role="img" aria-label="Diagram of a compounding gold cycle: clients last, clients keep trading, PCX earns spread and commission, PCX invests in clients lasting. A client sits at the centre." style="width:100%;height:auto;display:block;max-width:940px;margin:0 auto">
+        <defs>
+          <marker id="vHead" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#D4AF37"></path></marker>
+          <filter id="winSh" x="-60%" y="-60%" width="220%" height="220%">
+            <feDropShadow dx="0" dy="5" stdDeviation="6" flood-color="#0A0A3C" flood-opacity=".2"></feDropShadow>
+          </filter>
+          <radialGradient id="winPool" cx="50%" cy="50%" r="50%">
+            <stop offset="0" stop-color="#D4AF37" stop-opacity=".16"></stop>
+            <stop offset="1" stop-color="#D4AF37" stop-opacity="0"></stop>
+          </radialGradient>
+        </defs>
+
+        <ellipse cx="450" cy="300" rx="300" ry="230" fill="url(#winPool)"></ellipse>
+
+        <!-- the arcs thicken as they go round: the loop compounds -->
+        <g data-step="2"><path d="M506.2 160.9 A150 150 0 0 1 589.1 243.8" fill="none" stroke="#D4AF37" stroke-width="2" stroke-linecap="round"></path></g>
+        <g data-step="3"><path d="M589.1 356.2 A150 150 0 0 1 506.2 439.1" fill="none" stroke="#D4AF37" stroke-width="2.8" stroke-linecap="round"></path></g>
+        <g data-step="4"><path d="M393.8 439.1 A150 150 0 0 1 310.9 356.2" fill="none" stroke="#D4AF37" stroke-width="3.6" stroke-linecap="round"></path></g>
+        <g data-step="5"><path d="M310.9 243.8 A150 150 0 0 1 393.8 160.9" fill="none" stroke="#D4AF37" stroke-width="4.4" stroke-linecap="round" marker-end="url(#vHead)"></path></g>
+
+        <!-- one bright pulse keeps going round, because nothing here is spent -->
+        <path class="winPulse" d="M450 150 A150 150 0 1 1 450 450 A150 150 0 1 1 450 150" fill="none" stroke="#D4AF37" stroke-width="5" stroke-linecap="round"></path>
+
+        <g data-step="5">
+          <circle cx="450" cy="300" r="58" fill="#FFFBEF" stroke="#D4AF37" stroke-width="1.6"></circle>
+          <image href="assets/cast-alex-seated.webp" x="423" y="216" width="54" height="140" preserveAspectRatio="xMidYMax meet"></image>
+        </g>
+
+        <g data-step="1">
+          <image class="winObj winObj1" href="assets/fx-hourglass.webp" x="390" y="90" width="120" height="120" preserveAspectRatio="xMidYMid meet"></image>
+          <circle class="winBadge winBadge1" cx="390" cy="194" r="15" fill="#0A0A3C" filter="url(#winSh)"></circle>
+          <text x="390" y="199" text-anchor="middle" style="font-family:Inter,sans-serif;font-size:13px;font-weight:700;fill:#FFFFFF;font-variant-numeric:tabular-nums">1</text>
+          <text x="450" y="58" text-anchor="middle" style="font-family:Inter,sans-serif;font-size:18px;font-weight:700;fill:#0A0A3C">Clients last</text>
+        </g>
+        <g data-step="2">
+          <image class="winObj winObj2" href="assets/fx-5-candles-up.webp" x="540" y="240" width="120" height="120" preserveAspectRatio="xMidYMid meet"></image>
+          <circle class="winBadge winBadge2" cx="540" cy="344" r="15" fill="#0A0A3C" filter="url(#winSh)"></circle>
+          <text x="540" y="349" text-anchor="middle" style="font-family:Inter,sans-serif;font-size:13px;font-weight:700;fill:#FFFFFF;font-variant-numeric:tabular-nums">2</text>
+          <text x="688" y="300" style="font-family:Inter,sans-serif;font-size:18px;font-weight:700;fill:#0A0A3C">Clients keep trading</text>
+        </g>
+        <g data-step="3">
+          <image class="winObj winObj3" href="assets/fx-coins.webp" x="390" y="390" width="120" height="120" preserveAspectRatio="xMidYMid meet"></image>
+          <circle class="winBadge winBadge3" cx="390" cy="494" r="15" fill="#0A0A3C" filter="url(#winSh)"></circle>
+          <text x="390" y="499" text-anchor="middle" style="font-family:Inter,sans-serif;font-size:13px;font-weight:700;fill:#FFFFFF;font-variant-numeric:tabular-nums">3</text>
+          <text x="450" y="556" text-anchor="middle" style="font-family:Inter,sans-serif;font-size:18px;font-weight:700;fill:#0A0A3C">PCX earns spread and commission</text>
+        </g>
+        <g data-step="4">
+          <image class="winObj winObj4" href="assets/fx-sapling.webp" x="240" y="240" width="120" height="120" preserveAspectRatio="xMidYMid meet"></image>
+          <circle class="winBadge winBadge4" cx="240" cy="344" r="15" fill="#0A0A3C" filter="url(#winSh)"></circle>
+          <text x="240" y="349" text-anchor="middle" style="font-family:Inter,sans-serif;font-size:13px;font-weight:700;fill:#FFFFFF;font-variant-numeric:tabular-nums">4</text>
+          <text x="212" y="290" text-anchor="end" style="font-family:Inter,sans-serif;font-size:18px;font-weight:700;fill:#0A0A3C">PCX invests in</text>
+          <text x="212" y="312" text-anchor="end" style="font-family:Inter,sans-serif;font-size:18px;font-weight:700;fill:#0A0A3C">clients lasting</text>
+        </g>
+      </svg>
+    </div>
+    <div data-only="mobile" data-d="grid" style="display:none;gap:0;max-width:520px;margin:0 auto">
+      <div style="display:grid;grid-template-columns:44px 1fr;gap:16px;align-items:center">
+        <span style="width:44px;height:44px;border-radius:999px;background:#0A0A3C;display:flex;align-items:center;justify-content:center;font-family:Inter,sans-serif;font-weight:700;font-size:15px;color:#FFFFFF;font-variant-numeric:tabular-nums">1</span>
+        <span style="font-family:Inter,sans-serif;font-weight:700;font-size:17px;color:#0A0A3C">Clients last</span>
+      </div>
+      <div style="height:26px;margin-left:21px;border-left:2px solid #D4AF37"></div>
+      <div style="display:grid;grid-template-columns:44px 1fr;gap:16px;align-items:center">
+        <span style="width:44px;height:44px;border-radius:999px;background:#0A0A3C;display:flex;align-items:center;justify-content:center;font-family:Inter,sans-serif;font-weight:700;font-size:15px;color:#FFFFFF;font-variant-numeric:tabular-nums">2</span>
+        <span style="font-family:Inter,sans-serif;font-weight:700;font-size:17px;color:#0A0A3C">Clients keep trading</span>
+      </div>
+      <div style="height:26px;margin-left:21px;border-left:2.5px solid #D4AF37"></div>
+      <div style="display:grid;grid-template-columns:44px 1fr;gap:16px;align-items:center">
+        <span style="width:44px;height:44px;border-radius:999px;background:#0A0A3C;display:flex;align-items:center;justify-content:center;font-family:Inter,sans-serif;font-weight:700;font-size:15px;color:#FFFFFF;font-variant-numeric:tabular-nums">3</span>
+        <span style="font-family:Inter,sans-serif;font-weight:700;font-size:17px;color:#0A0A3C">PCX earns spread and commission</span>
+      </div>
+      <div style="height:26px;margin-left:21px;border-left:3px solid #D4AF37"></div>
+      <div style="display:grid;grid-template-columns:44px 1fr;gap:16px;align-items:center">
+        <span style="width:44px;height:44px;border-radius:999px;background:#0A0A3C;display:flex;align-items:center;justify-content:center;font-family:Inter,sans-serif;font-weight:700;font-size:15px;color:#FFFFFF;font-variant-numeric:tabular-nums">4</span>
+        <span style="font-family:Inter,sans-serif;font-weight:700;font-size:17px;color:#0A0A3C">PCX invests in clients lasting</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:12px;margin-top:18px">
+        <svg viewBox="0 0 60 60" aria-hidden="true" style="width:54px;height:54px;flex:none"><path d="M40 54 C 8 52, 6 22, 30 8" fill="none" stroke="#D4AF37" stroke-width="3.5"></path><path d="M30 8 L22 16 M30 8 L38 15" fill="none" stroke="#D4AF37" stroke-width="3.5"></path></svg>
+        <span style="font-family:Inter,sans-serif;font-weight:700;font-size:14px;letter-spacing:.06em;text-transform:uppercase;color:#0A0A3C">and it compounds</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:14px;margin-top:22px;padding:16px;background:#FFFBEF;border:1px solid #EFE9DB;border-radius:14px">
+        <img src="assets/cast-alex-seated.webp" alt="" width="386" height="1000" loading="lazy" decoding="async" style="width:56px;height:auto;flex:none;margin:0 auto">
+      </div>
+    </div>
+    <p style="margin:34px 0 0;max-width:46em;font-size:16.5px;line-height:1.62;color:#2C2C54">Ask any broker where its best revenue comes from. The honest answer is clients who stay for years. We built the whole model on that answer.</p>
+  </div>
+</section>
+
+<section class="philSec" aria-labelledby="phil-h" style="padding:clamp(60px,7vw,110px) 20px;background:#0A0A3C">
+  <div style="max-width:960px;margin:0 auto">
+    <p style="font-family:Inter,sans-serif;font-weight:700;font-size:12px;letter-spacing:.15em;text-transform:uppercase;color:#D4AF37;margin:0 0 22px">Why we chose it</p>
+    <h2 id="phil-h" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap">Why we chose the A-Book model</h2>
+    <p style="margin:0 0 40px;max-width:34em;font-family:Inter,sans-serif;font-weight:700;font-size:clamp(22px,3vw,34px);line-height:1.3;letter-spacing:-.02em;color:#FFFFFF;padding-left:22px;border-left:2px solid #D4AF37">"We could have run a B-Book. It pays better in the short run. We did not want to be in the business of hoping you lose."</p>
+    <div class="philBody">
+      <p style="margin:0;font-size:clamp(17px,2vw,20px);line-height:1.62;color:#FFFFFF">The other model is not evil. It is conflicted. And a conflict like that does not need bad people to do damage. It only needs time and pressure.</p>
+      <p style="margin:0;font-size:clamp(17px,2vw,20px);line-height:1.62;color:#FFFFFF">We did not promise to resist the temptation. We removed it. There is no desk here that wins when you lose. There is nothing to resist.</p>
+      <p style="margin:0;font-size:clamp(17px,2vw,20px);line-height:1.62;color:rgba(255,255,255,.86)">And one more thing, in the open: A-Book has an incentive of its own. We earn from volume, so we benefit when you trade more. That is real. The difference is that our incentive points the same way as yours: volume only lasts if you last. And we will never suggest trades to make you trade more. What you trade, and whether you trade at all, stays entirely yours.</p>
+    </div>
+    <div class="philAsk">
+      <p style="margin:0;font-family:Inter,sans-serif;font-weight:700;font-size:clamp(23px,3.2vw,38px);line-height:1.25;letter-spacing:-.02em;color:#FFFFFF;max-width:26em">"What does your broker earn from: your trading, or your losses?"</p>
+      <p style="margin:18px 0 0;font-size:16px;line-height:1.6;color:rgba(255,255,255,.7)">Now you know how to ask it. Ask every broker. Including us.</p>
+    </div>
+  </div>
+</section>
+
+<section id="check" aria-labelledby="check-h" style="scroll-margin-top:90px;padding:clamp(56px,7vw,104px) 20px;background:#FFFFFF">
+  <div style="max-width:1180px;margin:0 auto">
+    <p style="font-family:Inter,sans-serif;font-weight:700;font-size:12px;letter-spacing:.15em;text-transform:uppercase;color:#B8942C;margin:0 0 14px">Test us</p>
+    <h2 id="check-h" style="font-family:Inter,sans-serif;font-weight:700;font-size:clamp(28px,3.5vw,44px);line-height:1.12;letter-spacing:-.02em;color:#0A0A3C;margin:0 0 16px">Do not believe us. Test us.</h2>
+    <p style="margin:0 0 36px;max-width:44em;font-size:17px;line-height:1.62;color:#2C2C54">A page like this is easy to write. So do not take it on faith. Here are four tests you can run yourself. Three of them cost nothing. The fourth costs ten dollars.</p>
+    <div class="tGrid">
+      <article class="tCard" data-rv="1" style="background:linear-gradient(180deg,#FFFFFF,#FBF8F1);border:1px solid #EFE9DB;border-radius:16px;box-shadow:0 1px 2px rgba(10,10,60,.05),0 10px 24px -14px rgba(10,10,60,.18);padding:28px;display:grid;gap:14px;align-content:start">
+        <span style="font-family:Inter,sans-serif;font-weight:800;font-size:30px;line-height:1;color:#D4AF37;font-variant-numeric:tabular-nums">01</span>
+        <h3 style="font-family:Inter,sans-serif;font-weight:700;font-size:19.5px;line-height:1.3;color:#0A0A3C;margin:0">Read the agreement before you sign it.</h3>
+        <p style="margin:0;font-size:15.5px;line-height:1.62;color:#2C2C54">Scalping, news trading and EAs are welcome here. That is not a marketing line. It is written into the client agreement you sign.</p>
+        <!-- TBC legal: real clause number required before publish -->
+        
+        <p style="margin:0;font-size:15.5px;line-height:1.62;color:#2C2C54">If a broker’s website says one thing and its agreement says another, the agreement is the one that counts.</p>
+        <a href="legal-client-agreement.html" style="font-family:Inter,sans-serif;font-weight:600;font-size:14.5px;margin-top:2px">Read the agreement →</a>
+      </article>
+      <article class="tCard" data-rv="1" style="background:linear-gradient(180deg,#FFFFFF,#FBF8F1);border:1px solid #EFE9DB;border-radius:16px;box-shadow:0 1px 2px rgba(10,10,60,.05),0 10px 24px -14px rgba(10,10,60,.18);padding:28px;display:grid;gap:14px;align-content:start">
+        <span style="font-family:Inter,sans-serif;font-weight:800;font-size:30px;line-height:1;color:#D4AF37;font-variant-numeric:tabular-nums">02</span>
+        <h3 style="font-family:Inter,sans-serif;font-weight:700;font-size:19.5px;line-height:1.3;color:#0A0A3C;margin:0">Ask us three hard questions before you deposit.</h3>
+        <p style="margin:0;font-size:15.5px;line-height:1.62;color:#2C2C54">Before you give money to any broker, including us, ask these three:</p>
+        <ol style="margin:0;padding-left:20px;display:grid;gap:6px;font-size:15.5px;line-height:1.55;color:#0A0A3C">
+          <li>What do you earn from?</li>
+          <li>Where do my orders go?</li>
+          <li>What happens when I withdraw?</li>
+        </ol>
+        <p style="margin:0;font-size:15.5px;line-height:1.62;color:#2C2C54">Ask our support. Ask other brokers’ support too, and compare the answers with what is written in each broker’s agreement. A good answer is specific and matches the paper.</p>
+        <a href="https://doubletick.io/wa/971554903931?text=Hello%2C%20I%20need%20to%20ask%20something%20related%20to%20PCXTrader.%0A%0AInquiry%20code%3A%20%23NXAIT%20%0A%0AResource%20Link%3A%20https%3A%2F%2Fpcxtrader.com%2F&lang=en_US" target="_blank" rel="noopener" style="font-family:Inter,sans-serif;font-weight:600;font-size:14.5px;margin-top:2px">Ask our support →</a>
+      </article>
+      <article class="tCard" data-rv="1" style="background:linear-gradient(180deg,#FFFFFF,#FBF8F1);border:1px solid #EFE9DB;border-radius:16px;box-shadow:0 1px 2px rgba(10,10,60,.05),0 10px 24px -14px rgba(10,10,60,.18);padding:28px;display:grid;gap:14px;align-content:start">
+        <span style="font-family:Inter,sans-serif;font-weight:800;font-size:30px;line-height:1;color:#D4AF37;font-variant-numeric:tabular-nums">03</span>
+        <h3 style="font-family:Inter,sans-serif;font-weight:700;font-size:19.5px;line-height:1.3;color:#0A0A3C;margin:0">Take the demo. Take your time.</h3>
+        <p style="margin:0;font-size:15.5px;line-height:1.62;color:#2C2C54">The demo has no countdown and no expiry date. Take months if you need them. A broker that needs you to hurry has a reason. We would rather you decide slowly and stay than decide fast and leave.</p>
+        <a href="https://dashboard.pcxtrader.com/register" style="font-family:Inter,sans-serif;font-weight:600;font-size:14.5px;margin-top:2px">Open a free demo →</a>
+      </article>
+      <article class="tCard" data-rv="1" style="background:linear-gradient(180deg,#FFFFFF,#FBF8F1);border:1px solid #EFE9DB;border-radius:16px;box-shadow:0 1px 2px rgba(10,10,60,.05),0 10px 24px -14px rgba(10,10,60,.18);padding:28px;display:grid;gap:14px;align-content:start">
+        <span style="font-family:Inter,sans-serif;font-weight:800;font-size:30px;line-height:1;color:#D4AF37;font-variant-numeric:tabular-nums">04</span>
+        <h3 style="font-family:Inter,sans-serif;font-weight:700;font-size:19.5px;line-height:1.3;color:#0A0A3C;margin:0">Start with ten dollars, not ten thousand.</h3>
+        <p style="margin:0;font-size:15.5px;line-height:1.62;color:#2C2C54">The minimum deposit is <span style="font-family:Inter,sans-serif;font-weight:700;color:#0A0A3C;font-variant-numeric:tabular-nums">$10</span>. Start there. When you want your money back, ask for it, at any point, for any reason. Then judge us by what we did, not by what this page says. Small money first. Trust after.</p>
+        <a href="https://dashboard.pcxtrader.com/register" style="font-family:Inter,sans-serif;font-weight:600;font-size:14.5px;margin-top:2px">Open my live account →</a>
+      </article>
+    </div>
+    <p style="margin:32px 0 0;max-width:46em;font-size:16px;line-height:1.62;color:#55557A">These four tests are cheap for you and expensive for us to fake. That is the point.</p>
+  </div>
+</section>
+
+<section aria-labelledby="to-h" style="padding:clamp(56px,7vw,104px) 20px;background:#FAF6EF;border-top:1px solid #F0E8D8;border-bottom:1px solid #F0E8D8">
+  <div style="max-width:1180px;margin:0 auto">
+    <h2 id="to-h" style="font-family:Inter,sans-serif;font-weight:700;font-size:clamp(28px,3.5vw,44px);line-height:1.12;letter-spacing:-.02em;color:#0A0A3C;margin:0 0 34px">What A-Book costs. You, and us.</h2>
+    <div class="costGrid">
+      <div class="costCol">
+        <span style="font-family:Inter,sans-serif;font-weight:800;font-size:34px;line-height:1;color:#D4AF37;font-variant-numeric:tabular-nums">01</span>
+        <h3 style="font-family:Inter,sans-serif;font-weight:700;font-size:20px;color:#0A0A3C;margin:0">Real spreads move.</h3>
+        <p style="margin:0;font-size:16px;line-height:1.62;color:#2C2C54">At big news they widen, because you are getting the real market. A spread that never moves is something only a dealing desk can manufacture.</p>
+      </div>
+      <div class="costCol">
+        <span style="font-family:Inter,sans-serif;font-weight:800;font-size:34px;line-height:1;color:#D4AF37;font-variant-numeric:tabular-nums">02</span>
+        <h3 style="font-family:Inter,sans-serif;font-weight:700;font-size:20px;color:#0A0A3C;margin:0">We earn less per client than a B-Book would.</h3>
+        <p style="margin:0;font-size:16px;line-height:1.62;color:#2C2C54">Our revenue is your commission, so we need you to stay. That is the deal, and we prefer it.</p>
+      </div>
+      <div class="costCol">
+        <span style="font-family:Inter,sans-serif;font-weight:800;font-size:34px;line-height:1;color:#D4AF37;font-variant-numeric:tabular-nums">03</span>
+        <h3 style="font-family:Inter,sans-serif;font-weight:700;font-size:20px;color:#0A0A3C;margin:0">A-Book does not make you profitable.</h3>
+        <p style="margin:0;font-size:16px;line-height:1.62;color:#2C2C54">The market is still the market, and most new traders lose money at first. We only remove ourselves from the list of reasons you might lose.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="faq-h" style="padding:clamp(56px,7vw,104px) 20px;background:#FFFFFF">
+  <div style="max-width:860px;margin:0 auto">
+    <h2 id="faq-h" style="font-family:Inter,sans-serif;font-weight:700;font-size:clamp(28px,3.5vw,44px);line-height:1.12;letter-spacing:-.02em;color:#0A0A3C;margin:0 0 16px">You should be skeptical.</h2>
+    <p style="margin:0 0 36px;max-width:44em;font-size:17px;line-height:1.62;color:#2C2C54">These questions are a good start.</p>
+    <div style="display:grid;gap:0;border-top:1px solid #EFE9DB">
+      <div style="border-bottom:1px solid #EFE9DB">
+        <button type="button" data-faq="1" aria-expanded="false" style="width:100%;min-height:56px;display:flex;gap:18px;align-items:center;justify-content:space-between;padding:18px 2px;background:transparent;border:0;cursor:pointer;text-align:left;font-family:Inter,sans-serif;font-weight:700;font-size:17.5px;line-height:1.35;color:#0A0A3C">Every broker claims A-Book or ECN. Why believe you?<span data-plus="1" aria-hidden="true" style="flex:none;width:24px;font-family:Inter,sans-serif;font-weight:600;font-size:22px;color:#B8942C;text-align:right">+</span></button>
+        <div data-ans="1" data-open="0" style="display:none;padding:0 2px 22px;max-width:44em"><p style="margin:0;font-size:16px;line-height:1.62;color:#2C2C54">You should not, on words alone. Anyone can type a page like this, including us. That is why it ends in four tests you can run, not words you must take on faith. Start with the demo, or with $10.</p></div>
+      </div>
+      <div style="border-bottom:1px solid #EFE9DB">
+        <button type="button" data-faq="1" aria-expanded="false" style="width:100%;min-height:56px;display:flex;gap:18px;align-items:center;justify-content:space-between;padding:18px 2px;background:transparent;border:0;cursor:pointer;text-align:left;font-family:Inter,sans-serif;font-weight:700;font-size:17.5px;line-height:1.35;color:#0A0A3C">Can you prove you never B-Book anyone?<span data-plus="1" aria-hidden="true" style="flex:none;width:24px;font-family:Inter,sans-serif;font-weight:600;font-size:22px;color:#B8942C;text-align:right">+</span></button>
+        <div data-ans="1" data-open="0" style="display:none;padding:0 2px 22px;max-width:44em"><p style="margin:0;font-size:16px;line-height:1.62;color:#2C2C54">Not yet, in the way you mean. What we can show today is the definition: every order offset to an outside liquidity provider we hold no stake in, and no house book against client flow. Independent proof is being added as our agreements and data allow. Until then, start with $10 and judge what we do.</p><!-- update when receipts/attestation go live --></div>
+      </div>
+      <div style="border-bottom:1px solid #EFE9DB">
+        <button type="button" data-faq="1" aria-expanded="false" style="width:100%;min-height:56px;display:flex;gap:18px;align-items:center;justify-content:space-between;padding:18px 2px;background:transparent;border:0;cursor:pointer;text-align:left;font-family:Inter,sans-serif;font-weight:700;font-size:17.5px;line-height:1.35;color:#0A0A3C">Your licence allows both books. How would I know which one I am in?<span data-plus="1" aria-hidden="true" style="flex:none;width:24px;font-family:Inter,sans-serif;font-weight:600;font-size:22px;color:#B8942C;text-align:right">+</span></button>
+        <div data-ans="1" data-open="0" style="display:none;padding:0 2px 22px;max-width:44em"><p style="margin:0;font-size:16px;line-height:1.62;color:#2C2C54">You would not, from the licence, and that is worth saying plainly. No licence forces A-Book. That is why the claim is written here in plain words, defined and published where it can be quoted back at us. A firm planning a quiet B-Book does not publish a page that makes lying this expensive.</p></div>
+      </div>
+      <div style="border-bottom:1px solid #EFE9DB">
+        <button type="button" data-faq="1" aria-expanded="false" style="width:100%;min-height:56px;display:flex;gap:18px;align-items:center;justify-content:space-between;padding:18px 2px;background:transparent;border:0;cursor:pointer;text-align:left;font-family:Inter,sans-serif;font-weight:700;font-size:17.5px;line-height:1.35;color:#0A0A3C">Will you restrict me if I keep winning?<span data-plus="1" aria-hidden="true" style="flex:none;width:24px;font-family:Inter,sans-serif;font-weight:600;font-size:22px;color:#B8942C;text-align:right">+</span></button>
+        <div data-ans="1" data-open="0" style="display:none;padding:0 2px 22px;max-width:44em"><p style="margin:0;font-size:16px;line-height:1.62;color:#2C2C54">No. Winning traders are good business: they stay longer, trade more, and pay the same spreads and commissions either way. Scalping, news trading and EAs are welcome, and we are writing that into the client agreement, not just this page.</p><!-- TBC legal: clause reference --></div>
+      </div>
+      <div style="border-bottom:1px solid #EFE9DB">
+        <button type="button" data-faq="1" aria-expanded="false" style="width:100%;min-height:56px;display:flex;gap:18px;align-items:center;justify-content:space-between;padding:18px 2px;background:transparent;border:0;cursor:pointer;text-align:left;font-family:Inter,sans-serif;font-weight:700;font-size:17.5px;line-height:1.35;color:#0A0A3C">A-Book brokers still profit from spreads. Is that not the same conflict?<span data-plus="1" aria-hidden="true" style="flex:none;width:24px;font-family:Inter,sans-serif;font-weight:600;font-size:22px;color:#B8942C;text-align:right">+</span></button>
+        <div data-ans="1" data-open="0" style="display:none;padding:0 2px 22px;max-width:44em"><p style="margin:0;font-size:16px;line-height:1.62;color:#2C2C54">No. The spread is the price of the trade, and it is the same price whether you win or lose. The conflict that matters is a broker whose income rises when your account falls. Ours does not.</p></div>
+      </div>
+      <div style="border-bottom:1px solid #EFE9DB">
+        <button type="button" data-faq="1" aria-expanded="false" style="width:100%;min-height:56px;display:flex;gap:18px;align-items:center;justify-content:space-between;padding:18px 2px;background:transparent;border:0;cursor:pointer;text-align:left;font-family:Inter,sans-serif;font-weight:700;font-size:17.5px;line-height:1.35;color:#0A0A3C">Your liquidity provider is probably someone's B-Book. You just moved the conflict upstream.<span data-plus="1" aria-hidden="true" style="flex:none;width:24px;font-family:Inter,sans-serif;font-weight:600;font-size:22px;color:#B8942C;text-align:right">+</span></button>
+        <div data-ans="1" data-open="0" style="display:none;padding:0 2px 22px;max-width:44em"><p style="margin:0;font-size:16px;line-height:1.62;color:#2C2C54">Partly true, and we will not pretend otherwise. A-Book does not remove market making from the world. It removes our position against you. Whoever fills your order, PCX earns the same fee and holds no side of your trade.</p></div>
+      </div>
+      <div style="border-bottom:1px solid #EFE9DB">
+        <button type="button" data-faq="1" aria-expanded="false" style="width:100%;min-height:56px;display:flex;gap:18px;align-items:center;justify-content:space-between;padding:18px 2px;background:transparent;border:0;cursor:pointer;text-align:left;font-family:Inter,sans-serif;font-weight:700;font-size:17.5px;line-height:1.35;color:#0A0A3C">You still make money from me. You are not my friend.<span data-plus="1" aria-hidden="true" style="flex:none;width:24px;font-family:Inter,sans-serif;font-weight:600;font-size:22px;color:#B8942C;text-align:right">+</span></button>
+        <div data-ans="1" data-open="0" style="display:none;padding:0 2px 22px;max-width:44em"><p style="margin:0;font-size:16px;line-height:1.62;color:#2C2C54">Correct. We are a business, and this page shows exactly how we get paid. The difference is what has to happen next: a B-Book needs your deposit, we need your next year.</p></div>
+      </div>
+      <div style="border-bottom:1px solid #EFE9DB">
+        <button type="button" data-faq="1" aria-expanded="false" style="width:100%;min-height:56px;display:flex;gap:18px;align-items:center;justify-content:space-between;padding:18px 2px;background:transparent;border:0;cursor:pointer;text-align:left;font-family:Inter,sans-serif;font-weight:700;font-size:17.5px;line-height:1.35;color:#0A0A3C">If most of your clients win, how do you survive?<span data-plus="1" aria-hidden="true" style="flex:none;width:24px;font-family:Inter,sans-serif;font-weight:600;font-size:22px;color:#B8942C;text-align:right">+</span></button>
+        <div data-ans="1" data-open="0" style="display:none;padding:0 2px 22px;max-width:44em"><p style="margin:0;font-size:16px;line-height:1.62;color:#2C2C54">Comfortably. Our income depends on trading happening, not on who wins. A client who wins stays longer and trades more, which means more spread and commission for us, not less.</p></div>
+      </div>
+      <div style="border-bottom:1px solid #EFE9DB">
+        <button type="button" data-faq="1" aria-expanded="false" style="width:100%;min-height:56px;display:flex;gap:18px;align-items:center;justify-content:space-between;padding:18px 2px;background:transparent;border:0;cursor:pointer;text-align:left;font-family:Inter,sans-serif;font-weight:700;font-size:17.5px;line-height:1.35;color:#0A0A3C">Your regulator is offshore. Why should that comfort me?<span data-plus="1" aria-hidden="true" style="flex:none;width:24px;font-family:Inter,sans-serif;font-weight:600;font-size:22px;color:#B8942C;text-align:right">+</span></button>
+        <div data-ans="1" data-open="0" style="display:none;padding:0 2px 22px;max-width:44em"><p style="margin:0;font-size:16px;line-height:1.62;color:#2C2C54">Only a little, and we would rather say that than pretend. The licence is real, and you can check it in the register yourself. It is not a top-tier licence, and we know it. That is why this page leans on things you can verify directly instead of a badge.</p></div>
+      </div>
+      <div style="border-bottom:1px solid #EFE9DB">
+        <button type="button" data-faq="1" aria-expanded="false" style="width:100%;min-height:56px;display:flex;gap:18px;align-items:center;justify-content:space-between;padding:18px 2px;background:transparent;border:0;cursor:pointer;text-align:left;font-family:Inter,sans-serif;font-weight:700;font-size:17.5px;line-height:1.35;color:#0A0A3C">You are new. There is no history. Why trust you?<span data-plus="1" aria-hidden="true" style="flex:none;width:24px;font-family:Inter,sans-serif;font-weight:600;font-size:22px;color:#B8942C;text-align:right">+</span></button>
+        <div data-ans="1" data-open="0" style="display:none;padding:0 2px 22px;max-width:44em"><p style="margin:0;font-size:16px;line-height:1.62;color:#2C2C54">Do not trust us. Test us. Open the free demo with no countdown, or start with $10, read the agreement, withdraw early and see what happens. We built the model so that trust is not required to start.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="cta" aria-labelledby="cta-h" style="scroll-margin-top:90px;position:relative;padding:clamp(60px,7vw,110px) 20px clamp(76px,8vw,120px);background:#FFFFFF;overflow:hidden">
+  <div class="ctaGrid">
+    <div>
+      <h2 id="cta-h" style="font-family:Inter,sans-serif;font-weight:800;font-size:clamp(30px,4vw,52px);line-height:1.08;letter-spacing:-.025em;color:#0A0A3C;margin:0 0 28px;max-width:20em">Trade with a broker that needs you to last.</h2>
+      <div style="display:flex;flex-wrap:wrap;gap:14px">
+        <a href="https://dashboard.pcxtrader.com/register" style="display:inline-flex;align-items:center;justify-content:center;min-height:54px;padding:0 28px;border-radius:13px;background:#0A0A3C;color:#FFFFFF;font-family:Inter,sans-serif;font-weight:600;font-size:16px;text-decoration:none;box-shadow:0 2px 4px rgba(10,10,60,.2)" style-hover="background:#16164E;box-shadow:0 0 0 2px rgba(212,175,55,.65)">Open my live account</a>
+        <a href="https://dashboard.pcxtrader.com/register" style="display:inline-flex;align-items:center;justify-content:center;min-height:54px;padding:0 26px;border-radius:13px;background:transparent;border:1.5px solid #0A0A3C;color:#0A0A3C;font-family:Inter,sans-serif;font-weight:600;font-size:16px;text-decoration:none" style-hover="background:rgba(10,10,60,.05)">Start with a demo first</a>
+      </div>
+      <p style="margin:14px 0 0;font-size:15px;color:#2C2C54">No deposit. No countdown. Take months if you need them.</p>
+      <p style="margin:28px 0 0;max-width:40em;font-size:15px;line-height:1.6;color:#2C2C54">Trading leveraged products carries a high degree of risk to your capital. Most new traders lose money at first. Start slow.</p>
+    </div>
+    <div class="ctaFig">
+      <img src="assets/cast-nora-nod.webp" alt="" width="305" height="1000" loading="lazy" decoding="async">
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="pf" id="company">
+
+  <!-- payment methods marquee -->
+  <!-- payment logo sprite (define once) -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
+    <symbol id="pay-bank" viewBox="0 0 92 30"><rect x=".8" y=".8" width="90.4" height="28.4" rx="4" fill="none" stroke="#2C4BC7" stroke-width="1.5"/><rect x="9" y="10" width="16" height="2.4" rx="1.2" fill="#2C4BC7"/><rect x="9" y="14.6" width="16" height="2.4" rx="1.2" fill="#2C4BC7"/><rect x="9" y="19.2" width="16" height="2.4" rx="1.2" fill="#2C4BC7"/><text x="31" y="14" font-family="Inter,sans-serif" font-size="8" font-weight="700" fill="#2C4BC7" letter-spacing=".5">BANK</text><text x="31" y="23" font-family="Inter,sans-serif" font-size="8" font-weight="700" fill="#2C4BC7" letter-spacing=".5">TRANSFER</text></symbol>
+    <symbol id="pay-tether" viewBox="0 0 110 30"><circle cx="15" cy="15" r="14" fill="#26A17B"/><path d="M16.6 13.6v-2h4.6V8.5H8.8v3.1h4.6v2c-3.8.2-6.6.9-6.6 1.8s2.8 1.6 6.6 1.8v6.3h3.2v-6.3c3.8-.2 6.6-.9 6.6-1.8s-2.8-1.6-6.6-1.8Zm0 3.1c-.1 0-.7.1-1.6.1s-1.5 0-1.6-.1c-3.3-.1-5.7-.7-5.7-1.4s2.4-1.2 5.7-1.4v2.3c.1 0 .8.1 1.6.1s1.5 0 1.6-.1v-2.3c3.3.1 5.7.7 5.7 1.4s-2.4 1.3-5.7 1.4Z" fill="#fff"/><text x="34" y="21" font-family="Inter,sans-serif" font-size="16" font-weight="600" fill="#2C2C54" letter-spacing="-.4">tether</text></symbol>
+    <symbol id="pay-mc" viewBox="0 0 48 30"><circle cx="18.5" cy="15" r="11.5" fill="#EB001B"/><circle cx="29.5" cy="15" r="11.5" fill="#F79E1B"/><path d="M24 5.9a11.5 11.5 0 0 0 0 18.2 11.5 11.5 0 0 0 0-18.2Z" fill="#FF5F00"/></symbol>
+    <symbol id="pay-visa" viewBox="0 0 74 30"><text x="0" y="23" font-family="Inter,sans-serif" font-size="24" font-weight="800" font-style="italic" fill="#1A1F71" letter-spacing="-.5">VISA</text></symbol>
+  </defs></svg>
+
+  <div class="pf-pay" role="img" aria-label="We accept bank transfer, Tether, Mastercard and Visa">
+    <div class="pf-payTrack">
+      <div class="pf-payGroup">
+        <svg viewBox="0 0 92 30"><use href="#pay-bank"/></svg>
+        <svg viewBox="0 0 110 30"><use href="#pay-tether"/></svg>
+        <svg viewBox="0 0 48 30"><use href="#pay-mc"/></svg>
+        <svg viewBox="0 0 74 30"><use href="#pay-visa"/></svg>
+        <svg viewBox="0 0 92 30"><use href="#pay-bank"/></svg>
+        <svg viewBox="0 0 110 30"><use href="#pay-tether"/></svg>
+        <svg viewBox="0 0 48 30"><use href="#pay-mc"/></svg>
+        <svg viewBox="0 0 74 30"><use href="#pay-visa"/></svg>
+        <svg viewBox="0 0 92 30"><use href="#pay-bank"/></svg>
+        <svg viewBox="0 0 110 30"><use href="#pay-tether"/></svg>
+        <svg viewBox="0 0 48 30"><use href="#pay-mc"/></svg>
+        <svg viewBox="0 0 74 30"><use href="#pay-visa"/></svg>
+      </div>
+      <div class="pf-payGroup" aria-hidden="true">
+        <svg viewBox="0 0 92 30"><use href="#pay-bank"/></svg>
+        <svg viewBox="0 0 110 30"><use href="#pay-tether"/></svg>
+        <svg viewBox="0 0 48 30"><use href="#pay-mc"/></svg>
+        <svg viewBox="0 0 74 30"><use href="#pay-visa"/></svg>
+        <svg viewBox="0 0 92 30"><use href="#pay-bank"/></svg>
+        <svg viewBox="0 0 110 30"><use href="#pay-tether"/></svg>
+        <svg viewBox="0 0 48 30"><use href="#pay-mc"/></svg>
+        <svg viewBox="0 0 74 30"><use href="#pay-visa"/></svg>
+        <svg viewBox="0 0 92 30"><use href="#pay-bank"/></svg>
+        <svg viewBox="0 0 110 30"><use href="#pay-tether"/></svg>
+        <svg viewBox="0 0 48 30"><use href="#pay-mc"/></svg>
+        <svg viewBox="0 0 74 30"><use href="#pay-visa"/></svg>
+      </div>
+    </div>
+  </div>
+
+  <div class="pf-wrap">
+
+    <!-- link columns -->
+    <div class="pf-cols">
+      <div>
+        <p class="pf-h">Company</p>
+        <ul>
+          <li><a href="homepage-v2.html">Home</a></li>
+          <li><a href="accounts-v2.html">Accounts</a></li>
+          <li><a href="why-abook-v2.html">Why A-Book</a></li>
+          <li><a href="https://www.pcxtrader.com/bonus50">Promotion</a></li>
+          <li><a href="https://dashboard.pcxtrader.com/login">Log in</a></li>
+          <li><a href="https://dashboard.pcxtrader.com/register">Open Account</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <p class="pf-h">Accounts</p>
+        <ul>
+          <li><a href="accounts-v2.html#lineup">ECN</a></li>
+          <li><a href="accounts-v2.html#lineup">Standard</a></li>
+          <li><a href="accounts-v2.html#lineup">Precious Metals</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <p class="pf-h">Platform</p>
+        <ul>
+          <li><a href="#">MetaTrader 5</a></li>
+          <li><a href="https://dashboard.pcxtrader.com/register">Free demo</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <p class="pf-h">Legal</p>
+        <ul>
+          <li><a href="legal-client-agreement.html">Client Agreement</a></li>
+          <li><a href="legal-terms.html">Terms &amp; Conditions</a></li>
+          <li><a href="legal-risk-disclosure.html">Risk Disclosure</a></li>
+          <li><a href="legal-privacy.html">Privacy Policy</a></li>
+          <li><a href="legal-cookies.html">Cookies Policy</a></li>
+          <li><a href="legal-pamm.html">PAMM Service Agreement</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- legal -->
+    <div class="pf-legal">
+      <p>PCX is the trading name of the Prime Codex Group of companies.</p>
+      <p>The website is operated and provides content by Prime Codex Group of companies which include:</p>
+      <ul>
+        <li>Prime Codex LLC, incorporated in Saint Vincent &amp; the Grenadines with registration number 892 LLC 2021, holding an International Brokerage and Clearing Houses License issued by the Mwali International Services Authority (MISA), License Number: T2023334;</li>
+        <li>Prime Codex Ltd, regulated by the Financial Services Commission (FSC) of Mauritius with an Investment Dealer License (License Number: GB25205419), Registered Office: Suite 803, 8th Floor, Hennessy Tower, Pope Hennessy Street, Port-Louis 11328, Republic of Mauritius; and</li>
+        <li>PCX Ltd incorporated in the Republic of Seychelles with registration number 8439312-1, Registered Office: House of Francis, Room 302, Ile Du Port, Mahe, Seychelles.</li>
+      </ul>
+      <p><b>Risk Warning:</b> Trading leveraged products such as Forex and CFDs carries a high degree of risk to your capital and may not be suitable for all investors. Please ensure that you fully understand the risks involved, taking into account your investment objectives and level of experience, before trading, and if necessary, seek independent advice. Please read the full <a href="legal-risk-disclosure.html">Risk Disclosure</a>.</p>
+      <p>PCX does not offer services to residents of certain jurisdictions, including the United States, Japan, Canada, China, Australia, North Korea, United Kingdom, Iran, Syria, Sudan, Cuba, Myanmar &amp; Russia.</p>
+    </div>
+
+    <!-- offices -->
+    <div class="pf-office">
+      <div class="pf-mark">
+        <img src="assets/pcx-logo-navy.png" alt="PCX" width="280" height="147" loading="lazy" decoding="async">
+      </div>
+      <div>
+        <h3>Office Address:</h3>
+        <p>Euro House, Richmond Hill Road, Kingstown, St. Vincent and the Grenadines</p>
+      </div>
+      <div>
+        <h3>Representative Office:</h3>
+        <p>BELSHALAT BUILDING - F101 Naif Dubai, United Arab Emirates</p>
+      </div>
+    </div>
+
+    <!-- policies -->
+    <nav class="pf-policies" aria-label="Legal">
+      <a href="legal-privacy.html">Privacy Policy</a>
+      <a href="legal-risk-disclosure.html">Risk Disclosure</a>
+      <a href="legal-cookies.html">Cookies Policy</a>
+      <a href="legal-client-agreement.html">Client Agreement</a>
+      <a href="legal-terms.html">Terms &amp; Conditions</a>
+      <a href="legal-pamm.html">PAMM Service Agreement</a>
+    </nav>
+
+    <p class="pf-copy">Copyright © 2026 Prime Codex. All rights reserved.</p>
+  </div>
+</footer>
+
+<div data-only="mobile" data-d="flex" style="display:none;position:fixed;left:0;right:0;bottom:0;z-index:70;background:rgba(255,255,255,.96);backdrop-filter:blur(10px);border-top:1px solid #EFE9DB;padding:10px 16px 14px;flex-direction:column;align-items:stretch;gap:8px">
+  <a href="https://dashboard.pcxtrader.com/register" style="display:flex;align-items:center;justify-content:center;min-height:50px;border-radius:13px;background:#0A0A3C;color:#FFFFFF;font-family:Inter,sans-serif;font-weight:600;font-size:16px;text-decoration:none">Open Account</a>
+  <a href="https://dashboard.pcxtrader.com/register" style="display:flex;align-items:center;justify-content:center;min-height:30px;font-family:Inter,sans-serif;font-weight:600;font-size:14px;color:#2C2C54;text-decoration:none">Try Free Demo</a>
+</div>
+
+</div>
+
+
+<script>
+/* some embedded/preview contexts report innerHeight as 0, which silently
+   disables every on-scroll reveal. Fall back to the document height. */
+window.VPH=function(){return window.innerHeight||document.documentElement.clientHeight||800;};
+</script>
+<style>
+/* ===== WHY A-BOOK — the two flows ==================================== */
+/* The whole page turns on one contrast: in a B-Book the order STOPS at the
+   broker; in an A-Book it PASSES THROUGH. So that is what moves. */
+
+.flow .order,.flow .fee{opacity:0}
+/* the order crosses a gold-lined window, so gold-on-gold needs separating */
+.flow .order{filter:drop-shadow(0 2px 3px rgba(10,10,60,.38))}
+.flow.run .order{opacity:1}
+
+/* B-BOOK: the order sets off, hits the broker, and can go no further.
+   It shoves against the wall, gives up, and the next one follows. */
+.flow-b.run .order{animation:orderStops 4.2s cubic-bezier(.4,0,.2,1) infinite}
+@keyframes orderStops{
+  0%   {transform:translateX(0);    opacity:0}
+  8%   {transform:translateX(0);    opacity:1}
+  /* the chip is 30 wide starting at x=120 and the desk face is at x=196, so
+     46 puts its leading edge exactly against the desk — any further and it
+     reads as a coin stuck on the side rather than an order being taken in */
+  38%  {transform:translateX(58px); opacity:1}   /* arrives at the broker wall */
+  44%  {transform:translateX(54px)}              /* shoves once */
+  50%  {transform:translateX(58px)}
+  56%  {transform:translateX(56px)}
+  72%  {transform:translateX(56px); opacity:1}   /* and just sits there */
+  86%  {transform:translateX(56px); opacity:0}   /* absorbed by the desk */
+  100% {transform:translateX(0);    opacity:0}
+}
+/* the desk swallows it: the box tightens each time an order dies in it */
+.flow-b.run .brk{animation:brkTake 4.2s ease-in-out infinite; transform-origin:266px 131px}
+@keyframes brkTake{
+  0%,36%{transform:scale(1)}
+  46%   {transform:scale(1.035)}
+  60%   {transform:scale(1)}
+  100%  {transform:scale(1)}
+}
+/* the market it never reaches keeps breathing, just out of reach */
+.flow-b.run [stroke-dasharray="5 5"]{animation:ghost 4.2s ease-in-out infinite}
+@keyframes ghost{0%,100%{opacity:.75}50%{opacity:.45}}
+
+/* A-BOOK: the same order, same start — and it simply keeps going. */
+/* The counter is a three-quarter render, so its window does not lie flat:
+   the aperture's centreline was measured off the asset and drops 0.149 per
+   unit to the right. The order rides that exact axis while it is inside the
+   box, so the flat 2D line and the 3D object finally agree with each other. */
+.flow-a .order{
+  offset-path:path("M94 123.6 H229.1 L296.9 133.6 H402");
+  offset-rotate:0deg;
+  offset-distance:55%;
+}
+.flow-a.run .order{animation:orderPasses 4.2s cubic-bezier(.35,0,.25,1) infinite}
+@keyframes orderPasses{
+  0%   {offset-distance:0%;   opacity:0}
+  8%   {offset-distance:0%;   opacity:1}
+  33%  {offset-distance:33%;  opacity:1}  /* reaches the PCX counter */
+  50%  {offset-distance:55%;  opacity:1}  /* dead centre of the window */
+  70%  {offset-distance:100%; opacity:1}  /* out the far side, to the market */
+  80%  {offset-distance:100%; opacity:0}
+  100% {offset-distance:0%;   opacity:0}
+}
+/* the fee peels off at PCX as the order goes by — small, and always the same */
+.flow-a.run .fee{animation:feeDrop 4.2s ease-out infinite}
+@keyframes feeDrop{
+  0%,34%{transform:translate(0,0) scale(.4); opacity:0}
+  42%   {transform:translate(0,0) scale(1);  opacity:1}
+  62%   {transform:translate(0,46px) scale(1); opacity:1}
+  76%   {transform:translate(0,46px) scale(1); opacity:0}
+  100%  {transform:translate(0,46px) scale(.4); opacity:0}
+}
+/* the market lights up on arrival — the order actually got somewhere */
+.flow-a.run .mkt{animation:mktHit 4.2s ease-out infinite}
+@keyframes mktHit{
+  0%,66%{stroke:#0A0A3C; stroke-width:1.6}
+  72%   {stroke:#D4AF37; stroke-width:2.6}
+  92%   {stroke:#0A0A3C; stroke-width:1.6}
+}
+
+
+
+/* the order chip is the only gold thing that moves, so it never blends into
+   the objects it passes — a soft dark edge keeps it readable on any surface */
+.flow .order{filter:drop-shadow(0 2px 3px rgba(10,10,60,.45)) drop-shadow(0 0 1px rgba(10,10,60,.55))}
+/* the fee animation lost its element; keep the rule harmless */
+.flow-a.run .fee{animation:none}
+/* the market the B-Book order never reaches stays pale and just out of reach */
+.flow-b .ghostMkt{opacity:.42}
+.flow-b.run .ghostMkt{animation:ghost 4.2s ease-in-out infinite}
+.flow-b .lbl{letter-spacing:.01em}
+/* the props themselves get a whisper of a shadow so they sit on the card */
+.flow .prop{filter:drop-shadow(0 6px 8px rgba(120,95,30,.16))}
+
+@media (prefers-reduced-motion:reduce){
+  .flow .order{opacity:1 !important; animation:none !important}
+  .flow .fee,.flow .brk,.flow .mkt,.flow [stroke-dasharray="5 5"]{animation:none !important}
+}
+</style>
+
+<script>
+/* the flows only run while they are on screen — two looping diagrams in the
+   corner of a 30,000px page would just burn battery */
+(function(){
+  var flows=[].slice.call(document.querySelectorAll('.flow'));
+  if(!flows.length) return;
+  function tick(){
+    flows.forEach(function(f){
+      var r=f.getBoundingClientRect();
+      f.classList.toggle('run', r.top < VPH()*0.9 && r.bottom > VPH()*0.1);
+    });
+  }
+  tick();
+  addEventListener('scroll',tick,{passive:true});
+  addEventListener('resize',tick);
+  setInterval(tick,400);
+})();
+</script>
+
+<script>
+/* DEV-ONLY preview hook — remove before handoff. ?dev=<section-id|index>&off=N */
+(function(){
+  var m=/[?&]dev=([\w-]+)/.exec(location.search); if(!m) return;
+  document.addEventListener('DOMContentLoaded',function(){
+    var k=m[1], s=document.getElementById(k);
+    if(!s){ var n=parseInt(k,10); if(!isNaN(n)) s=document.querySelectorAll('section')[n]; }
+    if(!s) return;
+    var off=(/[?&]off=(-?\d+)/.exec(location.search)||[0,0])[1];
+    document.body.style.marginTop=(-(s.offsetTop)+90-(+off))+'px';
+  });
+})();
+</script>
+
+<style>
+/* ===== HERO ========================================================= */
+.waHero{position:relative; overflow:hidden; isolation:isolate}
+
+/* a faint warm field behind the whole opening, so the page does not start
+   on a bare white sheet */
+.waHero::before{
+  content:""; position:absolute; inset:0; z-index:0; pointer-events:none;
+  background:radial-gradient(46% 58% at 78% 42%, rgba(212,175,55,.13) 0%, rgba(212,175,55,0) 70%);
+}
+.waHero > div{position:relative; z-index:2}
+
+/* the copy arrives in the order it should be read */
+.waHero .rise{opacity:0; transform:translateY(14px);
+  transition:opacity .7s cubic-bezier(.2,.7,.2,1), transform .7s cubic-bezier(.2,.7,.2,1)}
+.waHero.in .rise{opacity:1; transform:none}
+.waHero.in .r1{transition-delay:.05s}
+.waHero.in .r2{transition-delay:.15s}
+.waHero.in .r3{transition-delay:.30s}
+.waHero.in .r4{transition-delay:.46s}
+.waHero.in .r5{transition-delay:.60s}
+.waHero.in .r6{transition-delay:.72s}
+
+/* the definition of A-Book is the load-bearing sentence of the page,
+   so it reads as something set down rather than another paragraph */
+.waHero .defBox{position:relative}
+.waHero .defBox::before{
+  content:""; position:absolute; left:0; top:14px; bottom:14px; width:3px; border-radius:2px;
+  background:linear-gradient(180deg,#D4AF37,rgba(212,175,55,.25));
+  transform:scaleY(0); transform-origin:top; transition:transform .7s cubic-bezier(.4,0,.2,1) .8s;
+}
+.waHero.in .defBox::before{transform:scaleY(1)}
+
+/* the gold path draws itself — the same golden line the homepage uses, and
+   here it is literally an order finding its way down the page */
+
+/* the index at the foot of the hero behaves like an index */
+.waHero .onThis a{position:relative; text-decoration:none; padding-bottom:2px}
+.waHero .onThis a::after{
+  content:""; position:absolute; left:0; right:0; bottom:0; height:1.5px;
+  background:#D4AF37; transform:scaleX(0); transform-origin:right;
+  transition:transform .35s cubic-bezier(.2,.7,.2,1);
+}
+.waHero .onThis a:hover::after{transform:scaleX(1); transform-origin:left}
+
+/* the art column was mostly air, so Nora grows and gets something to stand in */
+.waHero .heroArt{align-items:flex-end !important; justify-content:center; min-height:clamp(420px,46vw,600px) !important}
+.waHero .heroOrn{position:absolute; inset:0; z-index:0; pointer-events:none; display:block}
+
+/* soft concentric rings — a quiet target for the eye to settle on */
+.waHero .ring{
+  position:absolute; left:50%; top:46%; transform:translate(-50%,-50%);
+  border-radius:50%; border:1px solid rgba(184,148,44,.22);
+  opacity:0; transition:opacity 1s ease .35s, width .9s cubic-bezier(.2,.7,.2,1) .35s, height .9s cubic-bezier(.2,.7,.2,1) .35s;
+}
+.waHero .r-a{width:170px;height:170px}
+.waHero .r-b{width:300px;height:300px; border-color:rgba(184,148,44,.15)}
+.waHero .r-c{width:440px;height:440px; border-color:rgba(184,148,44,.09)}
+.waHero.in .ring{opacity:1}
+.waHero.in .r-a{width:230px;height:230px}
+.waHero.in .r-b{width:376px;height:376px}
+.waHero.in .r-c{width:530px;height:530px}
+
+/* the pool of light she stands in, breathing */
+.waHero .pool{
+  position:absolute; left:50%; top:48%; transform:translate(-50%,-50%);
+  width:min(88%,520px); aspect-ratio:1.05/1; border-radius:50%;
+  background:radial-gradient(50% 50% at 50% 50%, rgba(212,175,55,.20) 0%, rgba(212,175,55,0) 70%);
+  animation:heroPool 9s ease-in-out infinite;
+}
+@keyframes heroPool{0%,100%{transform:translate(-50%,-50%) scale(1)}50%{transform:translate(-50%,-50%) scale(1.07)}}
+
+/* and a shadow so she is standing on something */
+.waHero .floor{
+  position:absolute; left:50%; bottom:6px; transform:translateX(-50%);
+  width:min(56%,260px); height:22px; border-radius:50%;
+  background:radial-gradient(50% 50% at 50% 50%, rgba(120,95,30,.20) 0%, rgba(120,95,30,0) 72%);
+  opacity:0; transition:opacity .9s ease .5s;
+}
+.waHero.in .floor{opacity:1}
+
+/* gold dust in the air */
+.waHero .spk{
+  position:absolute; width:5px; height:5px; border-radius:50%;
+  background:rgba(212,175,55,.6); filter:blur(.3px);
+  animation:heroSpk 8s ease-in-out infinite;
+}
+@keyframes heroSpk{0%,100%{transform:translateY(0);opacity:.30}50%{transform:translateY(-14px);opacity:.8}}
+.waHero .s1{left:14%;top:22%;animation-delay:0s}
+.waHero .s2{left:78%;top:16%;animation-delay:1.6s}
+.waHero .s3{left:86%;top:58%;animation-delay:3.1s}
+.waHero .s4{left:8%;top:64%;animation-delay:2.2s}
+.waHero .s5{left:64%;top:80%;animation-delay:4.3s}
+.waHero .s6{left:30%;top:8%;animation-delay:5.1s}
+
+/* she is cropped by a mask rather than by a box, so the figure dissolves
+   into the page instead of being cut off by an edge */
+.waHero .heroFig{
+  position:relative; z-index:2;
+  display:block; height:clamp(430px,62vw,780px); width:auto; max-width:none;
+  align-self:flex-end;
+  -webkit-mask-image:linear-gradient(180deg,#000 0 56%,rgba(0,0,0,.6) 76%,transparent 95%);
+  mask-image:linear-gradient(180deg,#000 0 56%,rgba(0,0,0,.6) 76%,transparent 95%);
+  opacity:0; transform:translateY(22px);
+  transition:opacity .9s cubic-bezier(.2,.7,.2,1) .25s, transform .9s cubic-bezier(.2,.7,.2,1) .25s;
+}
+.waHero.in .heroFig{opacity:1; transform:none}
+
+@media (prefers-reduced-motion:reduce){
+  .waHero .rise,.waHero .heroFig{opacity:1 !important; transform:none !important; transition:none !important}
+  .waHero .defBox::before{transform:scaleY(1) !important}
+  .waHero .pool,.waHero .spk{animation:none}
+  .waHero .ring,.waHero .floor{opacity:1 !important}
+}
+</style>
+
+<script>
+/* hero: stage the arrival */
+(function(){
+  var hero=document.querySelector('.waHero'); if(!hero) return;
+  function show(){
+    var r=hero.getBoundingClientRect();
+    if(r.top>VPH()*0.95||r.bottom<0) return;
+    hero.classList.add('in');
+    removeEventListener('scroll',show); clearInterval(poll);
+  }
+  show(); addEventListener('scroll',show,{passive:true});
+  var poll=setInterval(show,300);
+})();
+</script>
+
+<style>
+
+/* --- mobile: the hero art was taller than the copy it introduces -----------
+   On a phone the two columns stack, and the ornament rings (fixed at up to
+   530px) plus a 600px Nora pushed the first sentence of the argument nearly
+   two screens down. The art keeps its staging, at a size that fits a phone. */
+@media (max-width:760px){
+  .waHero .heroArt{min-height:0 !important; margin-top:6px}
+  .waHero .heroFig{height:clamp(230px,52vw,300px) !important}
+  .waHero .r-a{width:150px;height:150px}
+  .waHero .r-b{width:230px;height:230px}
+  .waHero .r-c{width:310px;height:310px}
+  .waHero.in .r-a{width:170px;height:170px}
+  .waHero.in .r-b{width:250px;height:250px}
+  .waHero.in .r-c{width:330px;height:330px}
+  .waHero .pool{width:min(84%,300px)}
+  .waHero .floor{width:min(52%,170px);height:16px}
+  .waHero .heroPath{display:none}   /* the gold path needs the tall column to read */
+  .waHero .spk{display:none}        /* six specks in a small box is just noise */
+}
+
+/* the atmosphere layers extend past the viewport on small screens */
+@media (max-width:900px){
+  .waHero, .waProblem{overflow-x:clip}
+}
+
+/* ===== THE PROBLEM — two models, dressed differently ================= */
+.waProblem{position:relative; overflow:hidden; isolation:isolate}
+/* a seam so the section does not butt against the hero with a hard edge */
+.waProblem::before{
+  content:""; position:absolute; left:0; right:0; top:0; height:130px; z-index:0; pointer-events:none;
+  background:linear-gradient(180deg, rgba(255,255,255,.9), rgba(255,255,255,0));
+}
+.waProblem > div{position:relative; z-index:2}
+
+.waProblem .rise{opacity:0; transform:translateY(14px);
+  transition:opacity .65s cubic-bezier(.2,.7,.2,1), transform .65s cubic-bezier(.2,.7,.2,1)}
+.waProblem.in .rise{opacity:1; transform:none}
+.waProblem.in .r1{transition-delay:.04s}
+.waProblem.in .r2{transition-delay:.12s}
+.waProblem.in .r3{transition-delay:.24s}
+/* the B card lands first and the A card answers it a beat later */
+.waProblem.in .r4{transition-delay:.38s}
+.waProblem.in .r5{transition-delay:.62s}
+.waProblem.in .r6{transition-delay:.85s}
+
+/* the two cards are not neutral siblings: one is the model being described,
+   the other is the model being chosen. They should not feel the same. */
+.waProblem .model{position:relative; transition:transform .45s cubic-bezier(.2,.7,.2,1), box-shadow .45s ease}
+
+/* B-Book: cool, closed, slightly recessed — a dead end */
+.waProblem .model-b{
+  background:linear-gradient(180deg,#FCFCFD,#F4F4F7) !important;
+  border-color:rgba(10,10,60,.10) !important;
+  filter:saturate(.85);
+}
+.waProblem .model-b figcaption{color:#55557A !important}
+
+/* A-Book: warm, open, lifted — the way out */
+.waProblem .model-a{
+  background:linear-gradient(180deg,#FFFFFF,#FBF6EA) !important;
+  border-color:rgba(184,148,44,.34) !important;
+  box-shadow:0 1px 2px rgba(10,10,60,.05), 0 22px 44px -26px rgba(120,95,30,.45);
+}
+.waProblem.in .model-a{transform:translateY(-6px)}
+/* a gold thread along its top edge, the same one the charter uses */
+.waProblem .model-a::before{
+  content:""; position:absolute; left:22px; right:22px; top:0; height:2px; border-radius:2px;
+  background:linear-gradient(90deg, rgba(212,175,55,0), #D4AF37, rgba(212,175,55,0));
+  transform:scaleX(0); transform-origin:center;
+  transition:transform .8s cubic-bezier(.4,0,.2,1) .9s;
+}
+.waProblem.in .model-a::before{transform:scaleX(1)}
+
+/* the legend chips key into the diagrams below them */
+.waProblem .legend > span{transition:background-color .3s ease, border-color .3s ease}
+.waProblem .legend > span:hover{border-color:rgba(184,148,44,.5) !important}
+
+@media (prefers-reduced-motion:reduce){
+  .waProblem .rise{opacity:1 !important; transform:none !important; transition:none !important}
+  .waProblem.in .model-a{transform:none}
+  .waProblem .model-a::before{transform:scaleX(1) !important}
+}
+</style>
+
+<script>
+(function(){
+  var sec=document.querySelector('.waProblem'); if(!sec) return;
+  function show(){
+    var r=sec.getBoundingClientRect();
+    if(r.top>VPH()*0.88||r.bottom<0) return;
+    sec.classList.add('in');
+    removeEventListener('scroll',show); clearInterval(poll);
+  }
+  show(); addEventListener('scroll',show,{passive:true});
+  var poll=setInterval(show,300);
+})();
+</script>
+<style>
+/* ===== HOW OLD IS THIS PROBLEM — you move time, the machine does not ===
+   The reader drags a handle from the 1800s to today. The SHELL cross-fades
+   from a paper ledger to a trading screen. The funnel does not: it is a
+   separate layer, and not one property of it is bound to the slider value.
+   So the argument is not narrated, it is handed to the reader — they move
+   time themselves and watch the mechanism refuse to move with it. */
+@property --t{syntax:"<number>"; inherits:true; initial-value:0}
+
+.ageTime{--t:0; position:relative; margin:0 0 clamp(24px,3vw,44px)}
+/* until it is touched, time drifts on its own so the stage is never still */
+.waAge.in .ageTime:not(.is-held){animation:ageSlide 9s cubic-bezier(.45,0,.55,1) infinite alternate}
+@keyframes ageSlide{from{--t:0}to{--t:1}}
+
+/* Three parties, because that is what the sentence claims: you, a business
+   standing between you and the market, and the market. Only the middle one
+   is allowed to change when the reader drags time. Your pawn does not move,
+   the globe does not move, and the order still stops in the middle. Both
+   eras even share the same open drawer - the costume changes, the mechanism
+   does not. */
+.ageScene{
+  position:relative;
+  display:grid; grid-template-columns:auto minmax(0,1fr) auto;
+  align-items:end; gap:clamp(6px,1.8vw,26px);
+  min-height:clamp(190px,25vw,320px);
+  max-width:min(860px,100%); margin:0 auto;
+}
+.ageFixed{width:auto; display:block; align-self:end}
+.ageYou{height:clamp(96px,13vw,172px)}
+.ageMkt{height:clamp(104px,14vw,184px)}
+
+.ageMid{position:relative; display:block; height:clamp(150px,20vw,262px); width:100%}
+.ageShell{
+  position:absolute; left:50%; bottom:0;
+  height:100%; width:auto; max-width:none;
+  transform:translateX(-50%);
+  will-change:opacity;
+}
+/* the two shells are the only things the handle is allowed to touch */
+.ageShellA{opacity:calc(1 - var(--t))}
+.ageShellB{opacity:var(--t)}
+
+/* the order sets off and stops in the middle, whichever century it is */
+.ageChip{position:absolute; left:19%; right:2%; bottom:24%; height:0; z-index:2; pointer-events:none}
+.ageChip::before{
+  content:""; position:absolute; left:0; top:-12px; width:23px; height:23px;
+  background:url(assets/prop-chip.webp) center/contain no-repeat;
+  filter:drop-shadow(0 2px 3px rgba(10,10,60,.35));
+}
+.waAge.in .ageChip{animation:ageChip 4.6s cubic-bezier(.4,0,.25,1) infinite}
+@keyframes ageChip{
+  0%{transform:translateX(0); opacity:0}
+  8%{transform:translateX(0); opacity:1}
+  44%{transform:translateX(36%); opacity:1}
+  62%{transform:translateX(36%); opacity:1}
+  76%{transform:translateX(36%); opacity:0}
+  100%{transform:translateX(36%); opacity:0}
+}
+
+.ageTrack{position:relative; height:46px; max-width:min(680px,88%); margin:0 auto}
+.ageTrack .ageRail{
+  position:absolute; left:0; right:0; top:50%; height:2px; margin-top:-1px; z-index:0;
+  background-image:repeating-linear-gradient(90deg,rgba(10,10,60,.28) 0 10px,rgba(10,10,60,0) 10px 22px);
+  background-size:22px 2px;
+  opacity:0; transition:opacity 1s ease .1s;
+}
+.waAge.in .ageTrack .ageRail{opacity:1; animation:ageDrift 2.6s linear infinite}
+@keyframes ageDrift{to{background-position:22px 0}}
+
+.ageKnob{
+  position:absolute; top:50%; left:calc(var(--t) * 100%);
+  width:26px; height:26px; margin:-13px 0 0 -13px; z-index:1;
+  border-radius:50%; background:#0A0A3C;
+  box-shadow:0 2px 4px rgba(10,10,60,.28), 0 8px 18px -6px rgba(10,10,60,.45);
+  pointer-events:none;
+}
+.ageKnob::after{
+  content:""; position:absolute; inset:-9px; border-radius:50%;
+  border:1px solid rgba(10,10,60,.18);
+}
+.ageRange{
+  position:absolute; inset:0; z-index:2;
+  width:100%; height:100%; margin:0; padding:0;
+  opacity:0; cursor:ew-resize;
+  -webkit-appearance:none; appearance:none; background:transparent;
+}
+.ageRange::-webkit-slider-thumb{-webkit-appearance:none; width:46px; height:46px}
+.ageRange::-moz-range-thumb{width:46px; height:46px; border:0}
+.ageRange:focus-visible{opacity:1; outline:2px solid #B8942C; outline-offset:4px}
+
+.ageTail{max-width:44em; margin:0 auto; text-align:center}
+
+.waAge .ageRise{opacity:0; transform:translateY(14px);
+  transition:opacity .65s cubic-bezier(.2,.7,.2,1), transform .65s cubic-bezier(.2,.7,.2,1)}
+.waAge.in .ageRise{opacity:1; transform:none}
+.waAge.in .ageR1{transition-delay:.04s}
+.waAge.in .ageR2{transition-delay:.16s}
+.waAge.in .ageR3{transition-delay:.28s}
+.waAge.in .ageR4{transition-delay:.42s}
+
+@media (max-width:700px){
+  .ageScene{height:clamp(180px,44vw,260px)}
+  .ageTail{text-align:left}
+}
+@media (prefers-reduced-motion:reduce){
+  .waAge .ageRise{opacity:1 !important; transform:none !important; transition:none !important}
+  /* no drift, but the handle still works — the interaction is the content */
+  .waAge .ageTime{animation:none !important}
+  .waAge .ageRail{opacity:1 !important; animation:none !important}
+}
+</style>
+
+<style>
+/* ===== WHY DOES IT KEEP HAPPENING — a wheel that eats its own clients ===
+   This is the matched pair of the gold cycle further down the page: same
+   ring, same radius, same four stations. Only two things differ, and both
+   carry the argument — these arcs are dashed and grey where the other set
+   is solid and gold, and this hub is empty where the other one has a client
+   sitting in it. Clients walk the ring, are used up at station 3, and fresh
+   ones appear at station 4. It never stops, and nothing is ever at the centre. */
+.flowCyc .cycTok{
+  /* orbiting just inside the ring, so a client never sits on top of the
+     number of the station it is passing through */
+  offset-path:path("M450 222 A78 78 0 1 1 450 378 A78 78 0 1 1 450 222");
+  offset-rotate:0deg; offset-distance:0%;
+  opacity:0;
+}
+.flowCyc.run .cycTok{animation:cycRun 10.5s linear infinite}
+.flowCyc.run .cycTokB{animation-delay:-3.5s}
+.flowCyc.run .cycTokC{animation-delay:-7s}
+@keyframes cycRun{
+  0%  {offset-distance:0%;   opacity:1; scale:1}
+  42% {offset-distance:42%;  opacity:1; scale:1}
+  49% {offset-distance:49%;  opacity:.5; scale:.66}   /* used up at station 3 */
+  53% {offset-distance:53%;  opacity:0; scale:.28}
+  71% {offset-distance:71%;  opacity:0; scale:.28}
+  76% {offset-distance:76%;  opacity:1; scale:1}      /* a fresh one, hunted */
+  100%{offset-distance:100%; opacity:1; scale:1}
+}
+
+/* the wheel is visibly turning, always */
+.flowCyc.run .cycRing{animation:cycRing 3.4s linear infinite}
+@keyframes cycRing{to{stroke-dashoffset:-28}}
+.flowCyc.run .cycArc{animation:cycArc 1.7s linear infinite}
+@keyframes cycArc{to{stroke-dashoffset:-15}}
+
+/* the empty hub keeps spinning on nothing */
+.flowCyc .cycHub{transform-box:view-box; transform-origin:450px 300px}
+.flowCyc.run .cycHub{animation:cycHub 26s linear infinite}
+@keyframes cycHub{to{transform:rotate(360deg)}}
+
+/* each station reacts as a client is pushed through it. The timing is not
+   guessed: a token laps the ring in 10.5s and three tokens sit a third of a
+   lap apart, so every station is hit once every 3.5s. Each station is given
+   the phase offset that puts its beat exactly under the passing client. */
+.flowCyc .cycBadge{transform-box:fill-box; transform-origin:50% 50%}
+.flowCyc.run .cycBadge{animation:cycPulse 3.5s ease-out infinite}
+.flowCyc.run .cycBadge2{animation-delay:-2.625s}
+.flowCyc.run .cycBadge3{animation-delay:-1.75s}
+.flowCyc.run .cycBadge4{animation-delay:-.875s}
+@keyframes cycPulse{
+  0%{scale:1; fill-opacity:.78}
+  7%{scale:1.13; fill-opacity:1}
+  22%{scale:1; fill-opacity:.78}
+  100%{scale:1; fill-opacity:.78}
+}
+
+/* the machinery itself flinches on the same beat, then settles */
+.flowCyc .cycObj{transform-box:fill-box; transform-origin:50% 60%}
+.flowCyc.run .cycObj{animation:cycObj 3.5s ease-out infinite}
+.flowCyc.run .cycObj2{animation-delay:-2.625s}
+.flowCyc.run .cycObj3{animation-delay:-1.75s}
+.flowCyc.run .cycObj4{animation-delay:-.875s}
+@keyframes cycObj{
+  0%{scale:1; translate:0 0}
+  7%{scale:1.06; translate:0 -3px}
+  26%{scale:1; translate:0 0}
+  100%{scale:1; translate:0 0}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .flowCyc *{animation:none !important}
+  .flowCyc .cycTok{opacity:1 !important}
+  .flowCyc .cycTokB{offset-distance:25% !important}
+  .flowCyc .cycTokC{offset-distance:75% !important}
+}
+
+/* ===== WHAT HAPPENS TO YOUR ORDER — the machine, then the proof ======
+   The engine is not decoration: five gold channels enter and one leaves,
+   which is the same shape as the table underneath it — five LP quotes in,
+   one price out. Object first, arithmetic second. The card then rides over
+   the engine's lower edge so the machine reads as standing behind the
+   evidence rather than floating beside it. */
+.waLP{position:relative; overflow:hidden; isolation:isolate}
+.waLP > div{position:relative; z-index:1}
+
+.lpHead{
+  position:relative;
+  display:grid; grid-template-columns:minmax(0,1fr) auto;
+  align-items:end; gap:clamp(14px,3vw,44px);
+  margin:0 0 clamp(12px,1.6vw,22px);
+}
+/* the evidence passes in front of the machine */
+.lpFig{position:relative; z-index:2}
+
+/* the closing figure stands on the page, not inside a box */
+.ctaFig{display:flex; align-items:flex-end; justify-content:center; min-height:340px}
+.ctaFig img{width:auto; max-width:none; height:clamp(380px,50vw,640px); display:block;
+  -webkit-mask-image:linear-gradient(180deg,#000 0 54%,rgba(0,0,0,.6) 75%,transparent 95%);
+  mask-image:linear-gradient(180deg,#000 0 54%,rgba(0,0,0,.6) 75%,transparent 95%)}
+.lpFig svg{filter:drop-shadow(0 18px 34px rgba(10,10,60,.16))}
+
+/* ---- the board is alive: quotes are compared, two win, a price is made ----
+   One 6.4s loop, always running while on screen. Every beat carries meaning:
+   the sweep is the comparison, the dimming is losing, the gold pills are the
+   two winners, the streams are those two prices travelling into one quote. */
+.flowLP .lpScan{opacity:0}
+.flowLP .lpWin{opacity:0; transform-box:fill-box; transform-origin:50% 50%}
+.flowLP .lpStream{opacity:0; stroke-dasharray:38 980; stroke-dashoffset:1018}
+.flowLP .lpIn,.flowLP .lpOut{opacity:0}
+.flowLP .lpLose{fill-opacity:.86}
+.flowLP .lpBar{transform-box:fill-box; transform-origin:50% 50%}
+
+.flowLP.run .lpIn{animation:lpIn 6.4s cubic-bezier(.4,0,.2,1) infinite}
+@keyframes lpIn{
+  0%{transform:translateX(0); opacity:0}
+  3%{opacity:1}
+  13%{transform:translateX(58px); opacity:1}
+  18%,100%{transform:translateX(58px); opacity:0}
+}
+
+/* the sweep IS the comparison — it reads every row on its way down */
+.flowLP.run .lpScan{animation:lpScan 6.4s cubic-bezier(.4,0,.25,1) infinite}
+@keyframes lpScan{
+  0%,9%{transform:translateY(0); opacity:0}
+  15%{opacity:1}
+  40%{transform:translateY(296px); opacity:1}
+  46%,100%{transform:translateY(296px); opacity:0}
+}
+
+/* the eight that lost step back so the two that won can be seen */
+.flowLP.run .lpLose{animation:lpLose 6.4s ease-in-out infinite}
+@keyframes lpLose{
+  0%,42%{fill-opacity:.86}
+  56%,92%{fill-opacity:.34}
+  100%{fill-opacity:.86}
+}
+
+/* both sides land at the same instant: each side, automatically */
+.flowLP.run .lpWin{animation:lpWin 6.4s cubic-bezier(.34,1.56,.64,1) infinite}
+@keyframes lpWin{
+  0%,42%{opacity:0; transform:scale(.72)}
+  50%{opacity:1; transform:scale(1.07)}
+  55%{transform:scale(1)}
+  92%{opacity:1; transform:scale(1)}
+  100%{opacity:0; transform:scale(.72)}
+}
+
+.flowLP.run .lpStream{animation:lpStream 6.4s cubic-bezier(.4,0,.2,1) infinite}
+.flowLP.run .lpStream2{animation-name:lpStream2}
+@keyframes lpStream{
+  0%,52%{stroke-dashoffset:1018; opacity:0}
+  56%{opacity:1}
+  74%{stroke-dashoffset:0; opacity:1}
+  79%,100%{stroke-dashoffset:0; opacity:0}
+}
+@keyframes lpStream2{
+  0%,54%{stroke-dashoffset:1018; opacity:0}
+  58%{opacity:1}
+  76%{stroke-dashoffset:0; opacity:1}
+  81%,100%{stroke-dashoffset:0; opacity:0}
+}
+
+/* the price does not fade in, it lands */
+.flowLP.run .lpBar{animation:lpBar 6.4s cubic-bezier(.34,1.56,.64,1) infinite}
+@keyframes lpBar{
+  0%,74%{transform:scale(1)}
+  80%{transform:scale(1.022)}
+  86%,100%{transform:scale(1)}
+}
+
+/* ambience: the stage keeps breathing between cycles so it is never dead */
+.flowLP.run .lpAura{animation:lpAura 7.6s ease-in-out infinite}
+@keyframes lpAura{0%,100%{opacity:.62}50%{opacity:1}}
+
+.flowLP.run .lpOut{animation:lpOut 6.4s cubic-bezier(.4,0,.2,1) infinite}
+@keyframes lpOut{
+  0%,84%{transform:translateX(0); opacity:0}
+  87%{opacity:1}
+  96%{transform:translateX(58px); opacity:1}
+  99%,100%{transform:translateX(58px); opacity:0}
+}
+
+@media (max-width:760px){
+  .lpHead{grid-template-columns:1fr; justify-items:center; gap:clamp(10px,3vw,20px)}
+  .lpHeadText{text-align:center}
+  .lpHead h2{max-width:none}
+}
+@media (prefers-reduced-motion:reduce){
+  /* motion off, but the diagram must still show its finished state */
+  .flowLP *{animation:none !important}
+  .flowLP .lpWin{opacity:1 !important; transform:none !important}
+  .flowLP .lpLose{fill-opacity:.4 !important}
+  .flowLP .lpStream{opacity:1 !important; stroke-dasharray:none !important; stroke-dashoffset:0 !important}
+}
+</style>
+
+<script>
+/* the time handle. The drift is CSS; this only hands control to the reader
+   and gives it back once they let go and go quiet for a while. */
+(function(){
+  var box=document.getElementById('ageTime'); if(!box) return;
+  var input=box.querySelector('.ageRange'); if(!input) return;
+  var idle;
+  function apply(){ box.style.setProperty('--t', (input.value/1000).toFixed(4)); }
+  function hold(){
+    if(!box.classList.contains('is-held')){
+      /* pick up exactly where the drift had got to, so nothing jumps */
+      var t=parseFloat(getComputedStyle(box).getPropertyValue('--t'))||0;
+      input.value=Math.round(t*1000);
+      box.classList.add('is-held');
+    }
+    apply();
+    clearTimeout(idle);
+    idle=setTimeout(function(){ box.classList.remove('is-held'); box.style.removeProperty('--t'); }, 7000);
+  }
+  input.addEventListener('pointerdown',hold);
+  input.addEventListener('input',hold);
+  input.addEventListener('keydown',hold);
+})();
+
+(function(){
+  var secs=[].slice.call(document.querySelectorAll('.waAge,.waLP'));
+  if(!secs.length) return;
+  function show(){
+    secs=secs.filter(function(sec){
+      var r=sec.getBoundingClientRect();
+      if(r.top>VPH()*0.88||r.bottom<0) return true;
+      sec.classList.add('in');
+      return false;
+    });
+    if(!secs.length){ removeEventListener('scroll',show); clearInterval(poll); }
+  }
+  show(); addEventListener('scroll',show,{passive:true});
+  var poll=setInterval(show,300);
+})();
+</script>
+<style>
+/* ===== giving the bare text sections a body =========================== */
+
+/* four tests, two by two — a 3+1 row left the fourth card orphaned */
+.tGrid{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:clamp(18px,2.2vw,26px)}
+/* the three "have you seen this" cards stay three across — they are a set of
+   three moments, and breaking them 2+1 orphans the last one */
+.tGrid3{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:clamp(18px,2.2vw,26px)}
+@media (max-width:980px){.tGrid3{grid-template-columns:1fr}}
+@media (max-width:760px){.tGrid{grid-template-columns:1fr}}
+
+/* every card on the page gets the same gold edge and the same lift, so the
+   card sections stop reading as flat blocks of text in a box */
+.tCard{position:relative; overflow:hidden;
+  transition:transform .35s cubic-bezier(.2,.7,.2,1), box-shadow .35s ease}
+.tCard::before{
+  content:""; position:absolute; left:0; right:0; top:0; height:3px;
+  background:linear-gradient(90deg,#D4AF37,rgba(212,175,55,.15));
+  opacity:.5; transition:opacity .35s ease;
+}
+.tCard:hover{transform:translateY(-3px);
+  box-shadow:0 2px 4px rgba(10,10,60,.06),0 22px 40px -20px rgba(10,10,60,.3)}
+.tCard:hover::before{opacity:1}
+
+/* the three notes under the LP diagram sit in one panel instead of floating
+   as loose paragraphs, and each gets a gold tick so it reads as an item */
+.lpNotes{
+  display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:clamp(20px,3vw,36px);
+  margin:clamp(26px,3vw,40px) 0 0;
+  padding:clamp(24px,3vw,36px);
+  background:linear-gradient(180deg,#FFFFFF,#FBF8F1);
+  border:1px solid #EFE9DB; border-radius:18px;
+  box-shadow:0 1px 2px rgba(10,10,60,.05),0 10px 24px -14px rgba(10,10,60,.16);
+}
+.lpNotes > p{position:relative; padding-top:20px}
+.lpNotes > p::before{
+  content:""; position:absolute; left:0; top:0;
+  width:34px; height:3px; border-radius:2px; background:#D4AF37;
+}
+.lpClose{
+  margin:clamp(24px,3vw,38px) 0 0; text-align:center;
+  font-family:Inter,sans-serif; font-weight:700;
+  font-size:clamp(22px,2.8vw,32px); line-height:1.25; letter-spacing:-.015em;
+  color:#0A0A3C;
+}
+
+/* the three costs become real cards with a gold top edge */
+.costGrid{display:grid; grid-template-columns:repeat(auto-fit,minmax(275px,1fr)); gap:clamp(20px,2.4vw,32px)}
+.costCol{
+  display:grid; gap:12px; align-content:start;
+  padding:clamp(22px,2.6vw,30px);
+  background:#FFFFFF; border:1px solid #F0E8D8; border-top:3px solid #D4AF37;
+  border-radius:16px;
+  box-shadow:0 1px 2px rgba(10,10,60,.04),0 10px 22px -16px rgba(10,10,60,.16);
+}
+
+/* ===== hero and closing CTA: reading order changes on a phone ==========
+   On a wide screen the figure sits beside the text. On a phone she has to
+   sit INSIDE the reading order, not after all of it - right under the
+   headline in the hero, and above the headline in the closing block. That
+   needs three named areas rather than two columns, because a figure in a
+   second column can never land in the middle of the first column's text. */
+.heroGrid{
+  max-width:1180px; margin:0 auto;
+  display:grid; grid-template-columns:repeat(2,minmax(0,1fr));
+  grid-template-areas:"lead art" "rest art";
+  gap:0 clamp(32px,5vw,64px); align-items:center;
+}
+.heroLead{grid-area:lead; align-self:end}
+.heroRest{grid-area:rest; align-self:start}
+.waHero .heroArt{grid-area:art}
+
+.ctaGrid{
+  position:relative; max-width:1180px; margin:0 auto;
+  display:grid; grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:clamp(28px,4vw,56px); align-items:center;
+}
+
+@media (max-width:880px){
+  .heroGrid{grid-template-columns:1fr; grid-template-areas:"lead" "art" "rest"; gap:0}
+  .waHero .heroArt{min-height:0; margin:clamp(10px,3vw,24px) 0 clamp(18px,4vw,32px); justify-content:center}
+  .waHero .heroFig{height:clamp(300px,74vw,460px)}
+
+  /* she introduces the closing block rather than trailing after it */
+  .ctaGrid{grid-template-columns:1fr; gap:clamp(14px,3vw,24px)}
+  .ctaGrid > .ctaFig{order:-1; min-height:0}
+  .ctaGrid > .ctaFig img{height:clamp(280px,70vw,420px)}
+  .ctaGrid > div:not(.ctaFig){text-align:center}
+  .ctaGrid > div:not(.ctaFig) h2{margin-inline:auto}
+  .ctaGrid > div:not(.ctaFig) > div{justify-content:center}
+  .ctaGrid > div:not(.ctaFig) p{margin-inline:auto; max-width:34em}
+}
+
+/* ===== ornaments, used sparingly ======================================
+   Only two sections get these. They are text-only stretches with nothing to
+   look at, and the point is to give the eye a surface, not to decorate the
+   page. Anything more and it stops being quiet. */
+.ornDots,.ornRing{position:relative; overflow:hidden; isolation:isolate}
+.ornDots > div,.ornRing > div{position:relative; z-index:1}
+
+/* a field of fine gold dots, faded out at its own edges */
+.ornDots::before{
+  content:""; position:absolute; z-index:0; pointer-events:none;
+  right:-3%; top:6%; width:min(430px,40%); aspect-ratio:1/1;
+  background-image:radial-gradient(rgba(212,175,55,.34) 1.5px,transparent 1.6px);
+  background-size:19px 19px;
+  -webkit-mask-image:radial-gradient(circle at 72% 28%,#000,transparent 68%);
+  mask-image:radial-gradient(circle at 72% 28%,#000,transparent 68%);
+}
+
+/* two hairline rings and a soft pool, sitting behind the left column */
+.ornRing::before{
+  content:""; position:absolute; z-index:0; pointer-events:none;
+  left:-12%; top:50%; width:min(540px,44%); aspect-ratio:1/1;
+  transform:translateY(-50%); border-radius:50%;
+  border:1px solid rgba(212,175,55,.24);
+  background:radial-gradient(circle,rgba(212,175,55,.09),rgba(212,175,55,0) 66%);
+}
+.ornRing::after{
+  content:""; position:absolute; z-index:0; pointer-events:none;
+  left:-4%; top:50%; width:min(360px,30%); aspect-ratio:1/1;
+  transform:translateY(-50%); border-radius:50%;
+  border:1px solid rgba(212,175,55,.16);
+}
+@media (max-width:820px){
+  .ornDots::before{width:60%; top:auto; bottom:4%; opacity:.6}
+  .ornRing::before,.ornRing::after{opacity:.5}
+}
+
+/* ===== the winning cycle — the same wheel, but nothing is consumed ======
+   Geometry is deliberately identical to the grey cycle: same radius, same
+   four angles, same badge offsets. Only three things differ, and each one
+   carries the argument — the arcs are gold and solid instead of grey and
+   broken, they thicken as they go round because the loop compounds, and the
+   hub has a client sitting in it instead of being empty. */
+.flowWin .winPulse{stroke-dasharray:60 880; stroke-dashoffset:940; opacity:0}
+.flowWin.run .winPulse{animation:winPulse 10.5s linear infinite}
+@keyframes winPulse{
+  0%{stroke-dashoffset:940; opacity:0}
+  4%{opacity:.85}
+  92%{opacity:.85}
+  100%{stroke-dashoffset:0; opacity:0}
+}
+/* each station answers as the pulse reaches it */
+.flowWin .winObj,.flowWin .winBadge{transform-box:fill-box; transform-origin:50% 60%}
+.flowWin.run .winObj{animation:winLift 10.5s ease-out infinite}
+.flowWin.run .winObj2{animation-delay:-7.875s}
+.flowWin.run .winObj3{animation-delay:-5.25s}
+.flowWin.run .winObj4{animation-delay:-2.625s}
+@keyframes winLift{
+  0%{scale:1; translate:0 0}
+  4%{scale:1.06; translate:0 -4px}
+  14%{scale:1; translate:0 0}
+  100%{scale:1; translate:0 0}
+}
+.flowWin.run .winBadge{animation:winBadge 10.5s ease-out infinite}
+.flowWin.run .winBadge2{animation-delay:-7.875s}
+.flowWin.run .winBadge3{animation-delay:-5.25s}
+.flowWin.run .winBadge4{animation-delay:-2.625s}
+@keyframes winBadge{
+  0%{scale:1}
+  4%{scale:1.14}
+  16%{scale:1}
+  100%{scale:1}
+}
+@media (prefers-reduced-motion:reduce){
+  .flowWin *{animation:none !important}
+  .flowWin .winPulse{opacity:0 !important}
+}
+
+/* the navy block was one long column on a wide dark field, which is a lot of
+   reading with nothing to hold on to. Three columns and a faint pool of warm
+   light give the eye somewhere to rest without adding a single word. */
+.philSec{position:relative; overflow:hidden; isolation:isolate}
+.philSec::before{
+  content:""; position:absolute; z-index:0; pointer-events:none;
+  right:-14%; top:-26%; width:64%; aspect-ratio:1/1; border-radius:50%;
+  background:radial-gradient(circle,rgba(212,175,55,.14),rgba(212,175,55,0) 62%);
+}
+.philSec::after{
+  content:""; position:absolute; z-index:0; pointer-events:none;
+  left:-16%; bottom:-32%; width:52%; aspect-ratio:1/1; border-radius:50%;
+  border:1px solid rgba(212,175,55,.13);
+}
+.philSec > div{position:relative; z-index:1}
+
+.philBody{
+  display:grid; grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:clamp(22px,3vw,44px); align-items:start; max-width:none;
+}
+.philBody > p{position:relative; padding-top:18px}
+.philBody > p::before{
+  content:""; position:absolute; left:0; top:0;
+  width:30px; height:2px; border-radius:2px; background:rgba(212,175,55,.7);
+}
+@media (max-width:820px){.philBody{grid-template-columns:1fr; gap:22px}}
+
+.philAsk{margin:clamp(38px,5vw,60px) 0 0; padding-top:clamp(26px,3vw,36px);
+  border-top:1px solid rgba(212,175,55,.45)}
+
+@media (prefers-reduced-motion:reduce){
+  .tCard{transition:none}
+  .tCard:hover{transform:none}
+}
+</style>
+
+<style>
+/* the answer arrives rather than snapping in */
+[data-ans][data-open="1"]{animation:faqIn .26s cubic-bezier(.2,.7,.2,1)}
+@keyframes faqIn{from{opacity:0; transform:translateY(-5px)}to{opacity:1; transform:none}}
+[data-faq]:hover [data-plus]{color:#0A0A3C}
+@media (prefers-reduced-motion:reduce){[data-ans][data-open="1"]{animation:none}}
+</style>
+<script>
+/* The accordion markup shipped with no behaviour at all, which is why every
+   answer was open on load. This wires it: closed by default, one click to
+   open, and the +/- sign follows the real state rather than being decorative. */
+(function(){
+  var btns=[].slice.call(document.querySelectorAll('[data-faq]'));
+  if(!btns.length) return;
+  btns.forEach(function(b,i){
+    var ans=b.nextElementSibling;
+    while(ans && !ans.hasAttribute('data-ans')) ans=ans.nextElementSibling;
+    if(!ans) return;
+    if(!ans.id) ans.id='faq-a-'+i;
+    b.setAttribute('aria-controls',ans.id);
+    b.addEventListener('click',function(){
+      var open=b.getAttribute('aria-expanded')==='true';
+      b.setAttribute('aria-expanded', open?'false':'true');
+      ans.setAttribute('data-open', open?'0':'1');
+      ans.style.display = open?'none':'block';
+      var sign=b.querySelector('[data-plus]');
+      if(sign) sign.textContent = open?'+':'−';
+    });
+  });
+})();
+</script>
+</body></html>
