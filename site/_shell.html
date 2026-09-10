@@ -41,6 +41,8 @@ ul{list-style:none;padding:0}
 .pn-links a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:#D4AF37;transform:scaleX(0);transform-origin:left;transition:transform .22s ease-out}
 .pn-links a:hover{color:#0A0A3C}
 .pn-links a:hover::after,.pn-links a.is-active::after{transform:scaleX(1)}
+.pn-links .pn-drop > summary.is-active{font-weight:600}
+.pn-links .pn-drop > summary.is-active::before{transform:scaleX(1)}
 .pn-links a.is-active{font-weight:600}
 .pn-links a:focus-visible{outline:2px solid #D4AF37;outline-offset:6px;border-radius:3px}
 
@@ -162,23 +164,23 @@ ul{list-style:none;padding:0}
    Built on <details> so it opens by keyboard and without JS; the script
    below only adds the two things native <details> lacks — closing on Esc
    and on a click elsewhere. Scoped to pn- like the rest of the navbar. */
-.pn-legal{position:relative}
-.pn-legal > summary{
+.pn-drop{position:relative}
+.pn-drop > summary{
   list-style:none;cursor:pointer;position:relative;display:flex;align-items:center;gap:7px;
   font:500 16px/1 'Inter',sans-serif;color:#0A0A3C;padding:8px 0;
   transition:color .18s ease-out}
-.pn-legal > summary::-webkit-details-marker{display:none}
-.pn-legal > summary::marker{content:""}
-.pn-legal > summary::before{
+.pn-drop > summary::-webkit-details-marker{display:none}
+.pn-drop > summary::marker{content:""}
+.pn-drop > summary::before{
   content:"";position:absolute;left:0;right:16px;bottom:0;height:2px;background:#D4AF37;
   transform:scaleX(0);transform-origin:left;transition:transform .22s ease-out}
-.pn-legal > summary:hover::before,.pn-legal[open] > summary::before{transform:scaleX(1)}
-.pn-legal > summary:focus-visible{outline:2px solid #D4AF37;outline-offset:6px;border-radius:3px}
-.pn-legal > summary .pn-caret{
+.pn-drop > summary:hover::before,.pn-drop[open] > summary::before{transform:scaleX(1)}
+.pn-drop > summary:focus-visible{outline:2px solid #D4AF37;outline-offset:6px;border-radius:3px}
+.pn-drop > summary .pn-caret{
   width:0;height:0;border-top:5px solid currentColor;
   border-left:4px solid transparent;border-right:4px solid transparent;
   transition:transform .2s ease-out;flex:none}
-.pn-legal[open] > summary .pn-caret{transform:rotate(180deg)}
+.pn-drop[open] > summary .pn-caret{transform:rotate(180deg)}
 
 .pn-pop{
   position:absolute;top:calc(100% + 12px);left:50%;transform:translateX(-50%);
@@ -198,39 +200,52 @@ ul{list-style:none;padding:0}
 
 /* the drawer is CSS-only, so it just needs room and a plain stacked list */
 .pn-check:checked~.pn-drawer{max-height:620px}
-.pn-drawer-legal > details > summary{
+.pn-drawer-drop > details > summary{
   list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;
   padding:14px 0;font:500 17px/1 'Inter',sans-serif;color:#0A0A3C;
   border-bottom:1px solid rgba(10,10,60,.09)}
-.pn-drawer-legal > details > summary::-webkit-details-marker{display:none}
-.pn-drawer-legal > details > summary::after{
+.pn-drawer-drop > details > summary::-webkit-details-marker{display:none}
+.pn-drawer-drop > details > summary::after{
   content:"";width:0;height:0;border-top:5px solid currentColor;
   border-left:4px solid transparent;border-right:4px solid transparent;transition:transform .2s ease-out}
-.pn-drawer-legal > details[open] > summary::after{transform:rotate(180deg)}
-.pn-drawer-legal a{
+.pn-drawer-drop > details[open] > summary::after{transform:rotate(180deg)}
+.pn-drawer-drop a{
   display:block;padding:12px 0 12px 16px;font:400 16px/1.3 'Inter',sans-serif;color:#2C2C54;
   border-bottom:1px solid rgba(10,10,60,.06)}
 @media (prefers-reduced-motion:reduce){
-  .pn-legal > summary::before,.pn-pop a,.pn-legal .pn-caret{transition:none}
+  .pn-drop > summary::before,.pn-pop a,.pn-drop .pn-caret{transition:none}
 }
 </style>
 <script>
 /* native <details> does not close on Esc or on an outside click */
-function pcxLegalMenu(){
-  var d=document.querySelector('.pn-legal'); if(!d) return;
-  var sum=d.querySelector('summary');
-  if(sum && !sum.querySelector('.pn-caret')){
-    var c=document.createElement('span'); c.className='pn-caret'; c.setAttribute('aria-hidden','true');
-    sum.appendChild(c);
-  }
-  document.addEventListener('click',function(e){ if(d.open && !d.contains(e.target)) d.open=false; });
+function pcxNavMenus(){
+  var menus=[].slice.call(document.querySelectorAll('.pn-drop'));
+  if(!menus.length) return;
+  menus.forEach(function(d){
+    var sum=d.querySelector('summary');
+    if(sum && !sum.querySelector('.pn-caret')){
+      var c=document.createElement('span'); c.className='pn-caret'; c.setAttribute('aria-hidden','true');
+      sum.appendChild(c);
+    }
+    /* two menus open at once would overlap, so opening one closes the rest */
+    d.addEventListener('toggle',function(){
+      if(!d.open) return;
+      menus.forEach(function(o){ if(o!==d) o.open=false; });
+    });
+  });
+  document.addEventListener('click',function(e){
+    menus.forEach(function(d){ if(d.open && !d.contains(e.target)) d.open=false; });
+  });
   document.addEventListener('keydown',function(e){
-    if(e.key==='Escape' && d.open){ d.open=false; sum && sum.focus(); }
+    if(e.key!=='Escape') return;
+    menus.forEach(function(d){
+      if(d.open){ d.open=false; var s=d.querySelector('summary'); s && s.focus(); }
+    });
   });
 }
 /* this block sits in <head>, so the navbar does not exist yet at parse time */
-if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',pcxLegalMenu);
-else pcxLegalMenu();
+if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',pcxNavMenus);
+else pcxNavMenus();
 </script>
 </head>
 <body>
@@ -248,10 +263,18 @@ else pcxLegalMenu();
     </a>
 
     <nav class="pn-links" aria-label="Main">
-      <a href="accounts.html">Accounts</a>
+      <details class="pn-drop">
+        <summary>Accounts</summary>
+        <div class="pn-pop">
+          <a href="accounts.html">All accounts</a>
+          <a href="accounts-standard.html">Standard</a>
+          <a href="accounts-ecn.html">ECN</a>
+          <a href="accounts-precious-metals.html">Precious Metals</a>
+          <a href="accounts-demo.html">Demo</a>
+        </div>
+      </details>
       <a href="why-a-book.html">Why A-Book</a>
-      <a href="https://www.pcxtrader.com/bonus50">Promotions</a>
-      <details class="pn-legal">
+      <details class="pn-drop">
         <summary aria-label="Legal documents">Legal</summary>
         <div class="pn-pop">
           <a href="legal-terms.html">Terms &amp; Conditions</a>
@@ -273,10 +296,20 @@ else pcxLegalMenu();
 
   <div class="pn-drawer">
     <ul>
-      <li><a href="accounts.html">Accounts</a></li>
+      <li class="pn-drawer-drop">
+        <details>
+          <summary>Accounts</summary>
+          <div>
+            <a href="accounts.html">All accounts</a>
+            <a href="accounts-standard.html">Standard</a>
+            <a href="accounts-ecn.html">ECN</a>
+            <a href="accounts-precious-metals.html">Precious Metals</a>
+            <a href="accounts-demo.html">Demo</a>
+          </div>
+        </details>
+      </li>
       <li><a href="why-a-book.html">Why A-Book</a></li>
-      <li><a href="https://www.pcxtrader.com/bonus50">Promotions</a></li>
-      <li class="pn-drawer-legal">
+      <li class="pn-drawer-drop">
         <details>
           <summary>Legal</summary>
           <div>
@@ -368,7 +401,6 @@ else pcxLegalMenu();
           <li><a href="index.html">Home</a></li>
           <li><a href="accounts.html">Accounts</a></li>
           <li><a href="why-a-book.html">Why A-Book</a></li>
-          <li><a href="https://www.pcxtrader.com/bonus50">Promotion</a></li>
           <li><a href="https://dashboard.pcxtrader.com/login">Log in</a></li>
           <li><a href="https://dashboard.pcxtrader.com/register">Open Account</a></li>
         </ul>
@@ -411,7 +443,7 @@ else pcxLegalMenu();
       <ul>
         <li>Prime Codex LLC, incorporated in Saint Vincent &amp; the Grenadines with registration number 892 LLC 2021, holding an International Brokerage and Clearing Houses License issued by the Mwali International Services Authority (MISA), License Number: T2023334;</li>
         <li>Prime Codex Ltd, regulated by the Financial Services Commission (FSC) of Mauritius with an Investment Dealer License (License Number: GB25205419), Registered Office: Suite 803, 8th Floor, Hennessy Tower, Pope Hennessy Street, Port-Louis 11328, Republic of Mauritius; and</li>
-        <li>PCX Ltd incorporated in the Republic of Seychelles with registration number 8439312-1, Registered Office: House of Francis, Room 302, Ile Du Port, Mahe, Seychelles.</li>
+        <li>PCX Ltd incorporated in the Republic of Seychelles with registration number 8439312-1 with a Security Dealer License (License Number: SD254), Registered Office: House of Francis, Room 302, Ile Du Port, Mahe, Seychelles.</li>
       </ul>
       <p><b>Risk Warning:</b> Trading leveraged products such as Forex and CFDs carries a high degree of risk to your capital and may not be suitable for all investors. Please ensure that you fully understand the risks involved, taking into account your investment objectives and level of experience, before trading, and if necessary, seek independent advice. Please read the full <a href="legal-risk-disclosure.html">Risk Disclosure</a>.</p>
       <p>PCX does not offer services to residents of certain jurisdictions, including the United States, Japan, Canada, China, Australia, North Korea, United Kingdom, Iran, Syria, Sudan, Cuba, Myanmar &amp; Russia.</p>

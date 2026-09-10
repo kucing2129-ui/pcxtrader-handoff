@@ -3,7 +3,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>PCX Precious Metals Account: Hedge Gold You Hold</title>
-<meta name="description" content="The PCX Precious Metals account is a hedging tool for holders of physical gold: raw gold spreads plus $7 per lot, $5,000 minimum, leverage capped at 1:10, first 5 days swap-free. Trading involves risk.">
+<meta name="description" content="The PCX Precious Metals account is a hedging tool for holders of physical gold: raw gold spreads plus $7 per lot, $1,000 minimum, leverage capped at 1:10, first 30 days swap-free. Trading involves risk.">
 <link rel="icon" type="image/png" href="assets/pcx-logo-navy.png">
 <link rel="apple-touch-icon" href="assets/pcx-logo-navy.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -338,7 +338,9 @@ section[data-idle] *,section[data-idle]{animation-play-state:paused!important}
 /* ====================================================================== *
  * S5 extras — the swap window and the leverage cap, both drawn to scale
  * ====================================================================== */
-/* six days, five of them free: the shape says it before the words do */
+/* six cells standing in for 31 days, the last one charged: the shape
+   says it before the words do */
+.pm-foot{margin:10px 0 0;font:400 12px/1.5 'Space Grotesk',sans-serif;color:#6B6B8A}
 .pm-days{position:relative;z-index:2;display:flex;align-items:stretch;
   gap:clamp(4px,.7vw,8px);width:100%}
 .pm-day{flex:1 1 0;min-width:0;border-radius:9px;padding:11px 6px 10px;
@@ -500,8 +502,8 @@ section[data-idle] *,section[data-idle]{animation-play-state:paused!important}
   display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(18px,3vw,40px)}
 .pm-tl::before{content:"";position:absolute;left:8%;right:8%;top:17px;height:2px;
   background:rgba(212,175,55,.22)}
-/* the swap-free window running out: the rail fills from day 0, reaches day 6,
-   and starts again — five days are free, the sixth is not */
+/* the swap-free window running out: the rail fills from day 0, reaches day 31,
+   and starts again: thirty days are free, the thirty-first is not */
 .pm-tl::after{content:"";position:absolute;left:8%;right:8%;top:17px;height:2px;
   background:linear-gradient(90deg,#D4AF37,#B8942C);
   transform:scaleX(1);transform-origin:0 50%}
@@ -669,6 +671,8 @@ a.pm-tile:hover{transform:translateY(-2px);border-color:#D9CFB4;
 .pn-links a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:#D4AF37;transform:scaleX(0);transform-origin:left;transition:transform .22s ease-out}
 .pn-links a:hover{color:#0A0A3C}
 .pn-links a:hover::after,.pn-links a.is-active::after{transform:scaleX(1)}
+.pn-links .pn-drop > summary.is-active{font-weight:600}
+.pn-links .pn-drop > summary.is-active::before{transform:scaleX(1)}
 .pn-links a.is-active{font-weight:600}
 .pn-links a:focus-visible{outline:2px solid #D4AF37;outline-offset:6px;border-radius:3px}
 
@@ -789,23 +793,23 @@ a.pm-tile:hover{transform:translateY(-2px);border-color:#D9CFB4;
    Built on <details> so it opens by keyboard and without JS; the script
    below only adds the two things native <details> lacks — closing on Esc
    and on a click elsewhere. Scoped to pn- like the rest of the navbar. */
-.pn-legal{position:relative}
-.pn-legal > summary{
+.pn-drop{position:relative}
+.pn-drop > summary{
   list-style:none;cursor:pointer;position:relative;display:flex;align-items:center;gap:7px;
   font:500 16px/1 'Inter',sans-serif;color:#0A0A3C;padding:8px 0;
   transition:color .18s ease-out}
-.pn-legal > summary::-webkit-details-marker{display:none}
-.pn-legal > summary::marker{content:""}
-.pn-legal > summary::before{
+.pn-drop > summary::-webkit-details-marker{display:none}
+.pn-drop > summary::marker{content:""}
+.pn-drop > summary::before{
   content:"";position:absolute;left:0;right:16px;bottom:0;height:2px;background:#D4AF37;
   transform:scaleX(0);transform-origin:left;transition:transform .22s ease-out}
-.pn-legal > summary:hover::before,.pn-legal[open] > summary::before{transform:scaleX(1)}
-.pn-legal > summary:focus-visible{outline:2px solid #D4AF37;outline-offset:6px;border-radius:3px}
-.pn-legal > summary .pn-caret{
+.pn-drop > summary:hover::before,.pn-drop[open] > summary::before{transform:scaleX(1)}
+.pn-drop > summary:focus-visible{outline:2px solid #D4AF37;outline-offset:6px;border-radius:3px}
+.pn-drop > summary .pn-caret{
   width:0;height:0;border-top:5px solid currentColor;
   border-left:4px solid transparent;border-right:4px solid transparent;
   transition:transform .2s ease-out;flex:none}
-.pn-legal[open] > summary .pn-caret{transform:rotate(180deg)}
+.pn-drop[open] > summary .pn-caret{transform:rotate(180deg)}
 
 .pn-pop{
   position:absolute;top:calc(100% + 12px);left:50%;transform:translateX(-50%);
@@ -825,39 +829,52 @@ a.pm-tile:hover{transform:translateY(-2px);border-color:#D9CFB4;
 
 /* the drawer is CSS-only, so it just needs room and a plain stacked list */
 .pn-check:checked~.pn-drawer{max-height:620px}
-.pn-drawer-legal > details > summary{
+.pn-drawer-drop > details > summary{
   list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;
   padding:14px 0;font:500 17px/1 'Inter',sans-serif;color:#0A0A3C;
   border-bottom:1px solid rgba(10,10,60,.09)}
-.pn-drawer-legal > details > summary::-webkit-details-marker{display:none}
-.pn-drawer-legal > details > summary::after{
+.pn-drawer-drop > details > summary::-webkit-details-marker{display:none}
+.pn-drawer-drop > details > summary::after{
   content:"";width:0;height:0;border-top:5px solid currentColor;
   border-left:4px solid transparent;border-right:4px solid transparent;transition:transform .2s ease-out}
-.pn-drawer-legal > details[open] > summary::after{transform:rotate(180deg)}
-.pn-drawer-legal a{
+.pn-drawer-drop > details[open] > summary::after{transform:rotate(180deg)}
+.pn-drawer-drop a{
   display:block;padding:12px 0 12px 16px;font:400 16px/1.3 'Inter',sans-serif;color:#2C2C54;
   border-bottom:1px solid rgba(10,10,60,.06)}
 @media (prefers-reduced-motion:reduce){
-  .pn-legal > summary::before,.pn-pop a,.pn-legal .pn-caret{transition:none}
+  .pn-drop > summary::before,.pn-pop a,.pn-drop .pn-caret{transition:none}
 }
 </style>
 <script>
 /* native <details> does not close on Esc or on an outside click */
-function pcxLegalMenu(){
-  var d=document.querySelector('.pn-legal'); if(!d) return;
-  var sum=d.querySelector('summary');
-  if(sum && !sum.querySelector('.pn-caret')){
-    var c=document.createElement('span'); c.className='pn-caret'; c.setAttribute('aria-hidden','true');
-    sum.appendChild(c);
-  }
-  document.addEventListener('click',function(e){ if(d.open && !d.contains(e.target)) d.open=false; });
+function pcxNavMenus(){
+  var menus=[].slice.call(document.querySelectorAll('.pn-drop'));
+  if(!menus.length) return;
+  menus.forEach(function(d){
+    var sum=d.querySelector('summary');
+    if(sum && !sum.querySelector('.pn-caret')){
+      var c=document.createElement('span'); c.className='pn-caret'; c.setAttribute('aria-hidden','true');
+      sum.appendChild(c);
+    }
+    /* two menus open at once would overlap, so opening one closes the rest */
+    d.addEventListener('toggle',function(){
+      if(!d.open) return;
+      menus.forEach(function(o){ if(o!==d) o.open=false; });
+    });
+  });
+  document.addEventListener('click',function(e){
+    menus.forEach(function(d){ if(d.open && !d.contains(e.target)) d.open=false; });
+  });
   document.addEventListener('keydown',function(e){
-    if(e.key==='Escape' && d.open){ d.open=false; sum && sum.focus(); }
+    if(e.key!=='Escape') return;
+    menus.forEach(function(d){
+      if(d.open){ d.open=false; var s=d.querySelector('summary'); s && s.focus(); }
+    });
   });
 }
 /* this block sits in <head>, so the navbar does not exist yet at parse time */
-if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',pcxLegalMenu);
-else pcxLegalMenu();
+if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',pcxNavMenus);
+else pcxNavMenus();
 </script>
 
 <script type="application/ld+json">
@@ -868,7 +885,7 @@ else pcxLegalMenu();
 {"@type":"ListItem","position":3,"name":"Precious Metals","item":"https://pcxtrader.com/accounts/precious-metals"}]},
 {"@type":"Organization","name":"Prime Codex Ltd","alternateName":"PCX","url":"https://pcxtrader.com/","identifier":"FSC Mauritius GB25205419"},
 {"@type":"WebPage","name":"PCX Precious Metals Account: Hedge Gold You Hold","url":"https://pcxtrader.com/accounts/precious-metals","dateModified":"2026-08-21"},
-{"@type":"FinancialProduct","name":"PCX Precious Metals Account","provider":{"@type":"Organization","name":"Prime Codex Ltd"},"feesAndCommissionsSpecification":"Raw gold spreads plus $7 commission per lot. Minimum deposit $5,000. Maximum leverage up to 1:10. First 5 days swap-free, date to date."}]}
+{"@type":"FinancialProduct","name":"PCX Precious Metals Account","provider":{"@type":"Organization","name":"Prime Codex Ltd"},"feesAndCommissionsSpecification":"Raw gold spreads plus $7 commission per lot. Minimum deposit $1,000. Maximum leverage up to 1:10. First 30 days swap-free, date to date."}]}
 </script>
 </head>
 <body>
@@ -885,10 +902,18 @@ else pcxLegalMenu();
     </a>
 
     <nav class="pn-links" aria-label="Main">
-      <a href="accounts.html" class="is-active">Accounts</a>
+      <details class="pn-drop">
+        <summary class="is-active">Accounts</summary>
+        <div class="pn-pop">
+          <a href="accounts.html">All accounts</a>
+          <a href="accounts-standard.html">Standard</a>
+          <a href="accounts-ecn.html">ECN</a>
+          <a aria-current="page" class="is-active" href="accounts-precious-metals.html">Precious Metals</a>
+          <a href="accounts-demo.html">Demo</a>
+        </div>
+      </details>
       <a href="why-a-book.html">Why A-Book</a>
-      <a href="https://www.pcxtrader.com/bonus50">Promotions</a>
-      <details class="pn-legal">
+      <details class="pn-drop">
         <summary aria-label="Legal documents">Legal</summary>
         <div class="pn-pop">
           <a href="legal-terms.html">Terms &amp; Conditions</a>
@@ -910,10 +935,20 @@ else pcxLegalMenu();
 
   <div class="pn-drawer">
     <ul>
-      <li><a href="accounts.html">Accounts</a></li>
+      <li class="pn-drawer-drop">
+        <details>
+          <summary>Accounts</summary>
+          <div>
+            <a href="accounts.html">All accounts</a>
+            <a href="accounts-standard.html">Standard</a>
+            <a href="accounts-ecn.html">ECN</a>
+            <a href="accounts-precious-metals.html" aria-current="page">Precious Metals</a>
+            <a href="accounts-demo.html">Demo</a>
+          </div>
+        </details>
+      </li>
       <li><a href="why-a-book.html">Why A-Book</a></li>
-      <li><a href="https://www.pcxtrader.com/bonus50">Promotions</a></li>
-      <li class="pn-drawer-legal">
+      <li class="pn-drawer-drop">
         <details>
           <summary>Legal</summary>
           <div>
@@ -957,10 +992,10 @@ else pcxLegalMenu();
         <p class="pm-eyebrow"><i aria-hidden="true"></i><span>Accounts &middot; Precious Metals</span></p>
         <h1 class="pm-h1">PCX Precious Metals Account</h1>
         <p class="pm-lede">For those who hold the gold.</p>
-        <p class="pm-heroBody">The PCX Precious Metals account is a hedging tool for people and businesses who hold physical gold. Raw gold spreads plus $7 commission per lot, minimum deposit $5,000, leverage capped at 1:10 on purpose. Each position is swap-free for its first 5 days.</p>
+        <p class="pm-heroBody">The PCX Precious Metals account is a hedging tool for people and businesses who hold physical gold. Raw gold spreads plus $7 commission per lot, minimum deposit $1,000, leverage capped at 1:10 on purpose. Each position is swap-free for its first 30 days.</p>
 
         <div class="pm-fact">
-          <p class="v pm-tnum"><small>$</small>5,000</p>
+          <p class="v pm-tnum"><small>$</small>1,000</p>
           <p class="k">Minimum deposit</p>
         </div>
 
@@ -1059,10 +1094,11 @@ else pcxLegalMenu();
 
     <div class="pm-ansRow flip" data-reveal>
       <div>
-        <p class="pm-ansLab">The first five days cost nothing to hold</p>
-        <h2 class="pm-ansH">Each position is swap-free for its first 5 days, date to date.</h2>
-        <p class="pm-ansP">Day 6 starts the standard swap.</p>
+        <p class="pm-ansLab">The first thirty days cost nothing to hold</p>
+        <h2 class="pm-ansH">Each position is swap-free for its first 30 days, date to date.*</h2>
+        <p class="pm-ansP">Day 31 starts the standard swap.</p>
         <a class="pm-link" href="#specs">See the timeline below</a>
+        <p class="pm-foot">*Terms and conditions apply.</p>
       </div>
       <div class="pm-art">
         <div class="pm-pool" aria-hidden="true"></div>
@@ -1070,13 +1106,13 @@ else pcxLegalMenu();
           <img src="assets/prop-calendar.webp" width="398" height="420"
                alt="A calendar." loading="lazy" decoding="async">
         </figure>
-        <div class="pm-days" role="img" aria-label="Days 1 to 5 are swap-free. Day 6 starts the standard swap.">
+        <div class="pm-days" role="img" aria-label="Days 1 to 30 are swap-free. Day 31 starts the standard swap.">
           <span class="pm-day free"><b>1</b><span>Free</span></span>
           <span class="pm-day free"><b>2</b><span>Free</span></span>
           <span class="pm-day free"><b>3</b><span>Free</span></span>
-          <span class="pm-day free"><b>4</b><span>Free</span></span>
-          <span class="pm-day free"><b>5</b><span>Free</span></span>
-          <span class="pm-day charged"><b>6</b><span>Swap</span></span>
+          <span class="pm-day free"><b>&hellip;</b><span>Free</span></span>
+          <span class="pm-day free"><b>30</b><span>Free</span></span>
+          <span class="pm-day charged"><b>31</b><span>Swap</span></span>
         </div>
       </div>
     </div>
@@ -1143,13 +1179,14 @@ else pcxLegalMenu();
         <div class="pm-specRow"><dt>Platform</dt><span class="dots" aria-hidden="true"></span><dd class="pm-tnum">MetaTrader 5</dd></div>
 
         <p class="pm-specGrp">Requirements</p>
-        <div class="pm-specRow"><dt>Minimum deposit</dt><span class="dots" aria-hidden="true"></span><dd class="pm-tnum">$5,000</dd></div>
+        <div class="pm-specRow"><dt>Minimum deposit</dt><span class="dots" aria-hidden="true"></span><dd class="pm-tnum">$1,000</dd></div>
         <div class="pm-specRow"><dt>Max leverage</dt><span class="dots" aria-hidden="true"></span><dd class="pm-tnum">up to 1:10</dd></div>
 
         <p class="pm-specGrp">Options</p>
         <div class="pm-specRow"><dt>Markets</dt><span class="dots" aria-hidden="true"></span><dd>Gold Spot, Gold Futures, Silver Spot and Silver Futures</dd></div>
-        <div class="pm-specRow"><dt>Swap policy</dt><span class="dots" aria-hidden="true"></span><dd>First 5 days swap-free, date to date</dd></div>
+        <div class="pm-specRow"><dt>Swap policy</dt><span class="dots" aria-hidden="true"></span><dd>First 30 days swap-free, date to date*</dd></div>
       </dl>
+      <p class="pm-foot">*Terms and conditions apply.</p>
       </div>
     </div>
 
@@ -1163,19 +1200,19 @@ else pcxLegalMenu();
       </div>
       <div class="pm-stop">
         <i aria-hidden="true"></i>
-        <p class="pm-stopK">Days 1&ndash;5</p>
+        <p class="pm-stopK">Days 1&ndash;30</p>
         <p class="pm-stopP">No swap</p>
       </div>
       <div class="pm-stop last">
         <i aria-hidden="true"></i>
-        <p class="pm-stopK">Day 6</p>
+        <p class="pm-stopK">Day 31</p>
         <p class="pm-stopP">Standard swap applies</p>
       </div>
     </div>
 
-    <p class="pm-note">Each position you open is swap-free for its first 5 days, counted date to date from the day it opens. From day 6, the standard overnight swap applies to that position.</p>
+    <p class="pm-note">Each position you open is swap-free for its first 30 days, counted date to date from the day it opens. From day 31, the standard overnight swap applies to that position.</p>
     <p class="pm-note">A position on this account is a CFD. It is not ownership of physical gold.</p>
-    <p class="pm-note">The minimum deposit is $5,000. That is deliberate. This account is sized for the job it does.</p>
+    <p class="pm-note">The minimum deposit is $1,000. That is deliberate. This account is sized for the job it does.</p>
 
     <div class="pm-specAfter">
       <a class="pm-link" href="accounts.html#compare">Compare all accounts side by side &rarr;</a>
@@ -1198,7 +1235,7 @@ else pcxLegalMenu();
     </a>
     <a class="pm-altRow" href="accounts-standard.html">
       <span class="pm-altFig" aria-hidden="true"><img src="assets/bust-alex.webp" alt="" width="340" height="340" loading="lazy" decoding="async"></span>
-      <span class="pm-altTxt">$5,000 is more than you want to commit. Standard starts at $10. A different thing, not a lesser thing.</span>
+      <span class="pm-altTxt">$1,000 is more than you want to commit. Standard starts at $10. A different thing, not a lesser thing.</span>
       <span class="pm-altGo">Read Alex&rsquo;s story &rarr;</span>
     </a>
     <a class="pm-altRow" href="accounts-demo.html">
@@ -1244,7 +1281,7 @@ else pcxLegalMenu();
         <span>What is the minimum deposit for the PCX Precious Metals account?</span>
         <svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 6 L8 11 L13 6" fill="none" stroke="#2C2C54" stroke-width="1.6"></path></svg>
       </button>
-      <div class="pm-fqWrap"><div><p><b class="pm-tnum">$5,000</b>. The account is a hedging tool for people and businesses that hold physical metal, and the minimum reflects that job.</p></div></div>
+      <div class="pm-fqWrap"><div><p><b class="pm-tnum">$1,000</b>. The account is a hedging tool for people and businesses that hold physical metal, and the minimum reflects that job.</p></div></div>
     </div>
 
     <div class="pm-fq">
@@ -1265,10 +1302,10 @@ else pcxLegalMenu();
 
     <div class="pm-fq">
       <button class="pm-fqBtn" type="button" aria-expanded="false" data-faq>
-        <span>How does the 5-day swap-free period work?</span>
+        <span>How does the 30-day swap-free period work?</span>
         <svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 6 L8 11 L13 6" fill="none" stroke="#2C2C54" stroke-width="1.6"></path></svg>
       </button>
-      <div class="pm-fqWrap"><div><p>Each position you open is swap-free for its first <b class="pm-tnum">5 days</b>, counted date to date from the day it opens. From <b class="pm-tnum">day 6</b>, the standard overnight swap applies to that position. Most inventory hedges run longer than <b class="pm-tnum">5 days</b>, so treat swap as a real cost of holding.</p></div></div>
+      <div class="pm-fqWrap"><div><p>Each position you open is swap-free for its first <b class="pm-tnum">30 days</b>, counted date to date from the day it opens. From <b class="pm-tnum">day 31</b>, the standard overnight swap applies to that position. Most inventory hedges run longer than <b class="pm-tnum">30 days</b>, so treat swap as a real cost of holding.</p></div></div>
     </div>
 
     <div class="pm-fq">
@@ -1399,7 +1436,6 @@ else pcxLegalMenu();
           <li><a href="index.html">Home</a></li>
           <li><a href="accounts.html">Accounts</a></li>
           <li><a href="why-a-book.html">Why A-Book</a></li>
-          <li><a href="https://www.pcxtrader.com/bonus50">Promotion</a></li>
           <li><a href="https://dashboard.pcxtrader.com/login">Log in</a></li>
           <li><a href="https://dashboard.pcxtrader.com/register">Open Account</a></li>
         </ul>
@@ -1442,7 +1478,7 @@ else pcxLegalMenu();
       <ul>
         <li>Prime Codex LLC, incorporated in Saint Vincent &amp; the Grenadines with registration number 892 LLC 2021, holding an International Brokerage and Clearing Houses License issued by the Mwali International Services Authority (MISA), License Number: T2023334;</li>
         <li>Prime Codex Ltd, regulated by the Financial Services Commission (FSC) of Mauritius with an Investment Dealer License (License Number: GB25205419), Registered Office: Suite 803, 8th Floor, Hennessy Tower, Pope Hennessy Street, Port-Louis 11328, Republic of Mauritius; and</li>
-        <li>PCX Ltd incorporated in the Republic of Seychelles with registration number 8439312-1, Registered Office: House of Francis, Room 302, Ile Du Port, Mahe, Seychelles.</li>
+        <li>PCX Ltd incorporated in the Republic of Seychelles with registration number 8439312-1 with a Security Dealer License (License Number: SD254), Registered Office: House of Francis, Room 302, Ile Du Port, Mahe, Seychelles.</li>
       </ul>
       <p><b>Risk Warning:</b> Trading leveraged products such as Forex and CFDs carries a high degree of risk to your capital and may not be suitable for all investors. Please ensure that you fully understand the risks involved, taking into account your investment objectives and level of experience, before trading, and if necessary, seek independent advice. Please read the full <a href="legal-risk-disclosure.html">Risk Disclosure</a>.</p>
       <p>PCX does not offer services to residents of certain jurisdictions, including the United States, Japan, Canada, China, Australia, North Korea, United Kingdom, Iran, Syria, Sudan, Cuba, Myanmar &amp; Russia.</p>
