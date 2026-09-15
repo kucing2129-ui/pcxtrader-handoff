@@ -1362,7 +1362,7 @@ else pcxNavMenus();
         </div>
         <a class="pm-tile" href="accounts-standard.html">
           <p class="pm-tileTop">Standard</p>
-          <p class="pm-tileNum pm-tnum">from 1.0 pips</p>
+          <p class="pm-tileNum pm-tnum">from 1.5 pips</p>
         </a>
         <a class="pm-tile" href="accounts-ecn.html">
           <p class="pm-tileTop">ECN</p>
@@ -1563,18 +1563,5 @@ window.VPH=function(){return window.innerHeight||document.documentElement.client
 })();
 </script>
 
-<script>
-/* DEV-ONLY preview hook — remove before handoff. ?dev=<section-id>&off=N jumps there at load. */
-(function(){
-  var q=new URLSearchParams(location.search),id=q.get('dev'); if(!id)return;
-  var off=parseInt(q.get('off')||'0',10);
-  function go(){
-    document.querySelectorAll('[data-reveal]').forEach(function(e){e.classList.add('is-in');});
-    var t=document.getElementById(id); if(!t)return;
-    window.scrollTo(0,t.getBoundingClientRect().top+window.pageYOffset+off);
-  }
-  addEventListener('load',function(){setTimeout(go,60);});
-})();
-</script>
 
 </body></html>

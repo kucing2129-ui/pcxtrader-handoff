@@ -1440,22 +1440,22 @@ else pcxNavMenus();
             <div class="ec-volRow">
               <span class="ec-volK">1 lot</span>
               <span class="ec-volBar" aria-hidden="true"><i style="--w:2%;--d:.05s"></i></span>
-              <span class="ec-volV ec-tnum">$3</span>
+              <span class="ec-volV ec-tnum">$8</span>
             </div>
             <div class="ec-volRow">
               <span class="ec-volK">10 lots</span>
               <span class="ec-volBar" aria-hidden="true"><i style="--w:20%;--d:.16s"></i></span>
-              <span class="ec-volV ec-tnum">$30</span>
+              <span class="ec-volV ec-tnum">$80</span>
             </div>
             <div class="ec-volRow">
               <span class="ec-volK">20 lots</span>
               <span class="ec-volBar" aria-hidden="true"><i style="--w:40%;--d:.27s"></i></span>
-              <span class="ec-volV ec-tnum">$60</span>
+              <span class="ec-volV ec-tnum">$160</span>
             </div>
             <div class="ec-volRow">
               <span class="ec-volK">50 lots</span>
               <span class="ec-volBar" aria-hidden="true"><i style="--w:100%;--d:.38s"></i></span>
-              <span class="ec-volV ec-tnum">$150</span>
+              <span class="ec-volV ec-tnum">$400</span>
             </div>
           </div>
         </div>
@@ -1466,7 +1466,7 @@ else pcxNavMenus();
           <li>Spreads are floating. The math above uses each account&rsquo;s starting spread; when the market gets busy, both totals rise together. The commission stays <b>$7</b>.</li>
           <li>Some brokers quote commission per side, <b>$3.50</b> each way. We quote the whole trip: <b>$7</b> per lot.</li>
           <li>At <b>$10</b> per pip on a standard lot, <b>$7</b> works out to <b>0.7</b> pips. Add that to the raw spread and compare. That is the fair comparison.</li>
-          <li>Difference shown against the Standard account at each account&rsquo;s starting spread: <b>$10.00</b> versus <b>$7.00</b> per lot.</li>
+          <li>Difference shown against the Standard account at each account&rsquo;s starting spread: <b>$15.00</b> versus <b>$7.00</b> per lot.</li>
         </ol>
       </div>
 
@@ -1626,7 +1626,7 @@ else pcxNavMenus();
         </div>
         <a class="ec-tile" href="accounts-standard.html">
           <p class="ec-tileTop">Standard</p>
-          <p class="ec-tileNum ec-tnum">from 1.0 <span>pips</span></p>
+          <p class="ec-tileNum ec-tnum">from 1.5 <span>pips</span></p>
         </a>
         <a class="ec-tile" href="accounts.html#lineup">
           <p class="ec-tileTop">Precious Metals</p>
@@ -1849,19 +1849,5 @@ window.VPH=function(){return window.innerHeight||document.documentElement.client
 })();
 </script>
 
-<script>
-/* DEV-ONLY preview hook — remove before handoff. ?dev=<section-id>&off=N jumps there at load. */
-(function(){
-  var q=new URLSearchParams(location.search),id=q.get('dev'); if(!id)return;
-  var off=parseInt(q.get('off')||'0',10);
-  function go(){
-    document.querySelectorAll('[data-reveal]').forEach(function(e){e.classList.add('is-in');});
-    var t=document.getElementById(id); if(!t)return;
-    var y=t.getBoundingClientRect().top+window.pageYOffset+off;
-    window.scrollTo(0,y);
-  }
-  addEventListener('load',function(){setTimeout(go,60);});
-})();
-</script>
 
 </body></html>

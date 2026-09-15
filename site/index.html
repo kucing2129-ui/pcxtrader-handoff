@@ -1862,7 +1862,7 @@ else pcxNavMenus();
           <h3 class="acctTitle">Standard</h3>
           <p class="acctQuote acctDesc">Simple pricing while you learn the hard parts.</p>
           <p class="oneNumLab">Spreads from</p>
-          <p class="oneNum">1.0<span class="oneUnit">pips</span></p>
+          <p class="oneNum">1.5<span class="oneUnit">pips</span></p>
           <dl class="specs">
             <div><dt><span class="sicon" aria-hidden="true"></span>Min deposit</dt><dd>$10</dd></div>
             <div><dt><span class="sicon" aria-hidden="true"></span>Commission</dt><dd>$0</dd></div>
@@ -2776,22 +2776,6 @@ else pcxNavMenus();
     }
     setInterval(check, 300);
   }
-})();
-</script>
-<script>
-/* DEV-ONLY preview hook — remove before handoff. ?dev=<section-id> jumps there at load. */
-(function(){
-  var m = /[?&]dev=([\w-]+)/.exec(location.search);
-  if(!m) return;
-  document.addEventListener('DOMContentLoaded', function(){
-    var s = document.getElementById(m[1]);
-    if(!s) return;
-    s.classList.add('signed','arrived');
-    Array.prototype.forEach.call(s.querySelectorAll('.clause,.scene'), function(x){x.classList.add('struck')});
-    Array.prototype.forEach.call(s.querySelectorAll('.r,.in'), function(x){x.classList.add('shown')});
-    var off = (/[?&]off=(-?\d+)/.exec(location.search) || [0, 0])[1];
-    document.body.style.marginTop = (-(s.offsetTop) + 24 - (+off)) + 'px';
-  });
 })();
 </script>
 <script>

@@ -1263,19 +1263,6 @@ window.VPH=function(){return window.innerHeight||document.documentElement.client
 })();
 </script>
 
-<script>
-/* DEV-ONLY preview hook — remove before handoff. ?dev=<section-id|index>&off=N */
-(function(){
-  var m=/[?&]dev=([\w-]+)/.exec(location.search); if(!m) return;
-  document.addEventListener('DOMContentLoaded',function(){
-    var k=m[1], s=document.getElementById(k);
-    if(!s){ var n=parseInt(k,10); if(!isNaN(n)) s=document.querySelectorAll('section')[n]; }
-    if(!s) return;
-    var off=(/[?&]off=(-?\d+)/.exec(location.search)||[0,0])[1];
-    document.body.style.marginTop=(-(s.offsetTop)+90-(+off))+'px';
-  });
-})();
-</script>
 
 <style>
 /* ===== HERO ========================================================= */
