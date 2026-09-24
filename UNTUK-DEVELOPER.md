@@ -86,13 +86,15 @@ atasnya. Tambahkan satu tombol lagi berlabel **Bonus Account**.
 Judul kolom Bonus Account **tidak ditautkan** ke halaman mana pun, sedangkan
 tiga judul lain tertaut. Itu memang disengaja, karena halamannya belum ada.
 
-### 3. Menu dan footer
+### 3. Footer
 
-- **Dropdown Accounts di navbar**: tambah item keenam, **Bonus Account**,
-  setelah Demo
-- **Footer kolom Accounts**: tambah **Bonus Account** setelah Precious Metals
-- Keduanya mengarah ke kartu di halaman Accounts, yaitu `/accounts#bonus`.
-  Kartu Bonus Account di halaman itu diberi `id="bonus"`
+- **Footer kolom Accounts**: tambah **Bonus Account** setelah Precious Metals,
+  mengarah ke kartu di halaman Accounts, yaitu `/accounts#bonus`. Kartu Bonus
+  Account di halaman itu diberi `id="bonus"`
+- **Dropdown Accounts di navbar sengaja tidak diubah.** Lima item di sana
+  semuanya menuju halaman tersendiri, sedangkan Bonus Account belum punya
+  halaman, jadi item yang melompat ke kartu di tengah halaman lain akan
+  berperilaku beda sendiri
 
 ### 4. Hitungan akun
 
@@ -182,7 +184,7 @@ Harus **nol hasil**:
 
 Harus **ada**:
 
-    Bonus Account        di 13 halaman, lewat navbar dan footer
+    Bonus Account        di 13 halaman, lewat footer
     $1,500               di beranda dan halaman Accounts
     card-lin-v2.webp     di beranda dan halaman Accounts
     cast-group-v3.webp   di halaman Accounts
