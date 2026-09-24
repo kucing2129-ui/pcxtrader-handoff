@@ -2,6 +2,8 @@
 <html lang="en"><head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#FAF6EF">
 <title>PCX · On your side. Never the other side.</title>
 <script>document.documentElement.className += ' js';</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -158,8 +160,9 @@ html.js .in .chip{opacity:1;transform:none}
 
 .accounts h2{max-width:22ch}
 .subKicker{margin-top:14px;max-width:46ch;font:400 clamp(16px,1.3vw,18px)/1.6 'Space Grotesk',sans-serif;color:#2C2C54}
-.lineupGrid{margin-top:clamp(30px,4vw,52px);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(14px,1.8vw,24px);align-items:stretch}
-.lineup{gap:0;outline:none}
+.lineupGrid{margin-top:clamp(30px,4vw,52px);display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(12px,1.4vw,20px);align-items:stretch}
+@media(max-width:1180px){.lineupGrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.lineup{scroll-margin-top:96px;gap:0;outline:none}
 .lineup.focusCard{border:1.5px solid #D4AF37;box-shadow:inset 0 1px 0 rgba(255,255,255,.9),0 2px 4px rgba(10,10,60,.06),0 18px 34px -12px rgba(10,10,60,.18),0 28px 40px -22px rgba(184,148,44,.16)}
 .poseSlot{position:relative;height:220px;padding:0 12px 26px;border-radius:12px;background:#FAF6EF;border:1px solid rgba(10,10,60,.08);display:flex;align-items:center;justify-content:center;overflow:hidden}
 .pose{position:absolute;left:0;right:0;top:0;bottom:24px;display:flex;align-items:center;justify-content:center;gap:12px;transition:opacity .3s ease-out}
@@ -182,7 +185,7 @@ html.js .in .chip{opacity:1;transform:none}
 .artifact.gold{background:linear-gradient(145deg,#E6C654,#B8942C);border:1px solid #B8942C}
 .acctName{margin-top:20px;font:600 11.5px/1 'Inter',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#B8942C}
 .acctTitle{margin-top:8px;font:700 clamp(21px,2vw,27px)/1.2 'Inter',sans-serif;letter-spacing:-.02em;color:#0A0A3C}
-.acctQuote{margin-top:10px;font:italic 400 15.5px/1.6 'Space Grotesk',sans-serif;color:#2C2C54;text-wrap:pretty}
+.acctQuote{margin-top:10px;font:italic 400 15.5px/1.6 'Space Grotesk',sans-serif;color:#2C2C54;text-wrap:pretty;min-height:3.2em}
 .acctDesc{font-style:normal}
 .oneNumLab{margin-top:20px;font:500 10.5px/1 'Space Grotesk',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#2C2C54}
 .oneNum{margin-top:8px;font:700 clamp(26px,2.6vw,32px)/1 'Inter',sans-serif;font-variant-numeric:tabular-nums;letter-spacing:-.02em;color:#0A0A3C}
@@ -220,18 +223,6 @@ html.js .in .chip{opacity:1;transform:none}
 .demoSub{margin-top:8px;font:400 15.5px/1.6 'Space Grotesk',sans-serif;color:#2C2C54}
 .demoCta{flex:0 0 auto}
 .reversible{flex:1 1 100%;font:400 13px/1.6 'Space Grotesk',sans-serif;color:#55557A}
-.promoBand{scroll-margin-top:96px;margin-top:clamp(16px,2vw,24px);background:#F3F2EF;border:1px solid #E4E2DC;
-  border-radius:12px;padding:clamp(18px,2.2vw,26px) clamp(18px,2.4vw,30px);display:flex;flex-wrap:wrap;align-items:center;
-  gap:clamp(14px,2vw,26px)}
-.promoArt{flex:0 0 auto;width:clamp(64px,7vw,86px);display:flex;align-items:center;justify-content:center}
-.promoArt img{width:100%;height:auto;filter:drop-shadow(0 10px 14px rgba(10,10,60,.18))}
-.promoTag{display:inline-block;margin-bottom:9px;font:700 10.5px/1 'Inter',sans-serif;letter-spacing:.16em;
-  text-transform:uppercase;color:#5E5E75;border:1px solid #D5D2CA;border-radius:999px;padding:6px 11px;background:#FFFFFF}
-.promoCopy{flex:1 1 340px;min-width:250px}
-.promoHead{font:600 clamp(17px,1.7vw,21px)/1.35 'Inter',sans-serif;color:#0A0A3C}
-.promoSub{margin-top:7px;font:400 15px/1.6 'Space Grotesk',sans-serif;color:#2C2C54;max-width:56ch}
-.promoCta{flex:0 0 auto}
-.promoFine{flex:1 1 100%;margin-top:-2px;font:400 12.5px/1.6 'Space Grotesk',sans-serif;color:#55557A}
 .compareAll{margin-top:clamp(24px,3vw,36px);text-align:center}
 .close .wrap{display:flex;flex-direction:column;align-items:center;text-align:center}
 .closeTop{position:relative;width:100%;display:flex;flex-direction:column;align-items:center;padding-bottom:clamp(18px,3vw,36px)}
@@ -808,6 +799,11 @@ html.js .in .chip{opacity:1;transform:none}
   border:1px solid rgba(184,148,44,.35) !important;
   box-shadow:0 2px 4px rgba(10,10,60,.05), 0 24px 48px -14px rgba(10,10,60,.16), 0 0 0 4px rgba(212,175,55,.10) !important}
 
+/* ivory material (bonus) */
+.mat-ivory{background:linear-gradient(168deg,#FBFAF7 0%,#F3F1EA 100%) !important;border:1px solid rgba(10,10,60,.14) !important}
+.mat-ivory .acctName{color:#8A7327 !important}
+.mat-ivory .poseImg{height:252px}
+
 /* gold material */
 .mat-gold{background:linear-gradient(165deg,#F7EDD2 0%,#EFDFB4 55%,#E8D39E 100%) !important;border:1px solid rgba(184,148,44,.45) !important}
 .mat-gold .acctName{color:#8A6E1F !important}
@@ -1333,7 +1329,7 @@ html.js .in .chip{opacity:1;transform:none}
    breaks only the inner panel and stays inside its own card. */
 @media (max-width:768px){
   .lineup{padding-top:74px}
-  .mat-navy .poseImg,.mat-porcelain .poseImg,.mat-gold .poseImg{height:196px}
+  .mat-navy .poseImg,.mat-porcelain .poseImg,.mat-gold .poseImg,.mat-ivory .poseImg{height:196px}
   .lineupGrid{margin-top:clamp(28px,7vw,44px)}
 }
 </style>
@@ -1459,7 +1455,7 @@ else pcxNavMenus();
           <a href="accounts-ecn.html">ECN</a>
           <a href="accounts-precious-metals.html">Precious Metals</a>
           <a href="accounts-demo.html">Demo</a>
-          <a href="#bonus">Bonus</a>
+          <a href="accounts.html#bonus">Bonus Account</a>
         </div>
       </details>
       <details class="pn-drop">
@@ -1493,7 +1489,7 @@ else pcxNavMenus();
             <a href="accounts-ecn.html">ECN</a>
             <a href="accounts-precious-metals.html">Precious Metals</a>
             <a href="accounts-demo.html">Demo</a>
-            <a href="#bonus">Bonus</a>
+            <a href="accounts.html#bonus">Bonus Account</a>
           </div>
         </details>
       </li>
@@ -1846,7 +1842,7 @@ else pcxNavMenus();
     <div class="wrap">
       <div class="r">
         <h2>Every trader started where you are.</h2>
-        <p class="subKicker">Three accounts and a free demo. One of them fits the trader you are becoming.</p>
+        <p class="subKicker">Four accounts and a free demo. One of them fits the trader you are becoming.</p>
       </div>
       <div class="lineupGrid">
         <article class="lineup tile r mat-navy" tabindex="0">
@@ -1877,6 +1873,7 @@ else pcxNavMenus();
           <p class="acctQuote acctDesc">Simple pricing while you learn the hard parts.</p>
           <p class="oneNumLab">Spreads from</p>
           <p class="oneNum">1.5<span class="oneUnit">pips</span></p>
+          <p class="oneNote" aria-hidden="true">&nbsp;</p>
           <dl class="specs">
             <div><dt><span class="sicon" aria-hidden="true"></span>Min deposit</dt><dd>$10</dd></div>
             <div><dt><span class="sicon" aria-hidden="true"></span>Commission</dt><dd>$0</dd></div>
@@ -1907,22 +1904,28 @@ else pcxNavMenus();
           <a class="btn ghost lineupCta" href="https://dashboard.pcxtrader.com/register">Open Account</a>
           <a class="tlink details" href="accounts-precious-metals.html">See full details →</a>
         </article>
+        <article class="lineup tile r mat-ivory" id="bonus" tabindex="0">
+          <div class="poseSlot" role="img" aria-label="Lin presenting a small navy gift box tied with a gold ribbon."><img class="poseImg" src="assets/card-lin-v2.webp" alt="" loading="lazy" decoding="async" onerror="this.style.display='none'"></div>
+          <p class="acctBadge ghostBadge" aria-hidden="true">&nbsp;</p>
+          <p class="acctName">LIN</p>
+          <h3 class="acctTitle">Bonus Account</h3>
+          <p class="acctQuote acctDesc">Bonuses land in this account.*</p>
+          <p class="oneNumLab">Spreads from</p>
+          <p class="oneNum">1.5<span class="oneUnit">pips</span></p>
+          <p class="oneNote" aria-hidden="true">&nbsp;</p>
+          <dl class="specs">
+            <div><dt><span class="sicon" aria-hidden="true"></span>Min deposit</dt><dd>$1,500</dd></div>
+            <div><dt><span class="sicon" aria-hidden="true"></span>Commission</dt><dd>$0</dd></div>
+            <div><dt><span class="sicon" aria-hidden="true"></span>Leverage</dt><dd>up to 1:500</dd></div>
+          </dl>
+          <p class="acctFoot">*Terms and conditions apply.</p>
+          <p class="acctWarn">Not for you if you are just trying things out. This one is for when you are ready.</p>
+          <a class="btn ghost lineupCta" href="https://dashboard.pcxtrader.com/register">Open Account</a>
+          <span class="tlink details" aria-hidden="true" style="visibility:hidden;display:inline-flex;min-height:40px;align-items:center">See full details</span>
+        </article>
       </div>
 
       <p class="platformNote r">All accounts trade on MetaTrader 5.</p>
-
-      <div class="promoBand r" id="bonus">
-        <div class="promoArt" role="img" aria-label="A navy gift box tied with a gold ribbon, a gold coin resting beside it.">
-          <img src="assets/prop-bonus-gift.webp" width="420" height="420" alt="" loading="lazy" decoding="async">
-        </div>
-        <div class="promoCopy">
-          <p class="promoTag">Promotion</p>
-          <p class="promoHead">Bonus campaigns, from time to time.</p>
-          <p class="promoSub">It starts with an account. Any details reach you by email.*</p>
-        </div>
-        <a class="btn ghost promoCta" href="https://dashboard.pcxtrader.com/register">Open Account</a>
-        <p class="promoFine">*Terms and conditions apply.</p>
-      </div>
 
       <div class="demoBand r">
         <!-- 3D slot: Nora, relaxed curious pose -->
@@ -2042,6 +2045,7 @@ else pcxNavMenus();
           <li><a href="accounts.html#lineup">ECN</a></li>
           <li><a href="accounts.html#lineup">Standard</a></li>
           <li><a href="accounts.html#lineup">Precious Metals</a></li>
+          <li><a href="accounts.html#bonus">Bonus Account</a></li>
         </ul>
       </div>
 

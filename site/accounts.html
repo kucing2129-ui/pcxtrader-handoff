@@ -2,6 +2,8 @@
 <html lang="en"><head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#FAF6EF">
 <title>Choose your path · PCX Accounts</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,7 +23,7 @@ table[data-t] tr[data-group] th{background:#FFFFFF;border-bottom:1px solid #0A0A
 table[data-t="compare"]{position:relative;z-index:0}
 table[data-t="compare"] thead th{background:linear-gradient(180deg,#FFFFFF,#F7F2E7);box-shadow:inset 0 1px 0 rgba(255,255,255,.9);border-bottom:1px solid #EFE9DB}
 @media(hover:hover) and (pointer:fine){
-table[data-hover="demo"] [data-col="demo"],table[data-hover="standard"] [data-col="standard"],table[data-hover="ecn"] [data-col="ecn"],table[data-hover="metals"] [data-col="metals"]{background:#FAF6EF}
+table[data-hover="demo"] [data-col="demo"],table[data-hover="standard"] [data-col="standard"],table[data-hover="ecn"] [data-col="ecn"],table[data-hover="metals"] [data-col="metals"],table[data-hover="bonus"] [data-col="bonus"]{background:#FAF6EF}
 }
 @media(hover:hover) and (pointer:fine) and (prefers-reduced-motion:no-preference){
 table[data-t="compare"] td,table[data-t="compare"] th{transition:background-color .18s ease}
@@ -54,7 +56,7 @@ header{height:75px}
 [data-desktop-only]{display:none!important}
 [data-mobile-only]{display:flex!important}
 table[data-show] [data-col]{display:none}
-table[data-show~="demo"] [data-col="demo"],table[data-show~="standard"] [data-col="standard"],table[data-show~="ecn"] [data-col="ecn"],table[data-show~="metals"] [data-col="metals"]{display:table-cell}
+table[data-show~="demo"] [data-col="demo"],table[data-show~="standard"] [data-col="standard"],table[data-show~="ecn"] [data-col="ecn"],table[data-show~="metals"] [data-col="metals"],table[data-show~="bonus"] [data-col="bonus"]{display:table-cell}
 table[data-t] th,table[data-t] td{padding:12px 10px;font-size:14px}
 table[data-t] tbody th[scope="row"]{width:44%}
 }
@@ -289,7 +291,7 @@ function pcxNavMenus(){
 if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',pcxNavMenus);
 else pcxNavMenus();
 </script>
-<meta name="description" content="Three live accounts and a free demo. Every cost each one carries is written on the page, side by side, with the math done against ourselves.">
+<meta name="description" content="Four live accounts and a free demo. Every cost each one carries is written on the page, side by side, with the math done against ourselves.">
 <link rel="icon" type="image/png" href="assets/pcx-logo-navy.png">
 <link rel="apple-touch-icon" href="assets/pcx-logo-navy.png">
 <style>
@@ -298,6 +300,10 @@ else pcxNavMenus();
   .sec.hero, .hero-rig, .waHero, .accounts, #close{overflow-x:clip}
 }
 </style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+{"@type":"FinancialProduct","name":"PCX Bonus Account","provider":{"@type":"Organization","name":"Prime Codex Ltd","alternateName":"PCX"},"url":"https://pcxtrader.com/accounts#bonus","feesAndCommissionsSpecification":"Spreads from 1.5 pips with no commission. Minimum deposit $1,500. Maximum leverage up to 1:500. Bonus campaigns apply; terms and conditions apply."}]}
+</script>
 </head>
 <body>
 
@@ -322,7 +328,7 @@ else pcxNavMenus();
           <a href="accounts-ecn.html">ECN</a>
           <a href="accounts-precious-metals.html">Precious Metals</a>
           <a href="accounts-demo.html">Demo</a>
-          <a href="index.html#bonus">Bonus</a>
+          <a href="#bonus">Bonus Account</a>
         </div>
       </details>
       <details class="pn-drop">
@@ -356,7 +362,7 @@ else pcxNavMenus();
             <a href="accounts-ecn.html">ECN</a>
             <a href="accounts-precious-metals.html">Precious Metals</a>
             <a href="accounts-demo.html">Demo</a>
-            <a href="index.html#bonus">Bonus</a>
+            <a href="#bonus">Bonus Account</a>
           </div>
         </details>
       </li>
@@ -392,13 +398,13 @@ else pcxNavMenus();
     <div style="position:relative;display:flex;flex-direction:column;align-items:center">
       <!-- one group render: shared camera, shared floor, shared light -->
       <div class="castRow">
-        <img class="castGroup" src="assets/cast-group.webp" alt="Nora, Alex, Khalid and James standing together." loading="eager">
+        <img class="castGroup" src="assets/cast-group-v3.webp" alt="Nora, Alex, Khalid, James and Lin standing together, Lin holding a small navy gift box." loading="eager">
         <span class="castGround" aria-hidden="true"></span>
       </div>
     </div>
     
     <h1 style="margin:0;font-family:'Inter',sans-serif;font-weight:800;font-size:clamp(36px,5.4vw,64px);line-height:1.05;letter-spacing:-.025em;color:#0A0A3C;max-width:16ch">There is no wrong door here.</h1>
-    <p style="margin:0;max-width:60ch;font-size:clamp(17px,2vw,20px);line-height:1.6;color:#2C2C54">Three live accounts and one free demo. Every cost they carry is written on this page. Take your time. They are not going anywhere.</p>
+    <p style="margin:0;max-width:60ch;font-size:clamp(17px,2vw,20px);line-height:1.6;color:#2C2C54">Four live accounts and one free demo. Every cost they carry is written on this page. Take your time. They are not going anywhere.</p>
     <div style="display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin-top:4px">
       <a href="https://dashboard.pcxtrader.com/register" style="font-family:'Inter',sans-serif;font-weight:600;font-size:16px;background:#0A0A3C;color:#FFFFFF;padding:15px 30px;border-radius:12px;text-decoration:none;min-height:44px;display:inline-flex;align-items:center;transition:background .2s ease" style-hover="background:#B8942C">Open Account</a>
       <a href="https://dashboard.pcxtrader.com/register" style="font-family:'Inter',sans-serif;font-weight:600;font-size:16px;background:transparent;color:#0A0A3C;padding:15px 30px;border-radius:12px;text-decoration:none;border:1px solid #0A0A3C;min-height:44px;display:inline-flex;align-items:center;transition:border-color .2s ease,color .2s ease" style-hover="border-color:#B8942C;color:#B8942C">Try Free Demo</a>
@@ -439,6 +445,7 @@ else pcxNavMenus();
           <p class="acctQuote acctDesc">Simple pricing while you learn the hard parts.</p>
           <p class="oneNumLab">Spreads from</p>
           <p class="oneNum">1.5<span class="oneUnit">pips</span></p>
+          <p class="oneNote" aria-hidden="true">&nbsp;</p>
           <dl class="specs">
             <div><dt><span class="sicon" aria-hidden="true"></span>Min deposit</dt><dd>$10</dd></div>
             <div><dt><span class="sicon" aria-hidden="true"></span>Commission</dt><dd>$0</dd></div>
@@ -468,6 +475,25 @@ else pcxNavMenus();
           <p class="acctWarn">Not for you if you are trading gold to grow an account. This is for people who hold the metal.</p>
           <a class="btn ghost lineupCta" href="https://dashboard.pcxtrader.com/register">Open Account</a>
           <a class="tlink details" href="accounts-precious-metals.html">See full details →</a>
+        </article>
+        <article class="lineup tile r mat-ivory" id="bonus" tabindex="0">
+          <div class="poseSlot" role="img" aria-label="Lin presenting a small navy gift box tied with a gold ribbon."><img class="poseImg" src="assets/card-lin-v2.webp" alt="" loading="lazy" decoding="async" onerror="this.style.display='none'"></div>
+          <p class="acctBadge ghostBadge" aria-hidden="true">&nbsp;</p>
+          <p class="acctName">LIN</p>
+          <h3 class="acctTitle">Bonus Account</h3>
+          <p class="acctQuote acctDesc">Bonuses land in this account.*</p>
+          <p class="oneNumLab">Spreads from</p>
+          <p class="oneNum">1.5<span class="oneUnit">pips</span></p>
+          <p class="oneNote" aria-hidden="true">&nbsp;</p>
+          <dl class="specs">
+            <div><dt><span class="sicon" aria-hidden="true"></span>Min deposit</dt><dd>$1,500</dd></div>
+            <div><dt><span class="sicon" aria-hidden="true"></span>Commission</dt><dd>$0</dd></div>
+            <div><dt><span class="sicon" aria-hidden="true"></span>Leverage</dt><dd>up to 1:500</dd></div>
+          </dl>
+          <p class="acctFoot">*Terms and conditions apply.</p>
+          <p class="acctWarn">Not for you if you are just trying things out. This one is for when you are ready.</p>
+          <a class="btn ghost lineupCta" href="https://dashboard.pcxtrader.com/register">Open Account</a>
+          <span class="tlink details" aria-hidden="true" style="visibility:hidden;display:inline-flex;min-height:40px;align-items:center">See full details</span>
         </article>
       </div>
 
@@ -502,6 +528,7 @@ else pcxNavMenus();
         <button type="button" data-tab="standard" data-on="1" data-on-click="tabStandard" style="font-family:'Inter',sans-serif;font-weight:600;font-size:14px;white-space:nowrap;background:#FFFFFF;color:#0A0A3C;border:1px solid #EFE9DB;border-radius:999px;padding:10px 16px;min-height:44px;cursor:pointer">Standard</button>
         <button type="button" data-tab="ecn" data-on="0" data-on-click="tabEcn" style="font-family:'Inter',sans-serif;font-weight:600;font-size:14px;white-space:nowrap;background:#FFFFFF;color:#0A0A3C;border:1px solid #EFE9DB;border-radius:999px;padding:10px 16px;min-height:44px;cursor:pointer">ECN</button>
         <button type="button" data-tab="metals" data-on="0" data-on-click="tabMetals" style="font-family:'Inter',sans-serif;font-weight:600;font-size:14px;white-space:nowrap;background:#FFFFFF;color:#0A0A3C;border:1px solid #EFE9DB;border-radius:999px;padding:10px 16px;min-height:44px;cursor:pointer">Metals</button>
+        <button type="button" data-tab="bonus" data-on="0" data-on-click="tabBonus" style="font-family:'Inter',sans-serif;font-weight:600;font-size:14px;white-space:nowrap;background:#FFFFFF;color:#0A0A3C;border:1px solid #EFE9DB;border-radius:999px;padding:10px 16px;min-height:44px;cursor:pointer">Bonus Account</button>
       </div>
       
     </div>
@@ -516,16 +543,18 @@ else pcxNavMenus();
             <th scope="col" data-col="standard"><a class="colLink" href="accounts-standard.html"><span style="display:inline-block">Standard</span></a></th>
             <th scope="col" data-col="ecn"><a class="colLink" href="accounts-ecn.html"><span style="display:inline-block">ECN</span></a></th>
             <th scope="col" data-col="metals"><a class="colLink" href="accounts-precious-metals.html"><span style="display:inline-block">Precious Metals</span></a></th>
+            <th scope="col" data-col="bonus"><span style="display:inline-block">Bonus Account</span></th>
           </tr>
         </thead>
         <tbody>
-          <tr data-group=""><th scope="colgroup" colspan="5">Pricing</th></tr>
+          <tr data-group=""><th scope="colgroup" colspan="6">Pricing</th></tr>
           <tr>
             <th scope="row">Spread from</th>
             <td data-col="demo">Virtual, mirrors the account you practise</td>
             <td data-col="standard">1.5 pips (EURUSD)</td>
             <td data-col="ecn">0.0 pips (EURUSD)</td>
             <td data-col="metals">Gold raw spread</td>
+            <td data-col="bonus">1.5 pips (EURUSD)</td>
           </tr>
           <tr>
             <th scope="row">Spread type</th>
@@ -533,6 +562,7 @@ else pcxNavMenus();
             <td data-col="standard">Floating</td>
             <td data-col="ecn">Floating</td>
             <td data-col="metals">Floating</td>
+            <td data-col="bonus">Floating</td>
           </tr>
           <tr>
             <th scope="row">Commission</th>
@@ -540,15 +570,17 @@ else pcxNavMenus();
             <td data-col="standard">$0</td>
             <td data-col="ecn">$7 per lot</td>
             <td data-col="metals">$7 per lot</td>
+            <td data-col="bonus">$0</td>
           </tr>
 
-          <tr data-group=""><th scope="colgroup" colspan="5">Execution</th></tr>
+          <tr data-group=""><th scope="colgroup" colspan="6">Execution</th></tr>
           <tr>
             <th scope="row">Where your order goes</th>
             <td data-col="demo">Virtual market</td>
             <td data-col="standard">The real market (A-Book)</td>
             <td data-col="ecn">The real market (A-Book)</td>
             <td data-col="metals">The real market (A-Book)</td>
+            <td data-col="bonus">The real market (A-Book)</td>
           </tr>
           <tr>
             <th scope="row">Execution model</th>
@@ -556,6 +588,7 @@ else pcxNavMenus();
             <td data-col="standard">Market execution</td>
             <td data-col="ecn">Market execution</td>
             <td data-col="metals">Market execution</td>
+            <td data-col="bonus">Market execution</td>
           </tr>
           <tr>
             <th scope="row">Platform</th>
@@ -563,15 +596,17 @@ else pcxNavMenus();
             <td data-col="standard">MetaTrader 5</td>
             <td data-col="ecn">MetaTrader 5</td>
             <td data-col="metals">MetaTrader 5</td>
+            <td data-col="bonus">MetaTrader 5</td>
           </tr>
 
-          <tr data-group=""><th scope="colgroup" colspan="5">Requirements</th></tr>
+          <tr data-group=""><th scope="colgroup" colspan="6">Requirements</th></tr>
           <tr>
             <th scope="row">Minimum deposit</th>
             <td data-col="demo">$0</td>
             <td data-col="standard">$10</td>
             <td data-col="ecn">$100</td>
             <td data-col="metals">$1,000</td>
+            <td data-col="bonus">$1,500</td>
           </tr>
           <tr>
             <th scope="row">Base currencies</th>
@@ -579,6 +614,7 @@ else pcxNavMenus();
             <td data-col="standard">USD <!-- TBC: full list --></td>
             <td data-col="ecn">USD <!-- TBC: full list --></td>
             <td data-col="metals">USD <!-- TBC: full list --></td>
+            <td data-col="bonus">USD <!-- TBC: full list --></td>
           </tr>
           <tr>
             <th scope="row">Trade size, min and max lots</th>
@@ -586,6 +622,7 @@ else pcxNavMenus();
             <td data-col="standard">0.01 to 50.00 <!-- TBC --></td>
             <td data-col="ecn">0.01 to 50.00 <!-- TBC --></td>
             <td data-col="metals">0.01 to 20.00 <!-- TBC --></td>
+            <td data-col="bonus">0.01 to 50.00 <!-- TBC --></td>
           </tr>
           <tr>
             <th scope="row">Max leverage</th>
@@ -593,6 +630,7 @@ else pcxNavMenus();
             <td data-col="standard">up to 1:500</td>
             <td data-col="ecn">up to 1:500</td>
             <td data-col="metals">up to 1:12</td>
+            <td data-col="bonus">up to 1:500</td>
           </tr>
           <tr>
             <th scope="row">Margin call / Stop out</th>
@@ -600,15 +638,17 @@ else pcxNavMenus();
             <td data-col="standard">100% / 50% <!-- TBC --></td>
             <td data-col="ecn">100% / 50% <!-- TBC --></td>
             <td data-col="metals">100% / 50% <!-- TBC --></td>
+            <td data-col="bonus">100% / 50% <!-- TBC --></td>
           </tr>
 
-          <tr data-group=""><th scope="colgroup" colspan="5">Options</th></tr>
+          <tr data-group=""><th scope="colgroup" colspan="6">Options</th></tr>
           <tr>
             <th scope="row">Markets you can trade</th>
             <td data-col="demo">Everything the live accounts trade</td>
             <td data-col="standard">Full instrument range <!-- TBC: confirm XAUUSD availability + gold pricing on Standard/ECN --></td>
             <td data-col="ecn">Full instrument range <!-- TBC: confirm XAUUSD availability + gold pricing on Standard/ECN --></td>
             <td data-col="metals">Gold Spot, Gold Futures, Silver Spot and Silver Futures</td>
+            <td data-col="bonus">Full instrument range <!-- TBC: confirm XAUUSD availability + gold pricing on Standard/ECN --></td>
           </tr>
           <tr>
             <th scope="row">Swap policy</th>
@@ -617,6 +657,7 @@ else pcxNavMenus();
             <td data-col="ecn">Swaps apply</td>
             <td data-col="metals">First 30 days swap-free, date to date. <button type="button" aria-label="What does 30 days swap-free mean?" aria-describedby="swap5-tip" data-on-click="tipClick" data-on-pointerenter="tipEnter" data-on-pointerleave="tipLeave" data-on-focus="tipFocus" data-on-blur="tipBlur" style="width:16px;height:16px;flex:none;border-radius:50%;border:1px solid #B8942C;background:transparent;color:#B8942C;font-family:'Inter',sans-serif;font-weight:700;font-size:10.5px;line-height:1;padding:0;display:inline-flex;align-items:center;justify-content:center;vertical-align:middle;position:relative;top:-1px;cursor:pointer">i</button>
               </td>
+            <td data-col="bonus">Swaps apply</td>
           </tr>
         </tbody>
       </table>
@@ -779,6 +820,7 @@ else pcxNavMenus();
           <li><a href="accounts.html#lineup">ECN</a></li>
           <li><a href="accounts.html#lineup">Standard</a></li>
           <li><a href="accounts.html#lineup">Precious Metals</a></li>
+          <li><a href="#bonus">Bonus Account</a></li>
         </ul>
       </div>
 
@@ -1380,7 +1422,7 @@ else pcxNavMenus();
     else state.show = state.show.concat([id]).slice(-2);
     paint(prev);
   }
-  var TABS = {tabDemo:'demo', tabStandard:'standard', tabEcn:'ecn', tabMetals:'metals'};
+  var TABS = {tabDemo:'demo', tabStandard:'standard', tabEcn:'ecn', tabMetals:'metals', tabBonus:'bonus'};
 
   sec.addEventListener('click', function(e){
     var el = e.target.closest('[data-on-click]');
@@ -1689,7 +1731,8 @@ else pcxNavMenus();
 }
 .charterClose .btn{min-height:48px;padding:0 24px;font-size:15px}
 .subKicker{margin-top:14px;max-width:46ch;font:400 clamp(16px,1.3vw,18px)/1.6 'Space Grotesk',sans-serif;color:#2C2C54}
-.lineupGrid{margin-top:clamp(30px,4vw,52px);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(14px,1.8vw,24px);align-items:stretch}
+.lineupGrid{margin-top:clamp(30px,4vw,52px);display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(12px,1.4vw,20px);align-items:stretch}
+@media(max-width:1180px){.lineupGrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 .lineup{gap:0;outline:none}
 .lineup.focusCard{border:1.5px solid #D4AF37;box-shadow:inset 0 1px 0 rgba(255,255,255,.9),0 2px 4px rgba(10,10,60,.06),0 18px 34px -12px rgba(10,10,60,.18),0 28px 40px -22px rgba(184,148,44,.16)}
 .poseSlot{position:relative;height:220px;padding:0 12px 26px;border-radius:12px;background:#FAF6EF;border:1px solid rgba(10,10,60,.08);display:flex;align-items:center;justify-content:center;overflow:hidden}
@@ -1706,7 +1749,7 @@ else pcxNavMenus();
 .poseSlot:has(.artifact.gold) .pose.greet .fig .body{height:56px}
 .acctName{margin-top:20px;font:600 11.5px/1 'Inter',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#B8942C}
 .acctTitle{margin-top:8px;font:700 clamp(21px,2vw,27px)/1.2 'Inter',sans-serif;letter-spacing:-.02em;color:#0A0A3C}
-.acctQuote{margin-top:10px;font:italic 400 15.5px/1.6 'Space Grotesk',sans-serif;color:#2C2C54;text-wrap:pretty}
+.acctQuote{margin-top:10px;font:italic 400 15.5px/1.6 'Space Grotesk',sans-serif;color:#2C2C54;text-wrap:pretty;min-height:3.2em}
 .acctDesc{font-style:normal}
 .oneNumLab{margin-top:20px;font:500 10.5px/1 'Space Grotesk',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#2C2C54}
 .oneNum{margin-top:8px;font:700 clamp(26px,2.6vw,32px)/1 'Inter',sans-serif;font-variant-numeric:tabular-nums;letter-spacing:-.02em;color:#0A0A3C}
@@ -1806,6 +1849,14 @@ else pcxNavMenus();
 .mat-porcelain{background:linear-gradient(170deg,#FFFFFF 0%,#FBF7EE 100%) !important;
   border:1px solid rgba(184,148,44,.35) !important;
   box-shadow:0 2px 4px rgba(10,10,60,.05), 0 24px 48px -14px rgba(10,10,60,.16), 0 0 0 4px rgba(212,175,55,.10) !important}
+/* ivory material (bonus) */
+.mat-ivory{background:linear-gradient(168deg,#FBFAF7 0%,#F3F1EA 100%) !important;border:1px solid rgba(10,10,60,.14) !important}
+.mat-ivory .acctName{color:#8A7327 !important}
+.mat-ivory .poseImg{height:252px}
+@media (max-width:768px){
+  .mat-navy .poseImg,.mat-porcelain .poseImg,.mat-gold .poseImg,.mat-ivory .poseImg{height:196px}
+}
+
 /* gold material */
 .mat-gold{background:linear-gradient(165deg,#F7EDD2 0%,#EFDFB4 55%,#E8D39E 100%) !important;border:1px solid rgba(184,148,44,.45) !important}
 .mat-gold .acctName{color:#8A6E1F !important}

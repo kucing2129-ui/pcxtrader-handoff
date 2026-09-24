@@ -1,144 +1,200 @@
 # Perubahan yang perlu diterapkan ke pcxtrader.com
 
-Diperbarui 15 September 2026. Sumber kebenaran ada di repo ini, folder `site/`.
+Diperbarui 24 September 2026. Sumber kebenaran ada di repo ini, folder `site/`.
 
-Situs statis di repo ini sudah memuat semua perubahan di bawah. pcxtrader.com
-masih memakai angka lama. Daftar ini menyebut teks persisnya supaya bisa dicari
-langsung di kode kalian.
-
-Ada tiga perubahan. Yang pertama paling besar karena satu angka menarik banyak
-angka lain.
+Putaran sebelumnya, yaitu spread Standard 1.5 pips, gambar angka, dan kartu
+Precious Metals, **sudah kalian terapkan dan sudah tayang**. Terima kasih.
+Dokumen ini hanya berisi yang baru.
 
 ---
 
-## 1. Spread akun Standard: 1.0 pips menjadi 1.5 pips
+## PENTING: jangan terapkan dengan menimpa halaman
 
-### 1a. Penyebutan spread
+pcxtrader.com sekarang memuat beberapa hal yang **tidak ada di repo ini**,
+karena kalian yang menambahkannya. Kalau halaman di sini disalin bulat bulat,
+semuanya hilang.
 
-Ganti di mana pun muncul:
+Yang wajib dipertahankan:
 
-| Sebelum | Sesudah |
+| Fitur di pcxtrader.com | Keterangan |
 |---|---|
-| `from 1.0 pips` | `from 1.5 pips` |
-| `Spreads from 1.0 pips` | `Spreads from 1.5 pips` |
-| `1.0 pips (EURUSD)` | `1.5 pips (EURUSD)` |
-| `Spread from 1.0 pip` | `Spread from 1.5 pips` (perhatikan, "pip" jadi "pips") |
+| **Pemilih bahasa English / 中文** | Tidak ada di repo ini sama sekali |
+| **Daftar yurisdiksi tanpa China** | Repo ini masih memuat China. Milik kalian yang benar, jangan ikut diganti |
+| Penyamaran alamat email oleh Cloudflare | Biarkan apa adanya |
 
-Halaman yang memuatnya: Standard, Accounts, ECN, Demo, Precious Metals, dan
-beranda. Termasuk `<meta name="description">` halaman Standard dan blok
-`application/ld+json` di halaman yang sama.
+Jadi perlakukan dokumen ini sebagai **daftar tambalan**, bukan perintah ganti
+berkas. Ambil potongan yang disebut, tempel ke halaman kalian.
 
-**Jangan ikut diubah:** di beranda ada kartu harga pasar yang menampilkan
-`AUDUSD ... Spread 1.0 pips`. Itu spread instrumen AUDUSD, satu keluarga dengan
-EURUSD 0.2 dan GBPUSD 0.7, bukan spread akun Standard.
+---
 
-### 1b. Angka yang ikut berubah karena diturunkan dari spread
+## Satu perubahan: akun keempat, Bonus Account
 
-Dasar hitungannya: satu standard lot EURUSD, 1 pip = $10. Jadi 1.5 pip = $15.
+Akun baru bernama **Bonus Account**, karakter **Lin**. Harganya sama persis
+dengan Standard, yang membedakan hanya minimum deposit.
+
+| Hal | Nilai |
+|---|---|
+| Spread | from 1.5 pips |
+| Commission | $0 |
+| Leverage | up to 1:500 |
+| Minimum deposit | **$1,500** |
+| Sisanya, mulai dari eksekusi sampai instrumen | identik dengan Standard |
+
+### 1. Kartu akun di beranda dan di halaman Accounts
+
+Kartu keempat, diletakkan **setelah Precious Metals**. Isinya:
+
+    LIN
+    Bonus Account
+    Bonuses land in this account.*
+    SPREADS FROM  1.5 pips
+    Min deposit   $1,500
+    Commission    $0
+    Leverage      up to 1:500
+    *Terms and conditions apply.
+    Not for you if you are just trying things out. This one is for when you are ready.
+    [ Open Account ]
+
+Catatan bentuk:
+
+- Kartu ini **tidak punya tautan "See full details"**, karena halaman
+  `/accounts/bonus` memang belum ada. Di repo ini tempatnya diisi elemen kosong
+  setinggi baris itu, supaya tombol Open Account tetap sejajar dengan tiga
+  kartu lain. Kalau tata letak kalian memakai cara lain, silakan, yang penting
+  tombolnya tetap sejajar.
+- Warna kartunya ivory, berbeda dari navy milik ECN, porselen milik Standard,
+  dan emas milik Precious Metals.
+- Gambar karakternya `assets/card-lin-v2.webp`, 638 x 900, sama seperti kartu
+  cast lain.
+
+### 2. Tabel perbandingan di halaman Accounts
+
+Tambah **kolom kelima** berjudul `Bonus Account`, setelah Precious Metals.
+Isinya menyalin kolom Standard, **kecuali satu baris**:
+
+| Baris | Nilai |
+|---|---|
+| Minimum deposit | **$1,500** |
+| Semua baris lain | sama persis dengan kolom Standard |
+
+Judul kelompok baris, yaitu Pricing, Execution, Requirements dan Options,
+tadinya `colspan="5"`, sekarang `colspan="6"`.
+
+Di tampilan ponsel tabel ini berubah jadi satu kolom dengan tombol pemilih di
+atasnya. Tambahkan satu tombol lagi berlabel **Bonus Account**.
+
+Judul kolom Bonus Account **tidak ditautkan** ke halaman mana pun, sedangkan
+tiga judul lain tertaut. Itu memang disengaja, karena halamannya belum ada.
+
+### 3. Menu dan footer
+
+- **Dropdown Accounts di navbar**: tambah item keenam, **Bonus Account**,
+  setelah Demo
+- **Footer kolom Accounts**: tambah **Bonus Account** setelah Precious Metals
+- Keduanya mengarah ke kartu di halaman Accounts, yaitu `/accounts#bonus`.
+  Kartu Bonus Account di halaman itu diberi `id="bonus"`
+
+### 4. Hitungan akun
+
+Situs sekarang punya empat akun live. Dua kalimat berubah:
 
 | Tempat | Sebelum | Sesudah |
 |---|---|---|
-| Kuitansi Standard, halaman Standard dan Accounts | `$10.00` | `$15.00` |
-| Accounts, blok "We did the math against ourselves" | `about $3 less per lot, roughly 30%` | `about $8 less per lot, roughly 53%` |
-| Accounts, ringkasan versi ponsel | `$10.00 vs $7.00 per lot` | `$15.00 vs $7.00 per lot` |
-| Accounts, paragraf penutup | `Three dollars per lot is about $60 a month if you trade 20 lots.` | `Eight dollars per lot is about $160 a month if you trade 20 lots.` |
-| ECN, tabel "The difference at your volume" | `$3` `$30` `$60` `$150` | `$8` `$80` `$160` `$400` |
-| ECN, catatan kaki | `starting spread: $10.00 versus $7.00 per lot` | `starting spread: $15.00 versus $7.00 per lot` |
-| Standard, FAQ "What does one lot cost on Standard?" | `At the starting spread of 1.0 pips, one standard lot of EURUSD costs $10.00` | `At the starting spread of 1.5 pips, one standard lot of EURUSD costs $15.00` |
-| Standard, FAQ "Is there any commission on the Standard account?" | `the spread, from 1.0 pips` | `the spread, from 1.5 pips` |
-| Standard, blok `application/ld+json` | dua pertanyaan di atas dan `feesAndCommissionsSpecification` | ikut disesuaikan |
+| Beranda, di bawah "Every trader started where you are." | `Three accounts and a free demo.` | `Four accounts and a free demo.` |
+| Halaman Accounts, kalimat pembuka | `Three live accounts and one free demo.` | `Four live accounts and one free demo.` |
+| Halaman Accounts, `<meta name="description">` | `Three live accounts and a free demo.` | `Four live accounts and a free demo.` |
 
-Dua kalimat berubah kata, bukan cuma angka: **Three dollars** menjadi **Eight
-dollars**, dan **roughly 30%** menjadi **roughly 53%**.
+### 5. Kartu "akun lain" di halaman akun
 
-### 1c. Bar perbandingan di halaman Accounts
+Di bagian bawah halaman Standard, ECN, Demo, dan Precious Metals ada deretan
+kartu kecil berisi akun lainnya. Tambahkan satu kartu di setiap halaman:
 
-Bar di bawah kedua total dihitung dari nilai totalnya, bukan dari lebar yang
-ditulis tangan. Kalau implementasi kalian juga menghitung dari nilai, tidak ada
-yang perlu disentuh. Kalau lebarnya ditulis manual, sesuaikan: porsi navy
-menjadi 46,7% dari bar, yaitu $7 dari $15, sisanya ekor emas.
+    Bonus Account
+    from 1.5 pips, $1,500 minimum
 
-Bar pada tabel volume di halaman ECN tidak berubah, karena seluruh nilainya
-naik dengan kelipatan sama sehingga proporsinya tetap.
+Mengarah ke `/accounts#bonus`.
+
+### 6. Foto bersama cast di halaman Accounts
+
+Diganti versi berlima, Lin ikut berdiri di ujung kanan:
+`assets/cast-group-v3.webp`. Berkas lama `cast-group.webp` masih dipakai
+sebagai dasar, jadi jangan dihapus.
+
+### 7. Data SEO
+
+Tambahkan satu blok `application/ld+json` di halaman Accounts:
+
+```json
+{"@context":"https://schema.org","@graph":[
+{"@type":"FinancialProduct","name":"PCX Bonus Account",
+ "provider":{"@type":"Organization","name":"Prime Codex Ltd","alternateName":"PCX"},
+ "url":"https://pcxtrader.com/accounts#bonus",
+ "feesAndCommissionsSpecification":"Spreads from 1.5 pips with no commission. Minimum deposit $1,500. Maximum leverage up to 1:500. Bonus campaigns apply; terms and conditions apply."}]}
+```
 
 ---
 
-## 2. Gambar angka di halaman Standard
+## Dua perbaikan tampilan, berlaku untuk semua kartu akun
 
-Ini yang paling mudah terlewat, karena angkanya ada **di dalam gambar**, bukan
-di teks, jadi tidak akan ketemu waktu mencari string.
+Ditemukan dari tangkapan layar ponsel, dan sudah diperbaiki di repo ini.
 
-| | |
+**Gambar karakter di ponsel.** Di bawah 768px, gambar di semua kartu akun
+tingginya 196px. Kartu baru sempat memakai ukuran desktop dan terlihat lebih
+besar sendiri. Pastikan aturan ponsel kalian mencakup kartu keempat.
+
+**Baris dalam kartu harus mulai di ketinggian sama.** Kutipan di bawah judul
+ada yang satu baris ada yang dua, dan baris catatan seperti
+"+ $7 commission per lot" hanya ada di sebagian kartu. Akibatnya daftar
+spesifikasi dan tombol tidak sejajar antar kartu. Di repo ini blok kutipan
+selalu menyediakan ruang dua baris, dan kartu tanpa catatan diberi baris kosong
+setinggi satu baris.
+
+## Satu perbaikan yang berlaku untuk seluruh situs
+
+Di Chrome Android, mode gelap otomatis membalik warna halaman mana pun yang
+tidak menyatakan skemanya, dan situs ini jadi tampil gelap. Tambahkan dua meta
+ini di setiap halaman:
+
+```html
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#FAF6EF">
+```
+
+---
+
+## Berkas gambar baru
+
+| Berkas | Isi |
 |---|---|
-| Berkas lama | `assets/prop-one-number.webp` — ilustrasi 3D bertuliskan **1.0** |
-| Berkas baru | `assets/prop-one-number-v2.webp` — bertuliskan **1.5**, tersedia di repo ini |
-| Ukuran | 492 x 420, praktis sama dengan yang lama (491 x 420), jadi tata letak tidak bergeser |
-| Teks alt | `One number: 1.5.` |
+| `assets/card-lin-v2.webp` | Lin untuk kartu akun, 638 x 900 |
+| `assets/cast-group-v3.webp` | Foto bersama berlima |
 
-Nama berkasnya sengaja dibedakan, bukan ditimpa, supaya cache browser dan CDN
-tidak menyajikan gambar lama. Tolong jangan dikembalikan ke nama lama.
-
----
-
-## 3. Kartu Precious Metals di halaman Standard
-
-Kartu "akun lain" di bagian bawah halaman Standard masih mengutip angka untuk
-emas, padahal spesifikasi akun itu sendiri berbunyi Raw spread dan Floating.
-Spread mengambang tidak punya angka awal untuk dikutip.
-
-| Sebelum | Sesudah |
-|---|---|
-| `gold from 10 cents + $7 per lot` | `raw gold spread + $7 per lot` |
-
-Halaman Demo dan Precious Metals sudah memakai bahasa yang benar, jadi yang
-perlu diubah hanya satu tempat di halaman Standard.
-
----
-
-## Cara tercepat menerapkannya
-
-Semua halaman final ada di folder `site/`. Nama berkasnya mengikuti URL:
-
-    site/index.html                     →  /
-    site/accounts.html                  →  /accounts
-    site/accounts-standard.html         →  /accounts/standard
-    site/accounts-ecn.html              →  /accounts/ecn
-    site/accounts-demo.html             →  /accounts/demo
-    site/accounts-precious-metals.html  →  /accounts/precious-metals
-    site/legal-*.html                   →  /legal/*
-
-Ambil teks dan angkanya dari sana, jangan dari ingatan atau dari versi lama.
-Aset gambar ada di `site/assets/`.
+Keduanya ada di `site/assets/` di repo ini.
 
 ## Cara memastikan sudah benar
 
-Setelah rilis, cari di halaman yang sudah tayang. Yang berikut ini **harus nol
-hasil**:
+Setelah rilis, cari di halaman yang sudah tayang.
 
-    1.0 pips        (kecuali kartu harga AUDUSD di beranda)
-    $10.00
-    about $3 less
-    roughly 30%
-    Three dollars
-    $60 a month
-    $150
-    gold from 10 cents
-    prop-one-number.webp
+Harus **nol hasil**:
 
-Dan yang berikut **harus ada**:
+    Three accounts
+    Three live accounts
 
-    1.5 pips        di Standard, Accounts, ECN, Demo, Precious Metals, beranda
-    $15.00          di Standard dan Accounts
-    roughly 53%     di Accounts
-    $160 a month    di Accounts
-    $400            di tabel volume halaman ECN
-    prop-one-number-v2.webp   di Standard
+Harus **ada**:
+
+    Bonus Account        di 13 halaman, lewat navbar dan footer
+    $1,500               di beranda dan halaman Accounts
+    card-lin-v2.webp     di beranda dan halaman Accounts
+    cast-group-v3.webp   di halaman Accounts
+    color-scheme         di 13 halaman
+
+Dan pastikan **masih ada**:
+
+    Pemilih bahasa English / 中文
+    Daftar yurisdiksi tanpa China
 
 ## Catatan
 
-Angka komisi ECN $7 per lot dan spread ECN 0.0 pips **tidak berubah** pada
-perubahan ini. Begitu juga minimum deposit: Standard $10, ECN $100, Precious
-Metals $1,000, Demo $0.
-
-Leverage masih dibahas terpisah dan belum final, jadi biarkan seperti sekarang
-sampai ada kabar lanjutan.
+Situs menyebut Bonus Account, tetapi belum ada halaman yang menjelaskan
+bonusnya. Tanda bintang di kartu mengarah ke syarat yang halamannya belum
+dibuat. Itu disadari dan sedang dibahas terpisah.
