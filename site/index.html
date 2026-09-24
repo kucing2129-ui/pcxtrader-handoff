@@ -220,6 +220,18 @@ html.js .in .chip{opacity:1;transform:none}
 .demoSub{margin-top:8px;font:400 15.5px/1.6 'Space Grotesk',sans-serif;color:#2C2C54}
 .demoCta{flex:0 0 auto}
 .reversible{flex:1 1 100%;font:400 13px/1.6 'Space Grotesk',sans-serif;color:#55557A}
+.promoBand{scroll-margin-top:96px;margin-top:clamp(16px,2vw,24px);background:#F3F2EF;border:1px solid #E4E2DC;
+  border-radius:12px;padding:clamp(18px,2.2vw,26px) clamp(18px,2.4vw,30px);display:flex;flex-wrap:wrap;align-items:center;
+  gap:clamp(14px,2vw,26px)}
+.promoArt{flex:0 0 auto;width:clamp(64px,7vw,86px);display:flex;align-items:center;justify-content:center}
+.promoArt img{width:100%;height:auto;filter:drop-shadow(0 10px 14px rgba(10,10,60,.18))}
+.promoTag{display:inline-block;margin-bottom:9px;font:700 10.5px/1 'Inter',sans-serif;letter-spacing:.16em;
+  text-transform:uppercase;color:#5E5E75;border:1px solid #D5D2CA;border-radius:999px;padding:6px 11px;background:#FFFFFF}
+.promoCopy{flex:1 1 340px;min-width:250px}
+.promoHead{font:600 clamp(17px,1.7vw,21px)/1.35 'Inter',sans-serif;color:#0A0A3C}
+.promoSub{margin-top:7px;font:400 15px/1.6 'Space Grotesk',sans-serif;color:#2C2C54;max-width:56ch}
+.promoCta{flex:0 0 auto}
+.promoFine{flex:1 1 100%;margin-top:-2px;font:400 12.5px/1.6 'Space Grotesk',sans-serif;color:#55557A}
 .compareAll{margin-top:clamp(24px,3vw,36px);text-align:center}
 .close .wrap{display:flex;flex-direction:column;align-items:center;text-align:center}
 .closeTop{position:relative;width:100%;display:flex;flex-direction:column;align-items:center;padding-bottom:clamp(18px,3vw,36px)}
@@ -1447,6 +1459,7 @@ else pcxNavMenus();
           <a href="accounts-ecn.html">ECN</a>
           <a href="accounts-precious-metals.html">Precious Metals</a>
           <a href="accounts-demo.html">Demo</a>
+          <a href="#bonus">Bonus</a>
         </div>
       </details>
       <details class="pn-drop">
@@ -1480,6 +1493,7 @@ else pcxNavMenus();
             <a href="accounts-ecn.html">ECN</a>
             <a href="accounts-precious-metals.html">Precious Metals</a>
             <a href="accounts-demo.html">Demo</a>
+            <a href="#bonus">Bonus</a>
           </div>
         </details>
       </li>
@@ -1896,6 +1910,19 @@ else pcxNavMenus();
       </div>
 
       <p class="platformNote r">All accounts trade on MetaTrader 5.</p>
+
+      <div class="promoBand r" id="bonus">
+        <div class="promoArt" role="img" aria-label="A navy gift box tied with a gold ribbon, a gold coin resting beside it.">
+          <img src="assets/prop-bonus-gift.webp" width="420" height="420" alt="" loading="lazy" decoding="async">
+        </div>
+        <div class="promoCopy">
+          <p class="promoTag">Promotion</p>
+          <p class="promoHead">Bonus campaigns, from time to time.</p>
+          <p class="promoSub">It starts with an account. Any details reach you by email.*</p>
+        </div>
+        <a class="btn ghost promoCta" href="https://dashboard.pcxtrader.com/register">Open Account</a>
+        <p class="promoFine">*Terms and conditions apply.</p>
+      </div>
 
       <div class="demoBand r">
         <!-- 3D slot: Nora, relaxed curious pose -->
