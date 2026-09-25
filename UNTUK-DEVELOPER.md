@@ -19,7 +19,7 @@ Yang wajib dipertahankan:
 | Fitur di pcxtrader.com | Keterangan |
 |---|---|
 | **Pemilih bahasa English / 中文** | Tidak ada di repo ini sama sekali |
-| **Daftar yurisdiksi tanpa China** | Repo ini masih memuat China. Milik kalian yang benar, jangan ikut diganti |
+| **Daftar yurisdiksi tanpa China** | Sudah disamakan, repo ini juga tidak lagi memuat China |
 | Penyamaran alamat email oleh Cloudflare | Biarkan apa adanya |
 
 Jadi perlakukan dokumen ini sebagai **daftar tambalan**, bukan perintah ganti
@@ -193,7 +193,6 @@ Harus **ada**:
 Dan pastikan **masih ada**:
 
     Pemilih bahasa English / 中文
-    Daftar yurisdiksi tanpa China
 
 ## Catatan
 
